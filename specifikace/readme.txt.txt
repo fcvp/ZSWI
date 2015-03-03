@@ -1,0 +1,1 @@
+Dokumenty týkající se specifikace.
