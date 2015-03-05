@@ -68,18 +68,27 @@
     <div id="container">
         <div id="maincol">
             <div>
+            <h2>Vítejte ve webové aplikaci pro usnadnění orientace ve studijních programech FAV </h2>
+                <br>
+            <article>
+                Pomocí formuláře níže zadej oblasti (předměty) a klíčová slova, která se ti libí a na jejich základě se zobrazí
+                graf se studijními obory, které fakulta aplikovaných věd (FAV) nabízí.
+            </article>
                 
-            <label class="search__form__label">Forma studia</label>
-                <select name="platforma" size="1">
-                    <option value="win">Prezenční
-                    <option value="linux">Kombinovaná
+                <br> <hr> 
+                <br>
+            <label class="formaL">Forma studia</label>
+                <select name="forma" size="1">
+                    <option value="prezencni">Prezenční
+                    <option value="kombinovane">Kombinovaná
+                    <option value="obe">Prezenční, kombinovaná
                 </select>
                 &nbsp;&nbsp;&nbsp;
-                <label class="search__form__label">Typ studia</label>
-                <select name="platforma" size="1">
-                    <option value="win">Bakalářské
-                    <option value="linux">Navazující
-                    <option value="unix">Doktorské
+                <label class="typL">Typ studia</label>
+                <select name="typ" size="1">
+                    <option value="BC">Bakalářské 
+                    <option value="MGR">Navazující (Mgr)
+                    <option value="DOC">Doktorské 
                 </select>
 
             </div>
@@ -88,62 +97,54 @@
             <div id="search" class="search search--three-field">
                 <div>
                     <form  method="get" name="search">
-                        <div class="search__form__q">
-                            <label for="q" class="search__form__label">Zadej klíčová slova</label><br>
-                            <input type="text" value="" title="např. programování" id="q" name="srch[q]" class="autocomplete">
-                        </div>
+                        <label for="q" class="search__form__label">
+                            Zadej klíčová slova (předmět, oblast) nebo (a) vyber oblasti ze seznamu níže (nepovinné):</label>
+                        <br>
+                        <label for="q1"  >Př: matematika, programování, softwarové inženýrství, fyzika plazmatu:</label><br>
+                        <input type="text" value="" title="např. programování" id="q" style=" margin-top: 5px;" class="autocomplete">
+                        &nbsp;&nbsp;
+                        <input type="submit" style=" height:30px; width:146px;" value="Přidat slovo do výběru">
                         <br><br>
-                        <input type="submit" value="přidat">
+                        
                     </form>
                 </div>
             </div>
+            
             <div class="main-news">
-                <div id="box-poradna" class="boxes">
+                <div  class="boxes">
 
-                    <ul>
-                        <li class="section-wrapper">
+                    <label class="search__form__label">Vyberte jednu nebo více oblastí, která vás zajímají, ze seznamu (nepovinné): </label> <br>
+                    <label >Můžete vybrat i oblast, kterou nechcete a později ji označit "určitě nechci". </label> <br>
 
-                            <label class="search__form__label">Katedra &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Obory</label> <br>
-                            <select name="platforma" size="1">
-                                <option value="win">KIV
-                                <option value="linux">KFY
-                                <option value="unix">KMA
-                                <option value="mac">KKY
-                            </select>
-
-
-                            <select name="platforma" size="1">
-                                <option value="win">Obecná matematika
-                                <option value="linux">Neobecná matematika
-                                <option value="unix">Ani málo obecná matematika
-                                <option value="mac">Nematika
-
-
-                            </select>
-
-                            <table>
-                                <tr>
-                                    <td></td>
-                                    <td>
-                                        slovo 1 <input type="checkbox">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>
-                                        slovo 2 <input type="checkbox">
-                                    </td>
-                                </tr>
-                            </table>
-
-                            <input type="submit" value="přidat slova">
-
-                            <br>   <br>
-                            <h4>Vybraná klíčová slova:   </h4>
-                            Matematika
-                            <br><input type="radio" name="puntik" value="horni">velmi ne <input type="radio" name="puntik" value="dolni" checked>spise ne <input type="radio" name="puntik" value="dolni" checked>jemitosumafuk <input type="radio" name="puntik" value="dolni" checked>spise ano  <input type="radio" name="puntik" value="dolni" checked>velmi ano
-                            <br><br> fyzika
-                            <br><input type="radio" name="puntik" value="horni">velmi ne <input type="radio" name="puntik" value="dolni" checked>spise ne <input type="radio" name="puntik" value="dolni" checked>jemitosumafuk <input type="radio" name="puntik" value="dolni" checked>spise ano  <input type="radio" name="puntik" value="dolni" checked>velmi ano
+                    <select name="oblast" size="1" style=" margin-top: 5px;">
+                        <option value="prazdne">--Vyber oblast--</option>
+                        <option value="fyz">Fyzika</option>
+                        <option value="mat">Matematika</option>
+                        <option value="geo">Geomatika</option>
+                        <option value="mech">Mechanika</option>
+                        <option value="info">Informatika</option>
+                        <option value="info">Kybernetika</option>
+                    </select>
+                    &nbsp;&nbsp;
+                    <input type="submit" style=" height:30px; width:146px;"  value="Přidat oblast do výběru">
+                     
+                    
+                    <br> <hr>  <br>
+                    
+                    
+                    <h2>Vybraná klíčová slova:   </h2>
+                    Matematika
+                    <br><input type="radio" name="puntik" value="horni">velmi ne 
+                    <input type="radio" name="puntik" value="dolni" checked>spise ne 
+                    <input type="radio" name="puntik" value="dolni" checked>jemitosumafuk 
+                    <input type="radio" name="puntik" value="dolni" checked>spise ano  
+                    <input type="radio" name="puntik" value="dolni" checked>velmi ano
+                    <br><br> fyzika
+                    <br><input type="radio" name="puntik" value="horni">velmi ne 
+                    <input type="radio" name="puntik" value="dolni" checked>spise ne 
+                    <input type="radio" name="puntik" value="dolni" checked>jemitosumafuk 
+                    <input type="radio" name="puntik" value="dolni" checked>spise ano  
+                    <input type="radio" name="puntik" value="dolni" checked>velmi ano
 
 
                             <br> <input type="submit" value="odeslat vyber">
