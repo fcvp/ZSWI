@@ -3,9 +3,7 @@
 <html xmlns:og="http://ogp.me/ns#" xmlns:ng="http://angularjs.org/" lang="cs">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" media="screen,projection" href="http://www.jobs.cz/css/base.css?vrsn=ca271857e2ae70c8a68d188d9710a2136a7eaf9c">
-    <link rel="stylesheet" type="text/css" media="print" href="http://www.jobs.cz/css/print.css?vrsn=ca271857e2ae70c8a68d188d9710a2136a7eaf9c">
-    <link rel="stylesheet" type="text/css" media="screen,projection" href="http://www.jobs.cz/css/jquery-ui.css?vrsn=ca271857e2ae70c8a68d188d9710a2136a7eaf9c">
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="http://www.jobs.cz/css/base.css">
 </head>
 <body class="joblist">
     <!--===================================-->
@@ -23,19 +21,19 @@
                         <div class="navigation" id="navigation" role="menubar">
                             <ul class="list-unstyled navigation__list">
                                 <li role="presentation" class="navigation__item navigation__item--main">
-                                    <a href="" class="navigation__link" role="menuitem">Uplatnění</a>
+                                    <a href="#" class="navigation__link" role="menuitem">Uplatnění</a>
                                 </li>
                                 <li role="presentation" class="navigation__item navigation__item--main">
-                                    <a href="" class="navigation__link" role="menuitem">Brigády při studiu</a>
+                                    <a href="#" class="navigation__link" role="menuitem">Brigády při studiu</a>
                                 </li>
                                 <li role="presentation" class="navigation__item navigation__item--main">
-                                    <a href="" class="navigation__link" role="menuitem">Akce</a>
+                                    <a href="#" class="navigation__link" role="menuitem">Akce</a>
                                 </li>
                                 <li role="presentation" class="navigation__item navigation__item--main">
-                                    <a href="" class="navigation__link" role="menuitem">O nás</a>
+                                    <a href="#" class="navigation__link" role="menuitem">O nás</a>
                                 </li>
                                 <li role="presentation" class="navigation__item navigation__item--main">
-                                    <a href="" class="navigation__link" role="menuitem">Kontakt</a>
+                                    <a href="#" class="navigation__link" role="menuitem">Kontakt</a>
                                 </li>
                             </ul>
                             <div class="navigation__profile" id="navigation-profile">
@@ -136,34 +134,40 @@
                     <br> <hr>  <br>
                     
                     
-                    <h2>Vybrané oblasti (a klíčová slova, obory, které k nim patří):   </h2>
+                    <h2>Vybrané oblasti (a klíčová slova, obory, která k nim patří):   </h2>
                     <br>
-                    <table>
+                    <table width="700px" align="left">
                         <tr>
                             <td>
+                                <input type="submit" value="smazat vybrane oblasti">
+                            </td>
+                        </tr>
+                        <tr >
+                            <td width="50px">
+                                <input type="checkbox" > &nbsp;
                                <b> Matematika</b>
                             </td>
-                            <td>
-                                <input type="radio" name="puntik" value="horni"> ne 
-                                <input type="radio" name="puntik" value="dolni" checked>spíše ne 
-                                <input type="radio" name="puntik" value="dolni" checked>nevadí mi
-                                <input type="radio" name="puntik" value="dolni" checked>spíše ano  
-                                <input type="radio" name="puntik" value="dolni" checked> ano
+                            <td >
+                                <input type="radio" name="ne" value="horni"> ne 
+                                <input type="radio" name="sp" value="dolni" checked>spíše ne 
+                                <input type="radio" name="nm" value="dolni" checked>nevadí mi
+                                <input type="radio" name="sa" value="dolni" checked>spíše ano  
+                                <input type="radio" name="a" value="dolni" checked> ano
                             </td>
                         </tr>
                          <tr >
-                            <td  colspan="2" style="padding-left:30px">
+                            <td  colspan="3" style="padding-left:30px">
                                 <table>
                                     <tr>
                                         <td>
                                              <b> Lineární algebra  </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="puntik" value="horni"> ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="puntik" value="dolni" checked> ano
+                                            <input type="radio" name="ne" value="horni"> ne 
+                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
+                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
+                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
+                                            <input type="radio" name="a" value="dolni" checked> ano
                                         </td>
                                     </tr>
                                     <tr>
@@ -171,11 +175,11 @@
                                              <b> Matematická analýza</b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="puntik" value="horni"> ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="puntik" value="dolni" checked> ano
+                                            <input type="radio" name="ne" value="horni"> ne 
+                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
+                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
+                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
+                                            <input type="radio" name="a" value="dolni" checked> ano
                                         </td>
                                     </tr>
                                     <tr>
@@ -183,11 +187,11 @@
                                              <b> Finanční matematika</b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="puntik" value="horni"> ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="puntik" value="dolni" checked> ano
+                                            <input type="radio" name="ne" value="horni"> ne 
+                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
+                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
+                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
+                                            <input type="radio" name="a" value="dolni" checked> ano
                                         </td>
                                     </tr>
                                     <tr>
@@ -195,11 +199,11 @@
                                              <b> Statistika</b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="puntik" value="horni"> ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="puntik" value="dolni" checked> ano
+                                            <input type="radio" name="ne" value="horni"> ne 
+                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
+                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
+                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
+                                            <input type="radio" name="a" value="dolni" checked> ano
                                         </td>
                                     </tr>
                                     <tr >
@@ -227,19 +231,19 @@
                             </td>
                             
                         </tr>
-                        
+                        <tr><td><br></td></tr>
                         <tr>
                              <td>
-                                 <br>
+                                 
+                                 <input type="checkbox" > &nbsp;
                                  <b> Fyzika </b>
                             </td>
                             <td>
-                                 
-                                 <input type="radio" name="puntik" value="horni"> ne 
-                                 <input type="radio" name="puntik" value="dolni" checked>spíše ne 
-                                 <input type="radio" name="puntik" value="dolni" checked>nevadí mi
-                                 <input type="radio" name="puntik" value="dolni" checked>spíše ano  
-                                 <input type="radio" name="puntik" value="dolni" checked> ano
+                                <input type="radio" name="ne" value="fn"> ne 
+                                <input type="radio" name="sp" value="fsp" checked>spíše ne 
+                                <input type="radio" name="nm" value="fnm" checked>nevadí mi
+                                <input type="radio" name="sa" value="fsa" checked>spíše ano  
+                                <input type="radio" name="a" value="fa" checked> ano
                             </td>
                         </tr>
                           <tr >
@@ -250,11 +254,11 @@
                                              <b> Termodynamika </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="puntik" value="horni"> ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="puntik" value="dolni" checked> ano
+                                            <input type="radio" name="ne" value="horni"> ne 
+                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
+                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
+                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
+                                            <input type="radio" name="a" value="dolni" checked> ano
                                         </td>
                                     </tr>
                                     <tr>
@@ -262,11 +266,11 @@
                                              <b> Fyzika plazmatu</b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="puntik" value="horni"> ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="puntik" value="dolni" checked> ano
+                                            <input type="radio" name="ne" value="horni"> ne 
+                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
+                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
+                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
+                                            <input type="radio" name="a" value="dolni" checked> ano
                                         </td>
                                     </tr>
                                     <tr>
@@ -286,11 +290,11 @@
                                              <b> Aplikovaná fyzika </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="puntik" value="horni"> ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="puntik" value="dolni" checked> ano
+                                            <input type="radio" name="ne" value="horni"> ne 
+                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
+                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
+                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
+                                            <input type="radio" name="a" value="dolni" checked> ano
                                         </td>
                                     </tr>
                                      <tr>
@@ -298,11 +302,11 @@
                                              <b>  Fyzika pevných látek </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="puntik" value="horni"> ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="puntik" value="dolni" checked> ano
+                                            <input type="radio" name="ne" value="horni"> ne 
+                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
+                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
+                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
+                                            <input type="radio" name="a" value="dolni" checked> ano
                                         </td>
                                     </tr>
                                      <tr >
