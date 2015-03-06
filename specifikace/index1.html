@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" media="screen,projection" href="http://www.jobs.cz/css/base.css">
 </head>
-<body class="joblist">
+<body >
     <!--===================================-->
     <!--hlavicka-->
     <div class="viktor">
@@ -63,8 +63,8 @@
 
 
 
-    <div id="container">
-        <div id="maincol">
+   <div style="  width:800px; margin-left: auto; margin-right: auto; padding-top:50px; padding-bottom:50px " >
+        <div >
             <div>
             <h2>Vítejte ve webové aplikaci pro usnadnění orientace ve studijních programech FAV </h2>
                 <br>
@@ -75,6 +75,7 @@
             <article>
                 <br>
                 Pokud nevyberete nic zobrazí se všechny obory.
+
             </article>
                 
                 <br> <hr> 
@@ -103,9 +104,11 @@
                             Zadejte klíčová slova (předmět, oblast) nebo (a) vyberte oblasti ze seznamu níže (nepovinné):</label>
                         <br>
                         <label for="q1"  >Př: matematika, programování, softwarové inženýrství, fyzika plazmatu, ...:</label><br>
-                        <input type="text" value="" title="např. programování" id="q" style=" margin-top: 5px;" class="autocomplete">
+                        <input type="text" style="height:14px" value="" id="q"
+                               title="např. programování. Najdi klíčové slovo zadáním prvních znaků."
+                               style=" margin-top: 5px;" class="autocomplete">
                         &nbsp;&nbsp;
-                        <input type="submit" style=" height:30px; width:146px;" value="Přidat slovo do výběru">
+                        <input type="submit" style=" height:28px; width:146px;" value="Přidat slovo do výběru">
                         <br><br>
                         
                     </form>
@@ -128,7 +131,7 @@
                         <option value="info">Kybernetika</option>
                     </select>
                     &nbsp;&nbsp;
-                    <input type="submit" style=" height:30px; width:146px;"  value="Přidat oblast do výběru">
+                    <input type="submit" style=" height:28px; width:146px;"  value="Přidat oblast do výběru">
                      
                     
                     <br> <hr>  <br>
@@ -139,7 +142,7 @@
                     <table width="700px" align="left">
                         <tr>
                             <td>
-                                <input type="submit" value="smazat vybrane oblasti">
+                                <input type="submit" style=" height:24x; width:146px;" title="Smaže vybrané oblasti" value="Smazat oblast">
                             </td>
                         </tr>
                         <tr >
@@ -148,11 +151,15 @@
                                <b> Matematika</b>
                             </td>
                             <td >
-                                <input type="radio" name="ne" value="horni"> ne 
-                                <input type="radio" name="sp" value="dolni" checked>spíše ne 
-                                <input type="radio" name="nm" value="dolni" checked>nevadí mi
-                                <input type="radio" name="sa" value="dolni" checked>spíše ano  
-                                <input type="radio" name="a" value="dolni" checked> ano
+                                <input type="radio" name="mat" value="1"> ne 
+                                <input type="radio" name="mat" value="2" checked>spíše ne 
+                                <input type="radio" name="mat" value="3" >nevadí mi
+                                <input type="radio" name="mat" value="4" >spíše ano  
+                                <input type="radio" name="mat" value="5" > ano
+                                &nbsp;&nbsp;&nbsp;
+                                <input type="submit" style=" height:26px; width:155px;"
+                                       title="Hodnocení u oblasti se aplikuje i na klíčová slova, která k ní patří."    
+                                       value="Aplikovat hodnocení">
                             </td>
                         </tr>
                          <tr >
@@ -163,11 +170,11 @@
                                              <b> Lineární algebra  </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="ne" value="horni"> ne 
-                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="a" value="dolni" checked> ano
+                                            <input type="radio" name="la" value="1"> ne 
+                                            <input type="radio" name="la" value="2" checked>spíše ne 
+                                            <input type="radio" name="la" value="3" >nevadí mi
+                                            <input type="radio" name="la" value="4" >spíše ano  
+                                            <input type="radio" name="la" value="5" > ano
                                         </td>
                                     </tr>
                                     <tr>
@@ -175,11 +182,11 @@
                                              <b> Matematická analýza</b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="ne" value="horni"> ne 
-                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="a" value="dolni" checked> ano
+                                            <input type="radio" name="matan" value="1"> ne 
+                                            <input type="radio" name="matan" value="2" >spíše ne 
+                                            <input type="radio" name="matan" value="3" >nevadí mi
+                                            <input type="radio" name="matan" value="4" checked>spíše ano  
+                                            <input type="radio" name="matan" value="5" > ano
                                         </td>
                                     </tr>
                                     <tr>
@@ -187,11 +194,11 @@
                                              <b> Finanční matematika</b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="ne" value="horni"> ne 
-                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="a" value="dolni" checked> ano
+                                            <input type="radio" name="finmat" value="1"> ne 
+                                            <input type="radio" name="finmat" value="2" checked>spíše ne 
+                                            <input type="radio" name="finmat" value="3">nevadí mi
+                                            <input type="radio" name="finmat" value="4">spíše ano  
+                                            <input type="radio" name="finmat" value="5" > ano
                                         </td>
                                     </tr>
                                     <tr>
@@ -199,11 +206,11 @@
                                              <b> Statistika</b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="ne" value="horni"> ne 
-                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="a" value="dolni" checked> ano
+                                            <input type="radio" name="stat" value="horni"> ne 
+                                            <input type="radio" name="stat" value="dolni" checked>spíše ne 
+                                            <input type="radio" name="stat" value="dolni" >nevadí mi
+                                            <input type="radio" name="stat" value="dolni" >spíše ano  
+                                            <input type="radio" name="stat" value="dolni" > ano
                                         </td>
                                     </tr>
                                     <tr >
@@ -239,11 +246,15 @@
                                  <b> Fyzika </b>
                             </td>
                             <td>
-                                <input type="radio" name="ne" value="fn"> ne 
-                                <input type="radio" name="sp" value="fsp" checked>spíše ne 
-                                <input type="radio" name="nm" value="fnm" checked>nevadí mi
-                                <input type="radio" name="sa" value="fsa" checked>spíše ano  
-                                <input type="radio" name="a" value="fa" checked> ano
+                                <input type="radio" name="fyz" value="1"> ne 
+                                <input type="radio" name="fyz" value="2" >spíše ne 
+                                <input type="radio" name="fyz" value="3" >nevadí mi
+                                <input type="radio" name="fyz" value="4" >spíše ano  
+                                <input type="radio" name="fyz" value="5" checked> ano
+                                 &nbsp;&nbsp;&nbsp;
+                                <input type="submit" style=" height:26px; width:155px;"
+                                       title="Hodnocení u oblasti se aplikuje i na klíčová slova, která k ní patří."    
+                                       value="Aplikovat hodnocení">
                             </td>
                         </tr>
                           <tr >
@@ -254,11 +265,11 @@
                                              <b> Termodynamika </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="ne" value="horni"> ne 
-                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="a" value="dolni" checked> ano
+                                            <input type="radio" name="Term" value="1"> ne 
+                                            <input type="radio" name="Term" value="2" >spíše ne 
+                                            <input type="radio" name="Term" value="3" >nevadí mi
+                                            <input type="radio" name="Term" value="4" >spíše ano  
+                                            <input type="radio" name="Term" value="5" checked> ano
                                         </td>
                                     </tr>
                                     <tr>
@@ -266,11 +277,11 @@
                                              <b> Fyzika plazmatu</b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="ne" value="horni"> ne 
-                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="a" value="dolni" checked> ano
+                                            <input type="radio" name="fyzpl" value="1"> ne 
+                                            <input type="radio" name="fyzpl" value="2" checked>spíše ne 
+                                            <input type="radio" name="fyzpl" value="3" >nevadí mi
+                                            <input type="radio" name="fyzpl" value="4" >spíše ano  
+                                            <input type="radio" name="fyzpl" value="5" > ano
                                         </td>
                                     </tr>
                                     <tr>
@@ -278,11 +289,11 @@
                                              <b> fyzikální inženýrství </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="puntik" value="horni"> ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="puntik" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="puntik" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="puntik" value="dolni" checked> ano
+                                            <input type="radio" name="fyzin" value="1"> ne 
+                                            <input type="radio" name="fyzin" value="2" checked>spíše ne 
+                                            <input type="radio" name="fyzin" value="3" >nevadí mi
+                                            <input type="radio" name="fyzin" value="4" >spíše ano  
+                                            <input type="radio" name="fyzin" value="5" > ano
                                         </td>
                                     </tr>
                                     <tr>
@@ -290,11 +301,11 @@
                                              <b> Aplikovaná fyzika </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="ne" value="horni"> ne 
-                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="a" value="dolni" checked> ano
+                                            <input type="radio" name="aplfyz" value="1"> ne 
+                                            <input type="radio" name="aplfyz" value="2" >spíše ne 
+                                            <input type="radio" name="aplfyz" value="3" >nevadí mi
+                                            <input type="radio" name="aplfyz" value="4" >spíše ano  
+                                            <input type="radio" name="aplfyz" value="5" checked> ano
                                         </td>
                                     </tr>
                                      <tr>
@@ -302,11 +313,11 @@
                                              <b>  Fyzika pevných látek </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="ne" value="horni"> ne 
-                                            <input type="radio" name="sp" value="dolni" checked>spíše ne 
-                                            <input type="radio" name="nm" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="sa" value="dolni" checked>spíše ano  
-                                            <input type="radio" name="a" value="dolni" checked> ano
+                                            <input type="radio" name="fyzpel" value="1"> ne 
+                                            <input type="radio" name="fyzpel" value="2" >spíše ne 
+                                            <input type="radio" name="fyzpel" value="3" >nevadí mi
+                                            <input type="radio" name="fyzpel" value="4" >spíše ano  
+                                            <input type="radio" name="fyzpel" value="5" checked> ano
                                         </td>
                                     </tr>
                                      <tr >
@@ -331,7 +342,10 @@
                    
 
 
-                     <br> <input type="submit" value="odeslat vyber">
+                     <br> 
+                    <div style="  width:500px; margin-left: auto; margin-right: auto; " >
+                    <input type="submit" style=" height:28px; width:146px;  "  value="Zobrazit obory">
+                        </div>
                 </div>
             </div>
 
