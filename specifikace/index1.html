@@ -1,11 +1,35 @@
-
 <!DOCTYPE HTML>
-<html xmlns:og="http://ogp.me/ns#" xmlns:ng="http://angularjs.org/" lang="cs">
+<html xmlns:fb="http://ogp.me/ns/fb#">
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" media="screen,projection" href="http://www.jobs.cz/css/base.css">
+    <style>
+        .btn {
+            display: inline-block;
+            border-radius: 3px;
+            margin-top: 0.7em;
+            font-size: 0.8em;
+            background: #0473bd;
+            color: #fff;
+            padding: 0.3em 0.8em;
+        }
+
+        .socialShare.customButtons .facebook {
+            background-color: #2d609b;
+        }
+
+        .socialShare.customButtons .twitter {
+            background-color: #00c3f3;
+        }
+
+        .socialShare.customButtons .googlePlus {
+            background-color: #eb4026;
+            margin-right: 0;
+        }
+    </style>
+
 </head>
-<body >
+<body>
     <!--===================================-->
     <!--hlavicka-->
     <div class="viktor">
@@ -46,7 +70,9 @@
                             <!--###UserStatusBegin###-->
                             <script type="text/javascript">
                                 var _gaLoginStatus = 0;
-                            </script><!--User not logged--><!--Login/logout links are visible-->
+                            </script>
+                            <!--User not logged-->
+                            <!--Login/logout links are visible-->
                             <div aria-hidden="true" class="button-group button-group--spaced text--right">
                                 <a class="button" href="">Přihlášení</a>
                                 <a class="button button--tertiary" href="">nápověda</a>
@@ -63,65 +89,81 @@
 
 
 
-   <div style="  width:800px; margin-left: auto; margin-right: auto; padding-top:50px; padding-bottom:50px " >
-        <div >
+    <div style="width: 800px; margin-left: auto; margin-right: auto; padding-top: 50px; padding-bottom: 50px">
+        <div>
             <div>
-            <h2>Vítejte ve webové aplikaci pro usnadnění orientace ve studijních programech FAV </h2>
+                <h2>Vítejte ve webové aplikaci pro usnadnění orientace ve studijních programech FAV </h2>
                 <br>
-            <article>
-                Pomocí formuláře níže zadejte oblasti (předměty) a klíčová slova, která se Vám libí a na jejich základě se zobrazí
+                Informace o fakultě, oborech a přijímacím řízení: <a href="http://fav.zcu.cz/pro-uchazece/">http://fav.zcu.cz/pro-uchazece/</a>
+                <br>
+                Informace o studijních programech, oborech a studjiní plány najdete zde: 
+                        <a href="https://portal.zcu.cz/portal/prohlizeni.html">Portál ZČU</a>
+                <br>
+                <br>
+                <article>
+                    Pomocí formuláře níže zadejte oblasti (předměty) a klíčová slova, která se Vám libí a na jejich základě se zobrazí
                 graf se studijními obory, které Fakulta aplikovaných věd (FAV) nabízí.
-            </article>
-            <article>
-                <br>
-                Pokud nevyberete nic zobrazí se všechny obory.
+                </article>
+                <article>
+                    <br>
+                    Pokud nevyberete nic zobrazí se všechny obory.
 
-            </article>
-                
-                <br> <hr> 
+                </article>
+
                 <br>
-            <label ><b>Forma studia</b></label>
-                <select name="forma" size="1"  style=" margin-top: 5px; width:200px; height:28px">
-                    <option value="prezencni">Prezenční
-                    <option value="kombinovane">Kombinovaná
-                    <option value="obe">Prezenční, kombinovaná
+                <hr>
+                <br>
+                <label><b>Forma studia</b></label>
+                <select name="forma" size="1" style="margin-top: 5px; width: 200px; height: 28px">
+                    <option value="prezencni">
+                    Prezenční
+                    <option value="kombinovane">
+                    Kombinovaná
+                    <option value="obe">
+                    Prezenční, kombinovaná
                 </select>
                 &nbsp;&nbsp;&nbsp;
                 <label><b>Typ studia</b></label>
-                <select name="typ" size="1"  style=" margin-top: 5px; width:200px; height:28px">
-                    <option value="BC">Bakalářské 
-                    <option value="MGR">Navazující (Mgr)
-                    <option value="DOC">Doktorské 
+                <select name="typ" size="1" style="margin-top: 5px; width: 200px; height: 28px">
+                    <option value="BC">
+                    Bakalářské 
+                    <option value="MGR">
+                    Navazující (Mgr)
+                    <option value="DOC">
+                    Doktorské 
                 </select>
 
             </div>
-            <br><br>
+            <br>
+            <br>
 
             <div id="search" class="search search--three-field">
                 <div>
-                    <form  method="get" name="search">
-                        <label for="q" >
+                    <form method="get" name="search">
+                        <label for="q">
                             <b>Zadejte klíčová slova (předmět, oblast) nebo (a) vyberte oblasti ze seznamu níže (nepovinné):</b></label>
                         <br>
-                        <label for="q1"  >Př: matematika, programování, softwarové inženýrství, fyzika plazmatu, ...:</label><br>
-                        <input type="text"  value="" id="q"
-                               title="např. programování. Najdi klíčové slovo zadáním prvních znaků."
-                               style=" margin-top: 5px; width:190px; height:14px">
+                        <label for="q1">Př: matematika, programování, softwarové inženýrství, fyzika plazmatu, ...:</label><br>
+                        <input type="text" value="" id="q"
+                            title="např. programování. Najdi klíčové slovo zadáním prvních znaků."
+                            style="margin-top: 5px; width: 190px; height: 14px">
                         &nbsp;&nbsp;
-                        <input type="submit" style=" height:28px; width:146px;" value="Přidat slovo do výběru">
-                        <br><br>
-                        
+                        <input type="submit" style="height: 28px; width: 146px;" value="Přidat slovo do výběru">
+                        <br>
+                        <br>
                     </form>
                 </div>
             </div>
-            
+
             <div class="main-news">
-                <div  class="boxes">
+                <div class="boxes">
 
-                    <label><b>Vyberte jednu nebo více oblastí, která vás zajímají, ze seznamu (nepovinné):</b> </label> <br>
-                    <label >Můžete vybrat i oblast, kterou nechcete a později ji označit "ne". </label> <br>
+                    <label><b>Vyberte jednu nebo více oblastí, která vás zajímají, ze seznamu (nepovinné):</b> </label>
+                    <br>
+                    <label>Můžete vybrat i oblast, kterou nechcete a později ji označit "ne". </label>
+                    <br>
 
-                    <select name="oblast" size="1" style=" margin-top: 5px; width:200px; height:28px">
+                    <select name="oblast" size="1" style="margin-top: 5px; width: 200px; height: 28px">
                         <option value="prazdne">--Vyber oblast--</option>
                         <option value="fyz">Fyzika</option>
                         <option value="mat">Matematika</option>
@@ -131,329 +173,401 @@
                         <option value="info">Kybernetika</option>
                     </select>
                     &nbsp;&nbsp;
-                    <input type="submit" style=" height:28px; width:146px;"  value="Přidat oblast do výběru">
-                     
-                    
-                    <br> <br><hr>  <br>
-                    
-                    
+                    <input type="submit" style="height: 28px; width: 146px;" value="Přidat oblast do výběru">
+
+
+                    <br>
+                    <br>
+                    <hr>
+                    <br>
+
+
                     <h2>Vybrané oblasti (a klíčová slova, obory, která k nim patří):   </h2>
                     <br>
                     <table width="700px" align="left">
                         <tr>
                             <td>
-                                <input type="submit" style=" height:24x; width:146px;" title="Smaže vybrané oblasti" value="Smazat oblast">
+                                <input type="submit" style="height: 24x; width: 146px;" title="Smaže vybrané oblasti" value="Smazat oblast">
                             </td>
                         </tr>
-                        <tr >
+                        <tr>
                             <td width="50px">
-                                <input type="checkbox" > &nbsp;
-                               <b> Matematika</b>
+                                <input type="checkbox">
+                                &nbsp;
+                               <b>Matematika</b>
                             </td>
-                            <td >
-                                <input type="radio" name="mat" value="1"> ne 
-                                <input type="radio" name="mat" value="2" >spíše ne 
+                            <td>
+                                <input type="radio" name="mat" value="1">
+                                ne 
+                                <input type="radio" name="mat" value="2">spíše ne 
                                 <input type="radio" name="mat" value="3" checked>nevadí mi
-                                <input type="radio" name="mat" value="4" >spíše ano  
-                                <input type="radio" name="mat" value="5" > ano
+                                <input type="radio" name="mat" value="4">spíše ano  
+                                <input type="radio" name="mat" value="5">
+                                ano
                                 &nbsp;&nbsp;&nbsp;
-                                <input type="submit" style=" height:26px; width:155px;"
-                                       title="Hodnocení u oblasti se aplikuje i na klíčová slova, která k ní patří."    
-                                       value="Aplikovat hodnocení">
+                                <input type="submit" style="height: 26px; width: 155px;"
+                                    title="Hodnocení u oblasti se aplikuje i na klíčová slova, která k ní patří."
+                                    value="Aplikovat hodnocení">
                             </td>
                         </tr>
-                         <tr >
-                            <td  colspan="3" style="padding-left:30px">
+                        <tr>
+                            <td colspan="3" style="padding-left: 30px">
                                 <table>
                                     <tr>
                                         <td>
-                                             <b> Matematika (není hlavní náplní oboru) </b>
+                                            <b>Matematika (není hlavní náplní oboru) </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="m" value="1"> ne 
-                                            <input type="radio" name="m" value="2" >spíše ne 
+                                            <input type="radio" name="m" value="1">
+                                            ne 
+                                            <input type="radio" name="m" value="2">spíše ne 
                                             <input type="radio" name="m" value="3" checked>nevadí mi
-                                            <input type="radio" name="m" value="4" >spíše ano  
-                                            <input type="radio" name="m" value="5" > ano
+                                            <input type="radio" name="m" value="4">spíše ano  
+                                            <input type="radio" name="m" value="5">
+                                            ano
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                             <b> Finanční matematika  </b>
+                                            <b>Finanční matematika  </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="fi" value="1" checked>  ne 
-                                            <input type="radio" name="fi" value="2" >spíše ne 
-                                            <input type="radio" name="fi" value="3" >nevadí mi
-                                            <input type="radio" name="fi" value="4" >spíše ano  
-                                            <input type="radio" name="fi" value="5" > ano
-                                        </td>
-                                    </tr>
-                                     <tr>
-                                        <td>
-                                             <b> Pojistná matematika</b>
-                                        </td>
-                                        <td>
-                                            <input type="radio" name="pm" value="horni" checked> ne 
-                                            <input type="radio" name="pm" value="dolni" >spíše ne 
-                                            <input type="radio" name="pm" value="dolni" >nevadí mi
-                                            <input type="radio" name="pm" value="dolni" >spíše ano  
-                                            <input type="radio" name="pm" value="dolni" > ano
+                                            <input type="radio" name="fi" value="1" checked>
+                                            ne 
+                                            <input type="radio" name="fi" value="2">spíše ne 
+                                            <input type="radio" name="fi" value="3">nevadí mi
+                                            <input type="radio" name="fi" value="4">spíše ano  
+                                            <input type="radio" name="fi" value="5">
+                                            ano
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                             <b> Statistika a pravděpodobnost</b>
+                                            <b>Pojistná matematika</b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="stat" value="1" checked> ne 
-                                            <input type="radio" name="stat" value="2" >spíše ne 
-                                            <input type="radio" name="stat" value="3" >nevadí mi
-                                            <input type="radio" name="stat" value="4" >spíše ano  
-                                            <input type="radio" name="stat" value="5" > ano
+                                            <input type="radio" name="pm" value="horni" checked>
+                                            ne 
+                                            <input type="radio" name="pm" value="dolni">spíše ne 
+                                            <input type="radio" name="pm" value="dolni">nevadí mi
+                                            <input type="radio" name="pm" value="dolni">spíše ano  
+                                            <input type="radio" name="pm" value="dolni">
+                                            ano
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                             <b> Matematická analýza</b>
+                                            <b>Statistika a pravděpodobnost</b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="matan" value="1" > ne 
+                                            <input type="radio" name="stat" value="1" checked>
+                                            ne 
+                                            <input type="radio" name="stat" value="2">spíše ne 
+                                            <input type="radio" name="stat" value="3">nevadí mi
+                                            <input type="radio" name="stat" value="4">spíše ano  
+                                            <input type="radio" name="stat" value="5">
+                                            ano
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>Matematická analýza</b>
+                                        </td>
+                                        <td>
+                                            <input type="radio" name="matan" value="1">
+                                            ne 
                                             <input type="radio" name="matan" value="2" checked>spíše ne 
                                             <input type="radio" name="matan" value="3">nevadí mi
                                             <input type="radio" name="matan" value="4">spíše ano  
-                                            <input type="radio" name="matan" value="5" > ano
+                                            <input type="radio" name="matan" value="5">
+                                            ano
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                             <b> Lineární algebra</b>
+                                            <b>Lineární algebra</b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="la" value="1" > ne 
-                                            <input type="radio" name="la" value="2" >spíše ne 
-                                            <input type="radio" name="la" value="3" checked >nevadí mi
-                                            <input type="radio" name="la" value="4" >spíše ano  
-                                            <input type="radio" name="la" value="5" > ano
+                                            <input type="radio" name="la" value="1">
+                                            ne 
+                                            <input type="radio" name="la" value="2">spíše ne 
+                                            <input type="radio" name="la" value="3" checked>nevadí mi
+                                            <input type="radio" name="la" value="4">spíše ano  
+                                            <input type="radio" name="la" value="5">
+                                            ano
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                             <b> Diskrétní matematika</b>
+                                            <b>Diskrétní matematika</b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="dm" value="1" > ne 
+                                            <input type="radio" name="dm" value="1">
+                                            ne 
                                             <input type="radio" name="dm" value="2" checked>spíše ne 
-                                            <input type="radio" name="dm" value="3" >nevadí mi
-                                            <input type="radio" name="dm" value="4" >spíše ano  
-                                            <input type="radio" name="dm" value="5" > ano
+                                            <input type="radio" name="dm" value="3">nevadí mi
+                                            <input type="radio" name="dm" value="4">spíše ano  
+                                            <input type="radio" name="dm" value="5">
+                                            ano
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                             <b> Numerické metody</b>
+                                            <b>Numerické metody</b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="nm" value="horni" > ne 
-                                            <input type="radio" name="nm" value="dolni" >spíše ne 
+                                            <input type="radio" name="nm" value="horni">
+                                            ne 
+                                            <input type="radio" name="nm" value="dolni">spíše ne 
                                             <input type="radio" name="nm" value="dolni" checked>nevadí mi
-                                            <input type="radio" name="nm" value="dolni" >spíše ano  
-                                            <input type="radio" name="nm" value="dolni" > ano
+                                            <input type="radio" name="nm" value="dolni">spíše ano  
+                                            <input type="radio" name="nm" value="dolni">
+                                            ano
                                         </td>
                                     </tr>
-                                   
-                                    <tr >
+
+                                    <tr>
                                         <td colspan="2">
-                                             <br>
-                                             <h3>Související obory s oblastí Matematika: </h3>
-                                        </td>
-                                    </tr>
-                                     <tr >
-                                        <td colspan="2">
-                                             <b> <ul> <li> Finanční informatika a statistika </li> </ul> </b>
+                                            <br>
+                                            <h3>Související obory s oblastí Matematika: </h3>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">
-                                             <b> <ul> <li> Matematika a finanční studia </li> </ul> </b>
+                                            <b>
+                                                <ul>
+                                                    <li>Finanční informatika a statistika </li>
+                                                </ul>
+                                            </b>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">
-                                             <b> <ul> <li> Matematika a její aplikace  </li> </ul> </b>
+                                            <b>
+                                                <ul>
+                                                    <li>Matematika a finanční studia </li>
+                                                </ul>
+                                            </b>
                                         </td>
                                     </tr>
-                                    
+                                    <tr>
+                                        <td colspan="2">
+                                            <b>
+                                                <ul>
+                                                    <li>Matematika a její aplikace  </li>
+                                                </ul>
+                                            </b>
+                                        </td>
+                                    </tr>
+
                                 </table>
                             </td>
-                            
+
                         </tr>
-                        <tr><td><br></td></tr>
                         <tr>
-                             <td>
-                                 
-                                 <input type="checkbox" > &nbsp;
-                                 <b> Fyzika </b>
+                            <td>
+                                <br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                                <input type="checkbox">
+                                &nbsp;
+                                 <b>Fyzika </b>
                             </td>
                             <td>
-                                <input type="radio" name="fyz" value="1"> ne 
-                                <input type="radio" name="fyz" value="2" >spíše ne 
-                                <input type="radio" name="fyz" value="3" >nevadí mi
-                                <input type="radio" name="fyz" value="4" >spíše ano  
-                                <input type="radio" name="fyz" value="5" checked> ano
+                                <input type="radio" name="fyz" value="1">
+                                ne 
+                                <input type="radio" name="fyz" value="2">spíše ne 
+                                <input type="radio" name="fyz" value="3">nevadí mi
+                                <input type="radio" name="fyz" value="4">spíše ano  
+                                <input type="radio" name="fyz" value="5" checked>
+                                ano
                                  &nbsp;&nbsp;&nbsp;
-                                <input type="submit" style=" height:26px; width:155px;"
-                                       title="Hodnocení u oblasti se aplikuje i na klíčová slova, která k ní patří."    
-                                       value="Aplikovat hodnocení">
+                                <input type="submit" style="height: 26px; width: 155px;"
+                                    title="Hodnocení u oblasti se aplikuje i na klíčová slova, která k ní patří."
+                                    value="Aplikovat hodnocení">
                             </td>
                         </tr>
-                          <tr >
-                            <td  colspan="2" style="padding-left:30px">
+                        <tr>
+                            <td colspan="2" style="padding-left: 30px">
                                 <table>
                                     <tr>
                                         <td>
-                                             <b> Fyzika (není hlavní náplní oboru) </b>
+                                            <b>Fyzika (není hlavní náplní oboru) </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="f" value="1" checked> ne 
-                                            <input type="radio" name="f" value="2" >spíše ne 
-                                            <input type="radio" name="f" value="3"  >nevadí mi
-                                            <input type="radio" name="f" value="4" >spíše ano  
-                                            <input type="radio" name="f" value="5" > ano
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                             <b> Aplikovaná fyzika </b>
-                                        </td>
-                                        <td>
-                                            <input type="radio" name="aplf" value="1"> ne 
-                                            <input type="radio" name="aplf" value="2" >spíše ne 
-                                            <input type="radio" name="aplf" value="3" >nevadí mi
-                                            <input type="radio" name="aplf" value="4" >spíše ano  
-                                            <input type="radio" name="aplf" value="5" checked> ano
+                                            <input type="radio" name="f" value="1" checked>
+                                            ne 
+                                            <input type="radio" name="f" value="2">spíše ne 
+                                            <input type="radio" name="f" value="3">nevadí mi
+                                            <input type="radio" name="f" value="4">spíše ano  
+                                            <input type="radio" name="f" value="5">
+                                            ano
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                             <b> Fyzikální inženýrství </b>
+                                            <b>Aplikovaná fyzika </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="fyzing" value="1"> ne 
-                                            <input type="radio" name="fyzing" value="2" >spíše ne 
-                                            <input type="radio" name="fyzing" value="3" >nevadí mi
-                                            <input type="radio" name="fyzing" value="4" >spíše ano  
-                                            <input type="radio" name="fyzing" value="5" checked > ano
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                             <b> Mechanika </b>
-                                        </td>
-                                        <td>
-                                            <input type="radio" name="mech" value="1"> ne 
-                                            <input type="radio" name="mech" value="2" >spíše ne 
-                                            <input type="radio" name="mech" value="3" checked >nevadí mi
-                                            <input type="radio" name="mech" value="4" >spíše ano  
-                                            <input type="radio" name="mech" value="5" > ano
+                                            <input type="radio" name="aplf" value="1">
+                                            ne 
+                                            <input type="radio" name="aplf" value="2">spíše ne 
+                                            <input type="radio" name="aplf" value="3">nevadí mi
+                                            <input type="radio" name="aplf" value="4">spíše ano  
+                                            <input type="radio" name="aplf" value="5" checked>
+                                            ano
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                             <b> Mechanika kontinua </b>
+                                            <b>Fyzikální inženýrství </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="mechk" value="1"> ne 
+                                            <input type="radio" name="fyzing" value="1">
+                                            ne 
+                                            <input type="radio" name="fyzing" value="2">spíše ne 
+                                            <input type="radio" name="fyzing" value="3">nevadí mi
+                                            <input type="radio" name="fyzing" value="4">spíše ano  
+                                            <input type="radio" name="fyzing" value="5" checked>
+                                            ano
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>Mechanika </b>
+                                        </td>
+                                        <td>
+                                            <input type="radio" name="mech" value="1">
+                                            ne 
+                                            <input type="radio" name="mech" value="2">spíše ne 
+                                            <input type="radio" name="mech" value="3" checked>nevadí mi
+                                            <input type="radio" name="mech" value="4">spíše ano  
+                                            <input type="radio" name="mech" value="5">
+                                            ano
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>Mechanika kontinua </b>
+                                        </td>
+                                        <td>
+                                            <input type="radio" name="mechk" value="1">
+                                            ne 
                                             <input type="radio" name="mechk" value="2" checked>spíše ne 
-                                            <input type="radio" name="mechk" value="3" >nevadí mi
-                                            <input type="radio" name="mechk" value="4" >spíše ano  
-                                            <input type="radio" name="mechk" value="5" > ano
+                                            <input type="radio" name="mechk" value="3">nevadí mi
+                                            <input type="radio" name="mechk" value="4">spíše ano  
+                                            <input type="radio" name="mechk" value="5">
+                                            ano
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                             <b> Termodynamika </b>
+                                            <b>Termodynamika </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="term" value="1"> ne 
-                                            <input type="radio" name="term" value="2" >spíše ne 
-                                            <input type="radio" name="term" value="3" >nevadí mi
+                                            <input type="radio" name="term" value="1">
+                                            ne 
+                                            <input type="radio" name="term" value="2">spíše ne 
+                                            <input type="radio" name="term" value="3">nevadí mi
                                             <input type="radio" name="term" value="4" checked>spíše ano  
-                                            <input type="radio" name="term" value="5" > ano
+                                            <input type="radio" name="term" value="5">
+                                            ano
                                         </td>
                                     </tr>
-                                     <tr>
+                                    <tr>
                                         <td>
-                                             <b> Fyzikální měření </b>
+                                            <b>Fyzikální měření </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="fyzmer" value="1"> ne 
-                                            <input type="radio" name="fyzmer" value="2" >spíše ne 
-                                            <input type="radio" name="fyzmer" value="3" >nevadí mi
-                                            <input type="radio" name="fyzmer" value="4" >spíše ano  
-                                            <input type="radio" name="fyzmer" value="5" checked> ano
+                                            <input type="radio" name="fyzmer" value="1">
+                                            ne 
+                                            <input type="radio" name="fyzmer" value="2">spíše ne 
+                                            <input type="radio" name="fyzmer" value="3">nevadí mi
+                                            <input type="radio" name="fyzmer" value="4">spíše ano  
+                                            <input type="radio" name="fyzmer" value="5" checked>
+                                            ano
                                         </td>
                                     </tr>
-                                     <tr>
+                                    <tr>
                                         <td>
-                                             <b> Akustika </b>
+                                            <b>Akustika </b>
                                         </td>
                                         <td>
-                                            <input type="radio" name="akus" value="1"> ne 
-                                            <input type="radio" name="akus" value="2" >spíše ne 
-                                            <input type="radio" name="akus" value="3" >nevadí mi
+                                            <input type="radio" name="akus" value="1">
+                                            ne 
+                                            <input type="radio" name="akus" value="2">spíše ne 
+                                            <input type="radio" name="akus" value="3">nevadí mi
                                             <input type="radio" name="akus" value="4" checked>spíše ano  
-                                            <input type="radio" name="akus" value="5" > ano
+                                            <input type="radio" name="akus" value="5">
+                                            ano
                                         </td>
                                     </tr>
-                                     <tr >
+                                    <tr>
                                         <td colspan="2">
-                                             <br>
-                                             <h3>Související obory s oblastí fyzika: </h3>
+                                            <br>
+                                            <h3>Související obory s oblastí fyzika: </h3>
                                         </td>
                                     </tr>
-                                     <tr >
+                                    <tr>
                                         <td colspan="2">
-                                             <b> <ul> <li> Aplikovaná a inženýrská fyzika </li> </ul> </b>
+                                            <b>
+                                                <ul>
+                                                    <li>Aplikovaná a inženýrská fyzika </li>
+                                                </ul>
+                                            </b>
                                         </td>
                                     </tr>
 
                                 </table>
                             </td>
-                            
+
                         </tr>
                     </table>
-                   
-                    <br><br>
-                   
+
+                    <br>
+                    <br>
 
 
-                     <br> 
-                    <div style="  width:146px; margin-left: auto; margin-right: auto; " >
-                          <input type="submit" style=" height:28px; width:146px;  "  value="Zobrazit obory">
+
+                    <br>
+                    <div style="width: 146px; margin-left: auto; margin-right: auto;">
+                        <input type="submit" style="height: 28px; width: 146px;" value="Zobrazit obory">
                     </div>
-                       
-                    <br><hr>  
+
+                    <br>
+                    <hr>
                 </div>
             </div>
 
 
             <center>
                 <img src="graf3.bmp" alt="graf" style="width:800px">
-
+            
+           
+                <div class="socialShare customButtons clear" >
+                   <a href="https://www.facebook.com/share.php" target="_blank" class="btn facebook">Sdílet na Facebooku</a>
+                   <a href="https://twitter.com/share?url=#" target="_blank" class="btn twitter">Odeslat na Twitter</a>
+                   <a href="https://plus.google.com/share?url=#" target="_blank" class="btn googlePlus">Sdílet na Google+</a>
+                </div>
             </center>
+            <br>
+            <br>
 
-            <h2>Ostatní obory: </h2> <br>
+            <h2>Ostatní obory: </h2>
+            <br>
             <ul>
-            <li><a href="#" >Matematika a finační studie</a></li> 
-            <li><a href="#" >Finanční informatika a statistika</a></li> 
-            <li><a href="#" >Matematika a její aplikace</a></li> 
-            <li><a href="#" >Systeémy pro indefikaci, bezpečnost a komunikaci</a></li> 
-            <li><a href="#" >Informační systémy</a></li> 
-            <li><a href="#" >Výpočetní technika</a></li> 
-            <li><a href="#" > Počítačová grafika a výpočetní systémy</a></li>     
-               
-                
+                <li><a href="#">Matematika a finační studie</a></li>
+                <li><a href="#">Finanční informatika a statistika</a></li>
+                <li><a href="#">Matematika a její aplikace</a></li>
+                <li><a href="#">Systeémy pro indefikaci, bezpečnost a komunikaci</a></li>
+                <li><a href="#">Informační systémy</a></li>
+                <li><a href="#">Výpočetní technika</a></li>
+                <li><a href="#">Počítačová grafika a výpočetní systémy</a></li>
+
+
             </ul>
         </div>
 
