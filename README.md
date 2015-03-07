@@ -1,0 +1,8 @@
+# ZSWI
+Webová aplikace pro usnadnění výběru oboru budoucím studentům na ZCU
+
+/klicova slova
+   - .xls soubory s návrhy klíčových slov
+   
+/specifikace
+   - specifikace požadavků
