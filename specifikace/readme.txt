@@ -1,5 +1,8 @@
-Dokumenty tıkající se specifikace.
+Dokumenty tÃ½kajÃ­cÃ­ se specifikace.
 
 DSP.doc     - specifikace
-graf3.bmp   - náhled vısledného grafu
-index1.html - náhled celkového vzhledu
+graf3.bmp   - nÃ¡hled vÃ½slednÃ©ho grafu
+index1.html - nÃ¡hled celkovÃ©ho vzhledu
+
+/vzhled_nahled
+   nÃ¡hledy jednotlivÃ½ch fÃ¡zÃ­ a celkovÃ½ vzhled
