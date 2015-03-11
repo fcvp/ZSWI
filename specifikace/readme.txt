@@ -12,3 +12,5 @@ index1.html - náhled celkového vzhledu
 
 /vzhled_nahledy
    náhledy jednotlivých fází a celkový vzhled
+/admin_nahled
+   náhledy administrace
