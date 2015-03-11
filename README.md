@@ -5,4 +5,4 @@ Webová aplikace pro usnadnění výběru oboru budoucím studentům na ZCU
    - .xls soubory s návrhy klíčových slov
    
 /specifikace
-   - specifikace požadavků
+   - specifikace požadavků - všechny dokumenty týkající se specifikace požadavků
