@@ -1,0 +1,4 @@
+vyhledavani tagu pomoci JS 
+
+https://jqueryui.com/resources/demos/autocomplete/multiple.html 
+http://www.jqueryrain.com/2012/03/35-best-ajax-jquery-autocomplete-tutorial-plugin-with-examples/
