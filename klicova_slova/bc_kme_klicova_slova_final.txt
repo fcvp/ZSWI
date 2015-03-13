@@ -1,0 +1,49 @@
+POM:
+počítačové modelování
+mechanika
+biomechanika
+mechanika tekutin
+dynamika
+mechatronika
+aerodynamika
+vibrace a hluk
+optimalizace
+stabilita
+proudění a interakce
+matematika
+fyzika
+informatika
+kybernetika
+
+VD:
+výpočty
+design
+experimentální mechanika
+porušení a životnost
+kompozitní materiály
+mechatronika
+dynamika
+optimalizace
+inteligentní konstrukce
+CAD
+matematika
+fyzika
+informatika
+kybernetika
+
+STA:
+stavitelství
+stavební technologie
+stavební materiály
+stavební konstrukce
+mechanika
+statika
+technické zařízení budov
+projektová dokumentace
+ekonomika staveb
+dějiny stavitelství
+architektura
+bezpečnost a spolehlivost staveb
+dřevostavby
+rekonstrukce a sanace staveb
+management staveb a stavebních provozů
