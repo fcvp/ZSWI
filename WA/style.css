@@ -49,7 +49,11 @@ p	{line-height: 1.6;}
   	#oblasti	{}
   	
   	#vizualizace	{float: left; width: 700px; text-align: center; padding: 15px 0 15px 0;}
-  	
+  		#vizualizace .menu	{float: left; width: 700px; text-align: left; height: 20px;}
+  			#vizualizace .menu .graf	{padding: 4px 6px 10px 6px; margin: 0 3px 0 10px; border-radius: 3px; background: #d4d4d9; cursor: pointer;}
+  				#vizualizace .menu .graf.actual	{background: #ffffff;}
+  		#kruhovy	{display: none;}
+  		
   	#page_content .socialShare	{float: left; width: 700px; text-align: center;}
   	
   #page_footer  {float: left; width: 700px; margin-top: 30px;}
