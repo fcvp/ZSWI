@@ -31,6 +31,7 @@ function pridat_do_vyberu()	{
 			}
 		}).done(function(html)	{
 				$("#oblasti").prepend(html);
+				$("#hlaska_oblast").html("Oblast byla přidána do výběru.");
 			});
 	}
 }

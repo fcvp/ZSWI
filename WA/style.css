@@ -48,6 +48,9 @@ p	{line-height: 1.6;}
   		
   	#oblasti	{}
   	
+  	
+  	#hlaska_oblast	{float: left; height: 15px; padding-top: 7px; width: 700px; font-weight: bold; font-style: italic;}
+  	
   	#vizualizace	{float: left; width: 700px; text-align: center; padding: 15px 0 15px 0;}
   		#vizualizace .menu	{float: left; width: 700px; text-align: left; height: 20px;}
   			#vizualizace .menu .graf	{padding: 4px 6px 10px 6px; margin: 0 3px 0 10px; border-radius: 3px; background: #d4d4d9; cursor: pointer;}
