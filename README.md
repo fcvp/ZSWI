@@ -13,3 +13,6 @@ Webová aplikace pro usnadnění výběru oboru budoucím studentům na ZCU
        
 /wa
    - kód aplikace
+   
+/databaze
+  - navrh databaze
