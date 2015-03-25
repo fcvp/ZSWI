@@ -14,6 +14,8 @@ a img {border: none;}
 
 p	{line-height: 1.6;}
 
+.red	{color: #c30000;}
+
 .bold	{font-weight: bold;}
 
 .btn {
@@ -31,6 +33,10 @@ p	{line-height: 1.6;}
 .socialShare .googlePlus {background-color: #eb4026; margin-right: 0;}
 
 
+#loading	{position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background: url(loading.png); display: none;}
+	#loading td	{vertical-align: middle; text-align: center;}
+		#loading td span	{padding: 10px 20px 10px 20px; background: #ffffff; font-size: 14px; font-weight: bold;}
+
 #header {float: left; width: 100%; border-top: 6px solid #e0b100;}
   #header_content {position: relative; min-width: 700px; max-width: 870px; width: 100%; margin: 0 auto 40px auto; padding-top: 20px;}
 #page {float: left; width: 100%;}
@@ -46,8 +52,16 @@ p	{line-height: 1.6;}
   		#page_content .oblast_telo ul	{margin: 0px;}
   			#page_content .oblast_telo ul li	{margin-bottom: 5px;}
   		
-  	#oblasti	{}
+  	#cast1	{float: left; width: 700px; margin-top: 30px;}
   	
+  	#posledni_cast	{float: left; width: 700px;}
+  	
+  	.infobox	{float: left; width: 700px; text-align: center; font-weight: bold; font-style: italic;}
+  	
+		#oblasti	{}
+  		#oblasti .oblast	{float: left; width: 700px;}
+  		
+  	#popis_oblasti,#submit_oblasti	{display: none;}
   	
   	#hlaska_oblast	{float: left; height: 15px; padding-top: 7px; width: 700px; font-weight: bold; font-style: italic;}
   	
