@@ -4,7 +4,7 @@ function pridatDoVyberu()	{
 	if ($("#oblast_"+hodnota).length == 0)	{
 		if (hodnota!=0)	{
 			$("#posledni_cast").html("");
-			$("#hlaska_oblast").html("<img src='loading.gif' alt='' />");
+			$("#hlaska_oblast").html("<img src='image/loading.gif' alt='' />");
 			$.ajax({
 				url: "get_oblast.php",
 				data: { oblast: hodnota },
@@ -89,4 +89,10 @@ function odeberOblast(idOblasti)	{
 		$("#popis_oblasti").hide();
 		$("#submit_oblasti").hide();
 	}
+}
+
+
+function oblast_odstran_hlasku()
+{
+    document.getElementById('hlaska_oblast').innerHTML = "";
 }
