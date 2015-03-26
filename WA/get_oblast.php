@@ -2,7 +2,7 @@
 	<table class='oblast_hlavicka'>
 		<tr>
 		  <td style='width: 20px;'>
-		      <img src='cross.png' alt='Odebrat oblast' title='Odebrat oblast' class='odebrat_oblast' onclick="odeberOblast('oblast_<?php echo $_GET["oblast"];?>');" />
+		      <img src='image/cross.png' alt='Odebrat oblast' title='Odebrat oblast' class='odebrat_oblast' onclick="odeberOblast('oblast_<?php echo $_GET["oblast"];?>');" />
 		  </td>
 		  <td>
 		     <b>Matematika (<?php echo $_GET["oblast"];?>)</b>

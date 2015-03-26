@@ -11,7 +11,7 @@
   <body>
     <div id="header">
       <div id="header_content">
-        <a href="index.php"><img src="titulka_logo.png" alt="" /></a>
+        <a href="index.php"><img src="image/titulka_logo.png" alt="" /></a>
       </div>
     </div>
     <div id="page">
@@ -63,7 +63,7 @@
     </div>
     <div id="footer">
       <div id="footer_content">
-        <a href="index.php"><img src="footer_logo.png" alt="" class="logo"></a>
+        <a href="index.php"><img src="image/footer_logo.png" alt="" class="logo"></a>
         <div class="copyright">
            &copy; 2015 FAV ZČU v Plzni<br>
            Univerzitní 8, Pilsen, Czech Republic

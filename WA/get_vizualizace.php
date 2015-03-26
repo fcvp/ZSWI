@@ -20,8 +20,8 @@
 	<div class='menu'>
 		<span class='bold'>Zobrazení</span><span class='graf paprskovy actual'>Paprskový graf</span><span class='graf kruhovy'>Kruhový graf</span>
 	</div>
-      <img src="graf_paprskovy.png" id="paprskovy" alt="graf" style="width:700px" />
-<img src="graf3.bmp" id="kruhovy" alt="graf" style="width:550px" />           
+      <img src="image/graf_paprskovy.png" id="paprskovy" alt="graf" style="width:700px" />
+<img src="image/graf3.bmp" id="kruhovy" alt="graf" style="width:550px" />           
 </div>
 <div class="socialShare" >
    <a href="https://www.facebook.com/share.php" target="_blank" class="btn facebook">Sdílet na Facebooku</a>
