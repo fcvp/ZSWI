@@ -1,11 +1,11 @@
 OnDelete
 --------
-Forma -> Obor -> Obor_slovo (-> klicove_slovo -> oblast pokud nemaji dalsi vazby)
-Typ -> Obor -> Obor_slovo (-> klicove_slovo -> oblast pokud nemaji dalsi vazby)
-Obor -> Obor_slovo (-> klicove_slovo -> oblast pokud nemaji dalsi vazby)
-Obor_slovo (-> klicove_slovo -> oblast pokud nemaji dalsi vazby)
-Klicove_slovo -> Obor_slovo (-> oblast pokud nema dalsi vazby)
-Priorita -> Obor_slovo (-> klicove_slovo -> oblast pokud nemaji dalsi vazby)
+Forma -> Obor -> Obor_slovo     
+Typ -> Obor -> Obor_slovo       
+Obor -> Obor_slovo             
+Obor_slovo                      
+Klicove_slovo -> Obor_slovo    
+Priorita -> Obor_slovo        
 Oblast -> klicove_slovo -> Obor_slovo
 
 OnUpdate
