@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Autosuggest priklad</title>
+<script type="text/javascript" src="autosuggest/autos.js" charset="utf-8"></script>
+<link rel="stylesheet" href="autosuggest/autosuggest_inquisitor.css" type="text/css" media="screen" charset="utf-8" />
+</head>
+<body>
+
+<h3>Priklad (XML)</h3>
+
+<div>
+<form method="get" action="" class="asholder">
+<small style="float:right">Hidden ID Field: <input name="klicoveSlovoID" type="text" id="testid" value="" style="font-size: 10px; width: 20px;" disabled="disabled" /></small>
+	<label for="testinput_xml">Fulltext:</label>
+	<input name="klicoveSlovo" type="text" id="testinput_xml" value="" style="width:300px" /> 
+	<br /><br /><input type="submit" value="submit" />
+</form>
+</div>
+
+
+<h3>Priklad (JSON)</h3>
+
+<div>
+<form method="get" action="" class="asholder">
+<!--	<small style="float:right">Hidden ID Field: <input type="text" id="testid" value="" style="font-size: 10px; width: 20px;" disabled="disabled" /></small>
+
+-->
+	<label for="testinput">Klicove slovo</label>
+	<input style="width: 200px" name="klicoveSlovo" type="text" id="testinput" value="" /> 
+<!-- ZAKOMENTOVANO, ABY NEDOACHAZELO K REFRESH STRANKY POKAZDY, KDYZ VYBEREME KLICOVE SLOVO ENTEREM	
+<input type="submit" value="submit" /> 
+-->
+   
+<input type="button" value="Pridej slovo" <!-- onclick=" Misto pro udalost a predani hodnoty  name="klicoveSlovoID" "> -->> 
+</form>
+</div>
+
+
+<script type="text/javascript">
+	var options = {
+		script:"autosuggest/test.php?json=true&limit=99990&",
+    varname:"input",
+		json:true,
+		shownoresults:false,
+		maxresults:10,
+		callback: function (obj) { document.getElementById('testid').value = obj.id; }
+	};
+	var as_json = new bsn.AutoSuggest('testinput', options);
+	
+	
+	var options_xml = {
+		script: function (input) { 
+    return "autosuggest/test.php?input="+input+"&testid="+document.getElementById('testid').value; },
+		varname:"input"
+	};
+	var as_xml = new bsn.AutoSuggest('testinput_xml', options_xml);
+</script>
+
+</body>
+</html>
