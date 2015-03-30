@@ -7,7 +7,7 @@ CREATE TABLE `forma_studia` (
     `ID_forma` int AUTO_INCREMENT NOT NULL, 
     `Forma_nazev` varchar(50) NOT NULL,  
     PRIMARY KEY (`ID_forma`)
-) ENGINE=InnoDB  AUTO_INCREMENT=9  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=8  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Forma_studia_Forma_nazev` ON `forma_studia` (`Forma_nazev`);
 CREATE UNIQUE INDEX `UQ_Forma_studia_ID_forma` ON `forma_studia` (`ID_forma`);
 CREATE TABLE `klicove_slovo` ( 
@@ -15,16 +15,15 @@ CREATE TABLE `klicove_slovo` (
     `Slovo` varchar(100) NOT NULL, 
     `ID_oblast` int NOT NULL,  
     PRIMARY KEY (`ID_klicove_slovo`)
-) ENGINE=InnoDB  AUTO_INCREMENT=2  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=5  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Klicove_slovo_ID_klicove_slovo` ON `klicove_slovo` (`ID_klicove_slovo`);
-CREATE UNIQUE INDEX `UQ_Klicove_slovo_ID_oblast` ON `klicove_slovo` (`ID_oblast`);
 CREATE UNIQUE INDEX `UQ_Klicove_slovo_Slovo` ON `klicove_slovo` (`Slovo`);
 CREATE INDEX `ID_oblast` ON `klicove_slovo` (`ID_oblast`);
 CREATE TABLE `oblast` ( 
     `ID_oblast` int AUTO_INCREMENT NOT NULL, 
     `Oblast_nazev` varchar(100) NOT NULL,  
     PRIMARY KEY (`ID_oblast`)
-) ENGINE=InnoDB  AUTO_INCREMENT=5  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=10  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Oblast_ID_oblast` ON `oblast` (`ID_oblast`);
 CREATE UNIQUE INDEX `UQ_Oblast_Oblast_nazev` ON `oblast` (`Oblast_nazev`);
 CREATE TABLE `obor` ( 
@@ -35,10 +34,9 @@ CREATE TABLE `obor` (
     `ID_typ` int NOT NULL, 
     `ID_forma` int NOT NULL,  
     PRIMARY KEY (`ID_obor`)
-) ENGINE=InnoDB  AUTO_INCREMENT=4  COLLATE=utf8_general_ci ;
-CREATE UNIQUE INDEX `UQ_Obor_ID_forma` ON `obor` (`ID_forma`);
+) ENGINE=InnoDB  AUTO_INCREMENT=12  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Obor_ID_obor` ON `obor` (`ID_obor`);
-CREATE UNIQUE INDEX `UQ_Obor_ID_typ` ON `obor` (`ID_typ`);
+CREATE UNIQUE INDEX `UQ_id_typ_id_forma` ON `obor` (`ID_typ`,`ID_forma`);
 CREATE INDEX `ID_forma` ON `obor` (`ID_forma`);
 CREATE INDEX `ID_typ` ON `obor` (`ID_typ`);
 CREATE TABLE `obor_slovo` ( 
@@ -57,32 +55,44 @@ CREATE TABLE `priorita` (
     `ID_priorita` int AUTO_INCREMENT NOT NULL, 
     `Hodnota` float NOT NULL,  
     PRIMARY KEY (`ID_priorita`)
-) ENGINE=InnoDB  AUTO_INCREMENT=1  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=6  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Priorita_Hodnota` ON `priorita` (`Hodnota`);
 CREATE UNIQUE INDEX `UQ_Priorita_ID_priorita` ON `priorita` (`ID_priorita`);
 CREATE TABLE `typ_studia` ( 
     `ID_typ` int AUTO_INCREMENT NOT NULL, 
     `Typ_nazev` varchar(50) NOT NULL,  
     PRIMARY KEY (`ID_typ`)
-) ENGINE=InnoDB  AUTO_INCREMENT=4  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=6  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Typ_studia_Typ_nazev` ON `typ_studia` (`Typ_nazev`);
 CREATE UNIQUE INDEX `UQ_Typ_studia_ID_typ` ON `typ_studia` (`ID_typ`);
+INSERT INTO `obor_slovo` (`ID_obor`, `ID_klicove_slovo`, `ID_priorita`) VALUES
+(1, 1, 1);
+INSERT INTO `priorita` (`ID_priorita`, `Hodnota`) VALUES
+(1, 0),
+(2, 0.25),
+(3, 0.5),
+(4, 0.75),
+(5, 1);
 INSERT INTO `typ_studia` (`ID_typ`, `Typ_nazev`) VALUES
-(3, 'Kombinované'),
+(2, 'Kombinované'),
 (1, 'Prezenční');
 INSERT INTO `obor` (`ID_obor`, `Obor_nazev`, `Url`, `Popis`, `ID_typ`, `ID_forma`) VALUES
 (1, 'Informatika', 'http://fav.zcu.cz/pro-uchazece/bakalarske-studium/informatika/', 'Obor je určen pro studenty, kteří chtějí získat teoretický základ i praktické 
-    znalosti v informatice.', 1, 1);
+    znalosti v informatice.', 1, 1),
+(8, 'Informatika', 'http://fav.zcu.cz/pro-uchazece/bakalarske-studium/informatika/', 'Obor je určen pro studenty, kteří chtějí získat teoretický základ i praktické 
+    znalosti v informatice.', 2, 1);
 INSERT INTO `forma_studia` (`ID_forma`, `Forma_nazev`) VALUES
 (1, 'Bakalářské'),
 (3, 'Doktorské'),
 (2, 'Navazující');
 INSERT INTO `klicove_slovo` (`ID_klicove_slovo`, `Slovo`, `ID_oblast`) VALUES
-(1, 'Programování v C', 1);
+(1, 'Programování v C', 1),
+(4, 'Matematická analýza', 1);
 INSERT INTO `oblast` (`ID_oblast`, `Oblast_nazev`) VALUES
 (2, 'Informatika'),
+(8, 'Kybernetika'),
 (5, 'Matematika'),
-(1, 'NEVYBRÁNA');
+(1, 'NEZAŘAZENO');
 ALTER TABLE `klicove_slovo` ADD CONSTRAINT `FK_Klicove_slovo_Oblast` FOREIGN KEY (`ID_oblast`) REFERENCES `oblast`(`ID_oblast`);
 ALTER TABLE `obor` ADD CONSTRAINT `FK_Obor_Forma_studia` FOREIGN KEY (`ID_forma`) REFERENCES `forma_studia`(`ID_forma`);
 ALTER TABLE `obor` ADD CONSTRAINT `FK_Obor_Typ_studia` FOREIGN KEY (`ID_typ`) REFERENCES `typ_studia`(`ID_typ`);
@@ -95,7 +105,12 @@ BEGIN
     DECLARE exit handler for sqlexception
   	BEGIN
    		 -- ERROR
-   		 SELECT 'sqlexception';
+   		-- SELECT 'sqlexception';
+   		GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+
   		ROLLBACK;
 	END;
 	
@@ -103,6 +118,11 @@ BEGIN
 	 BEGIN
   		  -- WARNING
   	   SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
+  	   GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+		
  	 	ROLLBACK;
 	END;
 	
@@ -121,14 +141,24 @@ BEGIN
     DECLARE exit handler for sqlexception
   	BEGIN
    		 -- ERROR
-   		 SELECT 'sqlexception';
+   		-- SELECT 'sqlexception';
+   		GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+
   		ROLLBACK;
 	END;
 	
 	DECLARE exit handler for sqlwarning
 	 BEGIN
   		  -- WARNING
-  	   SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
+  	    -- SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
+  	    GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+		
  	 	ROLLBACK;
 	END;
 	
@@ -150,26 +180,36 @@ BEGIN
     DECLARE exit handler for sqlexception
   	BEGIN
    		 -- ERROR
-   		 SELECT 'sqlexception';
+   		-- SELECT 'sqlexception';
+   		GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+
   		ROLLBACK;
 	END;
 	
 	DECLARE exit handler for sqlwarning
 	 BEGIN
   		  -- WARNING
-  	   SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
+  	    -- SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
+  	    GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+		
  	 	ROLLBACK;
 	END;
 	
  	START TRANSACTION;
  	
- 		IF((SELECT ID_oblast FROM oblast o WHERE Oblast_nazev = 'NEVYBRÁNA') is null) then
- 			 call insert_oblast('NEVYBRÁNA');
+ 		IF((SELECT ID_oblast FROM oblast o WHERE Oblast_nazev = 'NEZAŘAZENO') is null) then
+ 			 call insert_oblast('NEZAŘAZENO');
  		end IF;
  		
 		INSERT INTO klicove_slovo (Slovo, ID_oblast) VALUES (
 		     Slovo, -- Slovo
-		     (SELECT ID_oblast FROM oblast o WHERE oblast_nazev = 'NEVYBRÁNA') -- ID_oblast (DEFAULT)
+		     (SELECT ID_oblast FROM oblast o WHERE oblast_nazev = 'NEZAŘAZENO') -- ID_oblast (DEFAULT)
 		);
 	COMMIT; 
 
@@ -181,14 +221,24 @@ BEGIN
     DECLARE exit handler for sqlexception
   	BEGIN
    		 -- ERROR
-   		 SELECT 'sqlexception';
+   		-- SELECT 'sqlexception';
+   		GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+
   		ROLLBACK;
 	END;
 	
 	DECLARE exit handler for sqlwarning
 	 BEGIN
   		  -- WARNING
-  	   SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
+  	    -- SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
+  	    GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+		
  	 	ROLLBACK;
 	END;
 	
@@ -216,14 +266,24 @@ BEGIN
     DECLARE exit handler for sqlexception
   	BEGIN
    		 -- ERROR
-   		 SELECT 'sqlexception';
+   		-- SELECT 'sqlexception';
+   		GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+
   		ROLLBACK;
 	END;
 	
 	DECLARE exit handler for sqlwarning
 	 BEGIN
   		  -- WARNING
-  	   SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
+  	    -- SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
+  	    GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+		
  	 	ROLLBACK;
 	END;
 	
@@ -258,14 +318,24 @@ BEGIN
     DECLARE exit handler for sqlexception
   	BEGIN
    		 -- ERROR
-   		 SELECT 'sqlexception';
+   		-- SELECT 'sqlexception';
+   		GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+
   		ROLLBACK;
 	END;
 	
 	DECLARE exit handler for sqlwarning
 	 BEGIN
   		  -- WARNING
-  	   SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
+  	    -- SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
+  	    GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+		
  	 	ROLLBACK;
 	END;
 	
@@ -285,14 +355,24 @@ BEGIN
     DECLARE exit handler for sqlexception
   	BEGIN
    		 -- ERROR
-   		 SELECT 'sqlexception';
+   		-- SELECT 'sqlexception';
+   		GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+
   		ROLLBACK;
 	END;
 	
 	DECLARE exit handler for sqlwarning
 	 BEGIN
   		  -- WARNING
-  	   SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
+  	    -- SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
+  	    GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+		
  	 	ROLLBACK;
 	END;
 	
