@@ -7,7 +7,7 @@ CREATE TABLE `forma_studia` (
     `ID_forma` int AUTO_INCREMENT NOT NULL, 
     `Forma_nazev` varchar(50) NOT NULL,  
     PRIMARY KEY (`ID_forma`)
-) ENGINE=InnoDB  AUTO_INCREMENT=8  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=12  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Forma_studia_Forma_nazev` ON `forma_studia` (`Forma_nazev`);
 CREATE UNIQUE INDEX `UQ_Forma_studia_ID_forma` ON `forma_studia` (`ID_forma`);
 CREATE TABLE `klicove_slovo` ( 
@@ -16,7 +16,7 @@ CREATE TABLE `klicove_slovo` (
     `ID_oblast` int NOT NULL, 
     `Vyznam` text NOT NULL,  
     PRIMARY KEY (`ID_klicove_slovo`)
-) ENGINE=InnoDB  AUTO_INCREMENT=8  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=13  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Klicove_slovo_ID_klicove_slovo` ON `klicove_slovo` (`ID_klicove_slovo`);
 CREATE UNIQUE INDEX `UQ_Klicove_slovo_Slovo` ON `klicove_slovo` (`Slovo`);
 CREATE INDEX `ID_oblast` ON `klicove_slovo` (`ID_oblast`);
@@ -24,7 +24,7 @@ CREATE TABLE `oblast` (
     `ID_oblast` int AUTO_INCREMENT NOT NULL, 
     `Oblast_nazev` varchar(100) NOT NULL,  
     PRIMARY KEY (`ID_oblast`)
-) ENGINE=InnoDB  AUTO_INCREMENT=12  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=13  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Oblast_ID_oblast` ON `oblast` (`ID_oblast`);
 CREATE UNIQUE INDEX `UQ_Oblast_Oblast_nazev` ON `oblast` (`Oblast_nazev`);
 CREATE TABLE `obor` ( 
@@ -35,7 +35,7 @@ CREATE TABLE `obor` (
     `ID_typ` int NOT NULL, 
     `ID_forma` int NOT NULL,  
     PRIMARY KEY (`ID_obor`)
-) ENGINE=InnoDB  AUTO_INCREMENT=12  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=21  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Obor_ID_obor` ON `obor` (`ID_obor`);
 CREATE UNIQUE INDEX `UQ_id_typ_id_forma` ON `obor` (`ID_typ`,`ID_forma`,`Obor_nazev`);
 CREATE INDEX `ID_forma` ON `obor` (`ID_forma`);
@@ -55,25 +55,23 @@ CREATE TABLE `priorita` (
     `Hodnota` float NOT NULL, 
     `Poznamka` varchar(200) NOT NULL,  
     PRIMARY KEY (`ID_priorita`)
-) ENGINE=InnoDB  AUTO_INCREMENT=7  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=8  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Priorita_Hodnota` ON `priorita` (`Hodnota`);
 CREATE UNIQUE INDEX `UQ_Priorita_ID_priorita` ON `priorita` (`ID_priorita`);
 CREATE TABLE `typ_studia` ( 
     `ID_typ` int AUTO_INCREMENT NOT NULL, 
     `Typ_nazev` varchar(50) NOT NULL,  
     PRIMARY KEY (`ID_typ`)
-) ENGINE=InnoDB  AUTO_INCREMENT=6  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=8  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Typ_studia_Typ_nazev` ON `typ_studia` (`Typ_nazev`);
 CREATE UNIQUE INDEX `UQ_Typ_studia_ID_typ` ON `typ_studia` (`ID_typ`);
 INSERT INTO `obor_slovo` (`ID_obor`, `ID_klicove_slovo`, `ID_priorita`) VALUES
-(1, 4, 1),
-(8, 4, 1),
-(8, 1, 2),
-(1, 1, 5);
+(2, 10, 1),
+(3, 10, 1),
+(4, 10, 5);
 INSERT INTO `priorita` (`ID_priorita`, `Hodnota`, `Poznamka`) VALUES
 (1, 0, 'malá priorita'),
 (2, 0.25, '2'),
-(3, 0.5, '3'),
 (4, 0.75, '4'),
 (5, 1, '5 - klíčová');
 INSERT INTO `typ_studia` (`ID_typ`, `Typ_nazev`) VALUES
@@ -81,28 +79,29 @@ INSERT INTO `typ_studia` (`ID_typ`, `Typ_nazev`) VALUES
 (1, 'Prezenční');
 INSERT INTO `obor` (`ID_obor`, `Obor_nazev`, `Url`, `Popis`, `ID_typ`, `ID_forma`) VALUES
 (1, 'Informatika', 'http://fav.zcu.cz/pro-uchazece/bakalarske-studium/informatika/', 'Obor je určen pro studenty, kteří chtějí získat teoretický základ i praktické 
-    znalosti v informatice.', 1, 3),
-(8, 'Matematika a její aplikace', 'http://fav.zcu.cz/pro-uchazece/bakalarske-studium/matematika-a-jeji-aplikace/', 'Cílem studia tohoto oboru je vybavit studenty dostatečně všestrannými matematickými kompetencemi
- a umožnit jim orientovat se v základních matematických disciplínách a metodách moderní matematiky.', 2, 1);
+    znalosti v informatice.', 2, 1),
+(2, 'Matematika', 'http://fav.zcu.cz/pro-uchazece/bakalarske-studium/informatika/', 'Obor je určen pro studenty, kteří chtějí získat teoretický základ i praktické 
+    znalosti v informatice.', 1, 1),
+(3, 'Matematika', 'http://fav.zcu.cz/pro-uchazece/bakalarske-studium/informatika/', 'Obor je určen pro studenty, kteří chtějí získat teoretický základ i praktické 
+    znalosti v informatice.', 1, 2),
+(4, 'Kybernetika', 'http://fav.zcu.cz/pro-uchazece/bakalarske-studium/informatika/', 'Obor je určen pro studenty, kteří chtějí získat teoretický základ i praktické 
+    znalosti v informatice.', 2, 2);
 INSERT INTO `forma_studia` (`ID_forma`, `Forma_nazev`) VALUES
 (1, 'Bakalářské'),
 (3, 'Doktorské'),
 (2, 'Navazující');
 INSERT INTO `klicove_slovo` (`ID_klicove_slovo`, `Slovo`, `ID_oblast`, `Vyznam`) VALUES
 (1, 'Programování v C', 1, ''),
-(4, 'Matematická analýza', 5, 'Definice, věty, důkazy, integrály, derivace.'),
-(6, 'Lineární algebra', 1, 'Prostory, grupy, vlastní čísla.');
+(10, 'LA ', 2, 'Definice, věty, důkazy, integrály, derivace.');
 INSERT INTO `oblast` (`ID_oblast`, `Oblast_nazev`) VALUES
 (2, 'Informatika'),
-(8, 'Kybernetika'),
-(5, 'Matematika'),
 (1, 'NEZAŘAZENO');
-ALTER TABLE `klicove_slovo` ADD CONSTRAINT `FK_Klicove_slovo_Oblast` FOREIGN KEY (`ID_oblast`) REFERENCES `oblast`(`ID_oblast`);
-ALTER TABLE `obor` ADD CONSTRAINT `FK_Obor_Forma_studia` FOREIGN KEY (`ID_forma`) REFERENCES `forma_studia`(`ID_forma`);
-ALTER TABLE `obor` ADD CONSTRAINT `FK_Obor_Typ_studia` FOREIGN KEY (`ID_typ`) REFERENCES `typ_studia`(`ID_typ`);
-ALTER TABLE `obor_slovo` ADD CONSTRAINT `FK_OborSlovo_Klicove_slovo` FOREIGN KEY (`ID_klicove_slovo`) REFERENCES `klicove_slovo`(`ID_klicove_slovo`);
-ALTER TABLE `obor_slovo` ADD CONSTRAINT `FK_OborSlovo_Obor` FOREIGN KEY (`ID_obor`) REFERENCES `obor`(`ID_obor`);
-ALTER TABLE `obor_slovo` ADD CONSTRAINT `FK_OborSlovo_Priorita` FOREIGN KEY (`ID_priorita`) REFERENCES `priorita`(`ID_priorita`);
+ALTER TABLE `klicove_slovo` ADD CONSTRAINT `FK_Klicove_slovo_Oblast` FOREIGN KEY (`ID_oblast`) REFERENCES `oblast`(`ID_oblast`) ON DELETE CASCADE;
+ALTER TABLE `obor` ADD CONSTRAINT `FK_Obor_Forma_studia` FOREIGN KEY (`ID_forma`) REFERENCES `forma_studia`(`ID_forma`) ON DELETE CASCADE;
+ALTER TABLE `obor` ADD CONSTRAINT `FK_Obor_Typ_studia` FOREIGN KEY (`ID_typ`) REFERENCES `typ_studia`(`ID_typ`) ON DELETE CASCADE;
+ALTER TABLE `obor_slovo` ADD CONSTRAINT `FK_OborSlovo_Klicove_slovo` FOREIGN KEY (`ID_klicove_slovo`) REFERENCES `klicove_slovo`(`ID_klicove_slovo`) ON DELETE CASCADE;
+ALTER TABLE `obor_slovo` ADD CONSTRAINT `FK_OborSlovo_Obor` FOREIGN KEY (`ID_obor`) REFERENCES `obor`(`ID_obor`) ON DELETE CASCADE;
+ALTER TABLE `obor_slovo` ADD CONSTRAINT `FK_OborSlovo_Priorita` FOREIGN KEY (`ID_priorita`) REFERENCES `priorita`(`ID_priorita`) ON DELETE CASCADE;
 DELIMITER ;;
 /*!50010 CREATE  PROCEDURE `insert_forma`(forma_nazev varchar(50) )
 BEGIN
@@ -268,6 +267,8 @@ DELIMITER ;
 DELIMITER ;;
 /*!50010 CREATE  PROCEDURE `insert_obor_slovo`( id_obor int , id_klicove_slovo int, id_priorita int )
 BEGIN
+	DECLARE nezarazeno varchar(50);
+
     DECLARE exit handler for sqlexception
   	BEGIN
    		 -- ERROR
@@ -293,6 +294,7 @@ BEGIN
 	END;
 	
  	START TRANSACTION;
+ 	
  		IF((SELECT ID_obor FROM obor o WHERE o.ID_obor = id_obor) is null) then
  			 SELECT 'obor s timto ID neexistuje';
  	 		ROLLBACK;
@@ -307,8 +309,15 @@ BEGIN
  			 SELECT 'priorita s timto ID neexistuje';
  	 		ROLLBACK;
  		end IF;
- 	
  		
+ 		SELECT ID_oblast INTO @nezarazeno FROM oblast o WHERE oblast_nazev = 'NEZAŘAZENO';
+ 		
+ 		IF((SELECT ID_klicove_slovo FROM klicove_slovo ks WHERE ks.ID_klicove_slovo = id_klicove_slovo
+ 			AND ID_oblast = @nezarazeno) is NOT null) then
+ 			 SELECT 'zaradte nejprve klicove slovo do oblasti';
+ 	 		ROLLBACK;
+ 		end IF;
+ 	
 		INSERT INTO obor_slovo (ID_obor, ID_klicove_slovo, ID_priorita) VALUES (
 		    id_obor, id_klicove_slovo, id_priorita
 		);
@@ -466,6 +475,12 @@ BEGIN
  	 		ROLLBACK;
  		end IF;
  		
+ 		 IF((SELECT ID_oblast FROM oblast o WHERE o.ID_oblast = id_oblast) is null) then
+ 			 SELECT 'oblast s timto ID neexistuje';
+ 	 		ROLLBACK;
+ 		end IF;
+ 	    
+ 		
  		IF((SELECT ID_klicove_slovo FROM klicove_slovo ks WHERE ks.ID_klicove_slovo = id_klicove_slovo AND
  				ks.slovo = slovo) is NOT null) then
  			
@@ -589,8 +604,10 @@ BEGIN
 END*/;;
 DELIMITER ;
 DELIMITER ;;
-/*!50010 CREATE  PROCEDURE `update_obor_slovo`(id_obor int , id_klicove_slovo int, id_priorita int )
+/*!50010 CREATE  PROCEDURE `update_obor_slovo`(id_obor int , id_klicove_slovo int, id_obor_nove int , id_klicove_slovo_nove int,  id_priorita int )
 BEGIN
+	DECLARE nezarazeno varchar(50);
+
     DECLARE exit handler for sqlexception
   	BEGIN
    		 -- ERROR
@@ -616,6 +633,11 @@ BEGIN
 	END;
 	
  	START TRANSACTION;
+ 		IF((SELECT ID_obor FROM obor o WHERE o.ID_obor = id_obor_nove) is null) then
+ 			 SELECT 'obor (novy) s timto ID neexistuje';
+ 	 		ROLLBACK;
+ 		end IF;
+ 		
  		IF((SELECT ID_obor FROM obor o WHERE o.ID_obor = id_obor) is null) then
  			 SELECT 'obor s timto ID neexistuje';
  	 		ROLLBACK;
@@ -630,11 +652,19 @@ BEGIN
  			 SELECT 'priorita s timto ID neexistuje';
  	 		ROLLBACK;
  		end IF;
+ 		
+ 		SELECT ID_oblast INTO @nezarazeno FROM oblast o WHERE oblast_nazev = 'NEZAŘAZENO';
+ 		
+ 		IF((SELECT ID_klicove_slovo FROM klicove_slovo ks WHERE ks.ID_klicove_slovo = id_klicove_slovo_nove
+ 			AND ID_oblast = @nezarazeno) is NOT null) then
+ 			 SELECT 'zaradte nejprve klicove slovo do oblasti';
+ 	 		ROLLBACK;
+ 		end IF;
  	
  		
 		UPDATE obor_slovo os SET
-		    os.ID_obor = id_obor,
-		    os.ID_klicove_slovo = id_klicove_slovo,
+		    os.ID_obor = id_obor_nove,
+		    os.ID_klicove_slovo = id_klicove_slovo_nove,
 		    os.ID_priorita = id_priorita
 		WHERE
 		    os.ID_obor = id_obor

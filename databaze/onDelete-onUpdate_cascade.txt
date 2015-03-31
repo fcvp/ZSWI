@@ -6,7 +6,10 @@ Obor -> Obor_slovo
 Obor_slovo                      
 Klicove_slovo -> Obor_slovo    
 Priorita -> Obor_slovo        
-Oblast -> klicove_slovo -> Obor_slovo
+Oblast -> klicove_slovo 
+
+oblast 'nezaøazeno' nemazat
+
 
 OnUpdate
 --------
@@ -27,3 +30,7 @@ Obor_slovo + Obor + Klicove_slovo (+oblast) + Priorita
 Priorita
 Oblast
 
+
+Insert, Update
+---------------
+Klicove_slovo.oblast = 'nezarazeno' -> nejde vlozit k oboru
