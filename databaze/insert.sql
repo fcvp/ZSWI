@@ -7,9 +7,10 @@ call insert_obor(
     znalosti v informatice.', -- Popis
     1, -- ID_typ
     1  -- ID_forma
-)
-call insert_oblast('Matematika'); -- Oblast_nazev
-call insert_priorita('0.25')
-call insert_obor_slovo (1, 1, 1)
+);
+call insert_oblast('Matematika'); 
+call insert_priorita(1, 'Klíčová oblast');
+call insert_obor_slovo (1, 1, 1); -- ID_obor, ID_klicove_slovo, ID_priorita
 
-call insert_klicove_slovo('Programování v C')
+call insert_klicove_slovo('Matematická analýza', 'Definice, věty, důkazy, integrály, derivace.');
+
