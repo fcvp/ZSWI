@@ -10,6 +10,9 @@ Webová aplikace pro usnadnění výběru oboru budoucím studentům na ZCU
    
    /specifikace
        - specifikace požadavků - všechny dokumenty týkající se specifikace požadavků
+   /navrh
+       - analýza, návrh
+       - use case diagram, scénáře
        
 /wa
    - kód aplikace
