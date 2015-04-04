@@ -7,7 +7,7 @@ CREATE TABLE `forma_studia` (
     `ID_forma` int AUTO_INCREMENT NOT NULL, 
     `Forma_nazev` varchar(50) NOT NULL,  
     PRIMARY KEY (`ID_forma`)
-) ENGINE=InnoDB  AUTO_INCREMENT=12  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=4  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Forma_studia_Forma_nazev` ON `forma_studia` (`Forma_nazev`);
 CREATE UNIQUE INDEX `UQ_Forma_studia_ID_forma` ON `forma_studia` (`ID_forma`);
 CREATE TABLE `klicove_slovo` ( 
@@ -16,7 +16,7 @@ CREATE TABLE `klicove_slovo` (
     `ID_oblast` int NOT NULL, 
     `Vyznam` text NOT NULL,  
     PRIMARY KEY (`ID_klicove_slovo`)
-) ENGINE=InnoDB  AUTO_INCREMENT=13  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=11  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Klicove_slovo_ID_klicove_slovo` ON `klicove_slovo` (`ID_klicove_slovo`);
 CREATE UNIQUE INDEX `UQ_Klicove_slovo_Slovo` ON `klicove_slovo` (`Slovo`);
 CREATE INDEX `ID_oblast` ON `klicove_slovo` (`ID_oblast`);
@@ -24,7 +24,7 @@ CREATE TABLE `oblast` (
     `ID_oblast` int AUTO_INCREMENT NOT NULL, 
     `Oblast_nazev` varchar(100) NOT NULL,  
     PRIMARY KEY (`ID_oblast`)
-) ENGINE=InnoDB  AUTO_INCREMENT=13  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=4  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Oblast_ID_oblast` ON `oblast` (`ID_oblast`);
 CREATE UNIQUE INDEX `UQ_Oblast_Oblast_nazev` ON `oblast` (`Oblast_nazev`);
 CREATE TABLE `obor` ( 
@@ -35,7 +35,7 @@ CREATE TABLE `obor` (
     `ID_typ` int NOT NULL, 
     `ID_forma` int NOT NULL,  
     PRIMARY KEY (`ID_obor`)
-) ENGINE=InnoDB  AUTO_INCREMENT=21  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=5  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Obor_ID_obor` ON `obor` (`ID_obor`);
 CREATE UNIQUE INDEX `UQ_id_typ_id_forma` ON `obor` (`ID_typ`,`ID_forma`,`Obor_nazev`);
 CREATE INDEX `ID_forma` ON `obor` (`ID_forma`);
@@ -55,14 +55,14 @@ CREATE TABLE `priorita` (
     `Hodnota` float NOT NULL, 
     `Poznamka` varchar(200) NOT NULL,  
     PRIMARY KEY (`ID_priorita`)
-) ENGINE=InnoDB  AUTO_INCREMENT=8  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=6  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Priorita_Hodnota` ON `priorita` (`Hodnota`);
 CREATE UNIQUE INDEX `UQ_Priorita_ID_priorita` ON `priorita` (`ID_priorita`);
 CREATE TABLE `typ_studia` ( 
     `ID_typ` int AUTO_INCREMENT NOT NULL, 
     `Typ_nazev` varchar(50) NOT NULL,  
     PRIMARY KEY (`ID_typ`)
-) ENGINE=InnoDB  AUTO_INCREMENT=8  COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB  AUTO_INCREMENT=3  COLLATE=utf8_general_ci ;
 CREATE UNIQUE INDEX `UQ_Typ_studia_Typ_nazev` ON `typ_studia` (`Typ_nazev`);
 CREATE UNIQUE INDEX `UQ_Typ_studia_ID_typ` ON `typ_studia` (`ID_typ`);
 INSERT INTO `obor_slovo` (`ID_obor`, `ID_klicove_slovo`, `ID_priorita`) VALUES
@@ -92,9 +92,15 @@ INSERT INTO `forma_studia` (`ID_forma`, `Forma_nazev`) VALUES
 (2, 'Navazující');
 INSERT INTO `klicove_slovo` (`ID_klicove_slovo`, `Slovo`, `ID_oblast`, `Vyznam`) VALUES
 (1, 'Programování v C', 1, ''),
-(10, 'LA ', 2, 'Definice, věty, důkazy, integrály, derivace.');
+(2, 'Programování v Javě', 2, ''),
+(3, 'Matematika', 2, ''),
+(4, 'Databázové systémy', 2, ''),
+(5, 'Matematická analýza', 3, ''),
+(6, 'Statistika', 3, ''),
+(10, 'Lineární algebra', 2, 'Definice, věty, důkazy, integrály, derivace.');
 INSERT INTO `oblast` (`ID_oblast`, `Oblast_nazev`) VALUES
 (2, 'Informatika'),
+(3, 'Matematika'),
 (1, 'NEZAŘAZENO');
 ALTER TABLE `klicove_slovo` ADD CONSTRAINT `FK_Klicove_slovo_Oblast` FOREIGN KEY (`ID_oblast`) REFERENCES `oblast`(`ID_oblast`) ON DELETE CASCADE;
 ALTER TABLE `obor` ADD CONSTRAINT `FK_Obor_Forma_studia` FOREIGN KEY (`ID_forma`) REFERENCES `forma_studia`(`ID_forma`) ON DELETE CASCADE;
