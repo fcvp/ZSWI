@@ -22,64 +22,64 @@
 	</table>
 	
 	<table class='oblast_telo'>
-	  <tr>
-	      <td>
+	  <tr><!-- id="klicovy_termin_ID" ID - identifikator z databaze -->
+	      <td id="klicovy_termin_1">
 	          <b>Matematika (není hlavní náplní oboru) </b>
 	      </td>
 	      <td>
-	          <input type="radio" class='klicovy_termin' name="m" value="1">
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_1" value="1">
 	          ne 
-	          <input type="radio" class='klicovy_termin' name="m" value="2">spíše ne 
-	          <input type="radio" class='klicovy_termin' name="m" value="3" checked="checked">nevadí mi
-	          <input type="radio" class='klicovy_termin' name="m" value="4">spíše ano  
-	          <input type="radio" class='klicovy_termin' name="m" value="5">
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_1" value="2">spíše ne 
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_1" value="3" checked="checked">nevadí mi
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_1" value="4">spíše ano  
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_1" value="5">
 	          ano
 	      </td>
 	  </tr>
 	  <tr>
-	      <td>
+	      <td id="klicovy_termin_2">
 	          <b>Finanční matematika  </b>
 	      </td>
 	      <td>
-	          <input type="radio" class='klicovy_termin' name="fi" value="1" checked="checked">
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_2" value="1" checked="checked">
 	          ne 
-	          <input type="radio" class='klicovy_termin' name="fi" value="2">spíše ne 
-	          <input type="radio" class='klicovy_termin' name="fi" value="3">nevadí mi
-	          <input type="radio" class='klicovy_termin' name="fi" value="4">spíše ano  
-	          <input type="radio" class='klicovy_termin' name="fi" value="5">
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_2" value="2">spíše ne 
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_2" value="3">nevadí mi
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_2" value="4">spíše ano  
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_2" value="5">
 	          ano
 	      </td>
 	  </tr>
 	  <tr>
-	      <td>
+	      <td id="klicovy_termin_3">
 	          <b>Pojistná matematika</b>
 	      </td>
 	      <td>
-	          <input type="radio" class='klicovy_termin' name="pm" value="horni" checked="checked">
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_3" value="1" checked="checked">
 	          ne 
-	          <input type="radio" class='klicovy_termin' name="pm" value="dolni">spíše ne 
-	          <input type="radio" class='klicovy_termin' name="pm" value="dolni">nevadí mi
-	          <input type="radio" class='klicovy_termin' name="pm" value="dolni">spíše ano  
-	          <input type="radio" class='klicovy_termin' name="pm" value="dolni">
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_3" value="2">spíše ne 
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_3" value="3">nevadí mi
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_3" value="4">spíše ano  
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_3" value="5">
 	          ano
 	      </td>
 	  </tr>
 	  <tr>
-	      <td>
+	      <td id="klicovy_termin_4">
 	          <b>Statistika a pravděpodobnost</b>
 	      </td>
 	      <td>
-	          <input type="radio" class='klicovy_termin' name="stat" value="1" checked="checked">
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_4" value="1" checked="checked">
 	          ne 
-	          <input type="radio" class='klicovy_termin' name="stat" value="2">spíše ne 
-	          <input type="radio" class='klicovy_termin' name="stat" value="3">nevadí mi
-	          <input type="radio" class='klicovy_termin' name="stat" value="4">spíše ano  
-	          <input type="radio" class='klicovy_termin' name="stat" value="5">
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_4" value="2">spíše ne 
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_4" value="3">nevadí mi
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_4" value="4">spíše ano  
+	          <input type="radio" class='klicovy_termin' name="klicovy_termin_4" value="5">
 	          ano
 	      </td>
 	  </tr>
 	  <tr>
-	      <td>
+	      <td id="klicovy_termin_5">
 	          <b>Matematická analýza</b>
 	      </td>
 	      <td>
@@ -93,7 +93,7 @@
 	      </td>
 	  </tr>
 	  <tr>
-	      <td>
+	      <td id="klicovy_termin_7">
 	          <b>Lineární algebra</b>
 	      </td>
 	      <td>
@@ -107,7 +107,7 @@
 	      </td>
 	  </tr>
 	  <tr>
-	      <td>
+	      <td id="klicovy_termin_8">
 	          <b>Diskrétní matematika</b>
 	      </td>
 	      <td>
@@ -121,7 +121,7 @@
 	      </td>
 	  </tr>
 	  <tr>
-	      <td>
+	      <td id="klicovy_termin_9">
 	          <b>Numerické metody</b>
 	      </td>
 	      <td>

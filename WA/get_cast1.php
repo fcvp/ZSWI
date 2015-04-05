@@ -8,9 +8,11 @@
       		echo "<span class='bold'>Zadejte klíčová slova (předmět, oblast) nebo (a) vyberte oblasti ze seznamu níže (nepovinné):</span></label>";
       	echo "<br />";
       	echo "Př: matematika, programování, softwarové inženýrství, fyzika plazmatu, ...:<br /><br />";
-      	echo "<input type='text' value='' id='q' />";
+      	echo "<input type='text' value='' name='klicovy_termin' id='klicovy_termin' onchange='klicovy_termin_odstran_hlasku();' />";
       	echo "&nbsp;&nbsp;";
-      	echo "<input type='button' value='Přidat slovo do výběru'>";
+      	echo "<input type='button' value='Přidat slovo do výběru' onclick='pridejKlicoveSlovo($(\"#klicovy_termin\").val())'>";
+  			echo "<br />";
+  			echo "<span id='hlaska_klicove_slovo'></span>";
 	    echo "<br /><br />";
 	    echo "<span class='bold'>Vyberte jednu nebo více oblastí, která vás zajímají, ze seznamu (nepovinné):</span>";
 	    echo "<br />";
@@ -27,7 +29,7 @@
         echo "<option value='Kybernetika'>Kybernetika</option>";
 	    echo "</select>";
 	    echo "&nbsp;&nbsp;";
-	    echo "<input type='button' value='Přidat oblast do výběru' name='pridat_do_vyberu' onclick='pridatDoVyberu();' /><br />";
+	    echo "<input type='button' value='Přidat oblast do výběru' name='pridat_do_vyberu' onclick='pridatDoVyberu($(\"#zvolena_oblast\").val(), \"\");' /><br />";
 	    echo "<span id='hlaska_oblast'></span>";
  		echo "</div>";
 	
@@ -42,5 +44,20 @@
 		echo "<div id='posledni_cast'>";
 			
 		echo "</div>";
+		
+	?>
+	<script>
+		var options = {
+			//PUVODNI TESTOVACI SKRIPT// script:"autosuggest/test.php?json=true&limit=99990&",
+			script:"autosuggest/generator.php?json=true&limit=99990&",
+	    varname:"input",
+			json:true,
+			shownoresults:false,
+			maxresults:10
+			//callback: function (obj) { document.getElementById('klicovy_termin_id').value = obj.id; }
+		};
+		var as_json = new bsn.AutoSuggest('klicovy_termin', options);
+	</script>
+	<?php
 	}
 ?>

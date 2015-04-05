@@ -4,8 +4,10 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="generator" content="PSPad editor, www.pspad.com" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="autosuggest/autosuggest_inquisitor.css" type="text/css" media="screen" charset="utf-8" />
     <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="funkce.js"></script>
+    <script type="text/javascript" src="autosuggest/autos.js" charset="utf-8"></script>
     <title></title>
 </head>
 <body>
@@ -32,7 +34,7 @@
                     Pokud nevyberete nic zobrazí se všechny obory.
                 </p>
             </div>
-            <form>
+            <form onkeypress="return event.keyCode != 13;">
                 <div class='bunka noborder' style='padding-bottom: 5px;'>
                     <span class='bold'>Forma studia</span>
                     <select name="forma" id="forma_studia" onchange="zobrazCast1();">
