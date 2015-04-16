@@ -2,7 +2,9 @@
 	$vars = $_GET["vars"];
 	$pole = split("&", $vars);
 	
-	/** Vyparsovani jednotlivych promenych a jejich hodnot */
+	/** 
+     * Vyparsovani jednotlivych promenych a jejich hodnot 
+     * */
 	$i=0;
 	foreach ($pole as $p)	{
 		$hodnoty[$i] = split("=", $p);
