@@ -9,20 +9,22 @@
 	    echo "<div class='infobox'>Vyberte formu a typ studia</div>";
 	} else {
         //forma a typ studia je vybrana
+        
         // formular
           require_once(FORM."vyhledani.php");
           require_once(FORM."oblasti_seznam.php");
-          require_once(FORM."vybrane_oblasti.php");
+          require_once(FORM."vybrane_oblasti_seznam.php");
 
+          //vizualizace
           require_once(FORM."tlacitko_zobrazit_vizualizaci.php");
-        // /formular  
-          
           echo "<div id='vizualizace'>";
              //zde se zobrazi vizualizace
           echo "</div>";
 		
-          //naseptavac - js
+          //naseptavac (js)
 	    echo "<script type=\"text/javascript\" src=\"app_code/js_scripts/naseptavac.js\"></script>";
 
 	}
+    
+    
 ?>

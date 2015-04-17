@@ -16,6 +16,11 @@
             <div id="cast1">
                 <div class='infobox'>Vyberte formu a typ studia</div>
             </div>
+
+            <!--
+                Po zvoleni formy a typu funkce zobraz_formular() zobrazi formular pro vyber oblasti:
+                   require_once(BODY."formular.php");
+             -->
         </form>
     </div>
 </div>
