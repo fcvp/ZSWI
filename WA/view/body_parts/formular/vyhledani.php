@@ -7,9 +7,9 @@ echo "</label>";
 echo "<br />";
 
 echo "Př: matematika, programování, softwarové inženýrství, fyzika plazmatu, ...:<br /><br />";
-echo "<input type='text' value='' name='klicovy_termin' id='klicovy_termin' onchange='klicovy_termin_odstran_hlasku();' />";
+echo "<input type='text' value='' name='klicove_slovo' id='klicove_slovo' onchange='klicove_slovo_odstran_hlasku();' />";
 echo "&nbsp;&nbsp;";
-echo "<input type='button' value='Přidat slovo do výběru' onclick='pridejKlicoveSlovo($(\"#klicovy_termin\").val())'>";
+echo "<input type='button' value='Přidat slovo do výběru' onclick='pridat_klicove_slovo($(\"#klicove_slovo\").val())'>";
 echo "<br />";
 echo "<span id='hlaska_klicove_slovo'></span>";
 

@@ -29,3 +29,5 @@
 
 
 </ul>
+
+<script type="text/javascript" src="../../app_code/js_scripts/zobrazit_vizualizaci.js"></script>

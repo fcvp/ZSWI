@@ -5,6 +5,6 @@ var options = {
     json: true,
     shownoresults: false,
     maxresults: 10
-    //callback: function (obj) { document.getElementById('klicovy_termin_id').value = obj.id; }
+    //callback: function (obj) { document.getElementById('klicove_slovo_id').value = obj.id; }
 };
-var as_json = new bsn.AutoSuggest('klicovy_termin', options);
+var as_json = new bsn.AutoSuggest('klicove_slovo', options);

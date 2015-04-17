@@ -16,7 +16,7 @@ echo "<option value='Informatika'>Informatika</option>";
 echo "<option value='Kybernetika'>Kybernetika</option>";
 echo "</select>";
 echo "&nbsp;&nbsp;";
-echo "<input type='button' value='Přidat oblast do výběru' name='tlacitko_pridat_do_vyberu' onclick='pridatDoVyberu($(\"#zvolena_oblast\").val(), \"\");' /><br />";
+echo "<input type='button' value='Přidat oblast do výběru' name='tlacitko_pridat_do_vyberu' onclick='pridat_do_vyberu($(\"#zvolena_oblast\").val(), \"\");' /><br />";
 echo "<span id='hlaska_oblast'></span>";
 echo "</div>";
 

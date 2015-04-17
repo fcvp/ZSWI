@@ -4,7 +4,7 @@
  * hodnota - Označní oblasti
  * id_slova - ID klíčového termínu, kterému se má nastavit hodnota 5   
  **/
-function pridatDoVyberu(hodnota, id_slova) {
+function pridat_do_vyberu(hodnota, id_slova) {
     /** zjisti zda uz oblast neni ve vyberu */
     if ($("#oblast_" + hodnota).length == 0) {
         if (hodnota != 0) {
@@ -37,7 +37,7 @@ function pridatDoVyberu(hodnota, id_slova) {
  *	Přidá klíčový termín do výberu (s celou jeho oblastí) a nastaví mu hodnotu 5
  *	klicove_slovo - klíčový termín, který se má přidat do výberu 
  */
-function pridejKlicoveSlovo(klicove_slovo) {
+function pridat_klicove_slovo(klicove_slovo) {
     var id = "0";
     $.ajax({
         url: "get_id_slova.php",
@@ -58,8 +58,8 @@ function pridejKlicoveSlovo(klicove_slovo) {
             var oblast = split[1];
             var id_slova = split[0];
 
-            if ($("#klicovy_termin_" + id_slova).length == 0) {
-                pridatDoVyberu(oblast, id_slova);
+            if ($("#klicove_slovo_" + id_slova).length == 0) {
+                pridat_do_vyberu(oblast, id_slova);
             }
             else {
                 nastav_slovo(id_slova)
@@ -75,7 +75,7 @@ function pridejKlicoveSlovo(klicove_slovo) {
  *	id_slova - id klíčového termínu
  */
 function nastav_slovo(id_slova) {
-    var policka = $('input:radio[name=klicovy_termin_' + id_slova + ']');
+    var policka = $('input:radio[name=klicove_slovo_' + id_slova + ']');
     policka.filter('[value=5]').prop('checked', true);
 }
 
@@ -116,13 +116,13 @@ function zobraz_formular() {
  *	Zobrazí výslednou vizualizaci
  *	 
  */
-function zobraz_vizualizaci() {
+function zobrazit_vizualizaci() {
     var str = $("form").serialize();
 
 
     $("#loading").fadeIn().queue(function (n) {
         $.ajax({
-            url: "get_vizualizace.php",
+            url: "view/body_parts/vizualizace.php",
             data: { vars: str },
             cache: false,
             error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -165,6 +165,6 @@ function oblast_odstran_hlasku() {
 /**
  *	Odstraní zobrazenou hlášku
  */
-function klicovy_termin_odstran_hlasku() {
+function klicove_slovo_odstran_hlasku() {
     $("#hlaska_klicove_slovo").html("");
 }
