@@ -94,7 +94,7 @@ function zobrazCast1()	{
 		$("#zobrazeni_prvni_casti").val("1");
 		$("#loading").fadeIn().queue(function(n) {
 			$.ajax({
-				url: "get_cast1.php",
+				url: "view/body_parts/formular.php",
 				data: { forma: forma, typ: typ },
 				cache: false,
 				error: function(XMLHttpRequest, textStatus, errorThrown)	{
@@ -129,7 +129,7 @@ function zobrazVizualizaci()	{
 					alert("chyba pri nacitani.");
 				}
 			}).done(function(html)	{
-					$("#posledni_cast").html(html);
+			    $("#vizualizace").html(html);
 			});
 			
 			n();

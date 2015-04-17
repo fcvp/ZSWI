@@ -1,4 +1,4 @@
-﻿<div class='bunka'>
+<div class='bunka'>
     <h1>Výběr studijního oboru na FAV</h1>
     <p>
         Informace o fakultě, oborech a přijímacím řízení: <a href="http://fav.zcu.cz/pro-uchazece/">http://fav.zcu.cz/pro-uchazece/</a>

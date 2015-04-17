@@ -14,17 +14,19 @@
 
     <!-- js  -->
     <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="funkce.js"></script>
+    <script type="text/javascript" src="app_code/js_scripts/funkce.js"></script>
     <script type="text/javascript" src="autosuggest/autos.js" charset="utf-8"></script>
     <!-- /js  -->
 
     <title>Výběr studijního oboru na FAV</title>
 </head>
 <body>
+   
     <?php
     require_once("app_code/config.php");
     
     require_once(LAYOUT."header.php");
+    
     require_once(LAYOUT."body.php");
     
     require_once(LAYOUT."footer.php");
