@@ -1,5 +1,5 @@
-call update_forma(3, 'Doktorské');
-call update_typ(1, 'Prezenční');
+call update_forma(1, 'Prezeční');
+call update_typ(1, 'Bakalářské');
 
 call update_obor(
 	1,

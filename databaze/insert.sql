@@ -1,5 +1,5 @@
-call insert_forma('Bakalářské');
-call insert_typ('Prezenční');
+call insert_forma('Prezenční');
+call insert_typ('Bakalářské');
 call insert_obor(
     'Kybernetika', -- Obor_nazev
     'http://fav.zcu.cz/pro-uchazece/bakalarske-studium/informatika/', -- Url
