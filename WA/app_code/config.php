@@ -21,5 +21,10 @@ define('VIEW',ROOT."view/");
 //obrazky
 define('IMAGE',ROOT."image/");
 
+//pripojeni databaze
+require_once(APP_CODE."database.php");
+//nacteni dat
+require_once(APP_CODE."load_data.php");
+
 
 ?>

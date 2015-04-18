@@ -19,7 +19,7 @@
           require_once(FORM."tlacitko_zobrazit_vizualizaci.php");   
           echo "<div id='vizualizace'>";
              //funkce zobrazit_vizualizaci():
-                    //require_once(FORM."vyhledani.php");
+                    //require_once(FORM."vizualizace.php");
           
              //zde se zobrazi vizualizace
           echo "</div>";
