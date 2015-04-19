@@ -3,9 +3,9 @@
     <?php
     require_once($_SERVER['DOCUMENT_ROOT']."/app_code/config.php"); 
     
-        require(VYBRANE_OBLASTI."oblast_hlavicka.php");
-        require(VYBRANE_OBLASTI."oblast_telo.php");
+    include(VYBRANE_OBLASTI."oblast_hlavicka.php");
+    include(VYBRANE_OBLASTI."oblast_telo.php");
     ?>
 
-    
+
 </div>

@@ -143,7 +143,7 @@ function zobrazit_vizualizaci() {
  *	Odebere oblast z výběru
  *	idOblasti - id oblasti, která se má odebrat 
  */
-function odeber_oblast(idOblasti) {
+function odeberOblast(idOblasti) {
     $("#posledni_cast").html("");
     $("#" + idOblasti).detach();
     $("#hlaska_oblast").html("<span class='red'>Oblast byla z výběru odebrána</span>");

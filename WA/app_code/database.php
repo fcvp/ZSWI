@@ -6,7 +6,7 @@
 
 try {
     /*persistent connection - spojeni neni po skonceni skriptu uzavreno - lze ho sdilet ve vice skriptech*/
-    $dbh = new PDO('mysql:host=localhost;dbname=zswi', 'root', 'heslo', array(PDO::ATTR_PERSISTENT => true));
+    $dbh = new PDO('mysql:host=localhost;dbname=zswi;charset=utf8', 'root', 'heslo', array(PDO::ATTR_PERSISTENT => true));
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch (PDOException $e) {
@@ -40,6 +40,13 @@ if (($_GET["forma"]!=null) and ($_GET["typ"]!=null )){
         $where = "typ_nazev='".$_GET["typ"]."' and forma_nazev='".$_GET["forma"]."'";
     }
     $result['OBLAST'] = select($dbh,"DISTINCT oblast.*",$from, $where,"oblast_nazev");
+    
+    //seznam klicovych slov
+    $result['KLICOVE_SLOVO'] = select($dbh,"DISTINCT klicove_slovo.id_klicove_slovo, Slovo, oblast.id_oblast, oblast_nazev",$from, $where,"klicove_slovo.id_oblast");
+  //  echo $result['KLICOVE_SLOVO'][0][1];
+    
 }
+
+
 
 ?>

@@ -10,9 +10,12 @@ echo "<br /><br />\n";
 echo "<select name='oblast' id='zvolena_oblast' onchange='oblast_odstran_hlasku()'>\n";
 echo "<option value='0'>--Vyber oblast--</option>\n";
 
+//echo "<option value='Fyzika'>Fyzika</option>";
+//echo "<option value='Matematika'>Matematika</option>";
+
 foreach($result['OBLAST']  as $row)
 {
-    echo "<option id=\"O_".$row[0]."\" value=\"".$row[1]."\">".$row[1]." </option>";
+    echo "<option id=\"O_".$row[0]."\" value=\"".normalize_url($row[1])."\">".$row[1]." </option>";
 }
 
 echo "</select>";

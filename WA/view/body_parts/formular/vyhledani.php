@@ -13,4 +13,9 @@ echo "<input type='button' value='Přidat slovo do výběru' onclick='pridat_kli
 echo "<br />";
 echo "<span id='hlaska_klicove_slovo'></span>";
 
+
+echo "<script type=\"text/javascript\" src=\"app_code/js_scripts/naseptavac.js\"></script>";
+
+
 ?>
+

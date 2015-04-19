@@ -25,8 +25,8 @@
           echo "</div>";
 		
           //naseptavac (js)
-	    echo "<script type=\"text/javascript\" src=\"app_code/js_scripts/naseptavac.js\"></script>";
-
+         // echo "<script type=\"text/javascript\" src=\"app_code/js_scripts/naseptavac.js\"></script>";
+         
 	}
     
     
