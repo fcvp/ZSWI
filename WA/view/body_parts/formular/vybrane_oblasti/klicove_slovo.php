@@ -1,6 +1,6 @@
 <tr>
     <td id="klicove_slovo_1">
-        <b>Matematika (není hlavní náplní oboru) </b>
+        <b><?php echo $row[1]; ?> </b>
     </td>
     <td>
         <input type="radio" class='klicove_slovo' name="klicove_slovo_1" value="1">

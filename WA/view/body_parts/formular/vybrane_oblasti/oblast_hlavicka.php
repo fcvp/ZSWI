@@ -1,3 +1,5 @@
+
+
 <table class='oblast_hlavicka'>
     <tr>
         <td style='width: 20px;'>
@@ -9,15 +11,16 @@
             </b>
         </td>
         <td>
-            <input type="radio" name="mat" value="1" />
-            ne
-            <input type="radio" name="mat" value="2" />
+
+            <input type="radio" name="<?php echo $_GET["oblast"];?>" value="1"/>
+            ne 
+            <input type="radio" name="<?php echo $_GET["oblast"];?>" value="2" />
             spíše ne
-            <input type="radio" name="mat" value="3" checked="checked" />
+            <input type="radio" name="<?php echo $_GET["oblast"];?>" value="3" checked="checked" />
             nevadí mi
-            <input type="radio" name="mat" value="4" />
+            <input type="radio" name="<?php echo $_GET["oblast"];?>" value="4" />
             spíše ano
-            <input type="radio" name="mat" value="5" />
+            <input type="radio" name="<?php echo $_GET["oblast"];?>" value="5" />
             ano
 		      &nbsp;&nbsp;&nbsp;
             <input type="button" title="Hodnocení u oblasti se aplikuje i na klíčová slova, která k ní patří." value="Aplikovat hodnocení" />

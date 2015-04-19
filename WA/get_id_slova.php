@@ -12,10 +12,10 @@
 	
 	/* ---test data - idSlova_idOblasti- */
 	switch ($_GET["slovo"])	{
-		case "Matematika (není hlavní náplní oboru)": echo "1_Matematika"; break;
-		case "Finanční matematika": echo "2_Matematika"; break;
-		case "Pojistná matematika": echo "3_Matematika"; break;
-		case "Statistika a pravděpodobnost": echo "4_Matematika"; break;
+		case "Slovo 1": echo "1_Matematika"; break;
+		case "Slovo 2": echo "2_Matematika"; break;
+		case "Slovo 3": echo "3_Matematika"; break;
+		case "Slovo 4": echo "4_Matematika"; break;
 	}
 	/* -------------------------------- */
 ?>

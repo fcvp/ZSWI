@@ -10,16 +10,23 @@
 	} else {
         //forma a typ studia je vybrana
         
+        session_start();
+        //ulozeni formy a typu pro pouziti v ajaxem nacitanych castech
+        $_SESSION['typ'] = $_GET["typ"];
+        $_SESSION['forma'] = $_GET["forma"];
+        //echo $_SESSION['typ'];
+        
         // formular
           require_once(FORM."vyhledani.php");
           require_once(FORM."oblasti_seznam.php");
+        
           require_once(FORM."vybrane_oblasti_seznam.php");
 
           //vizualizace
           require_once(FORM."tlacitko_zobrazit_vizualizaci.php");   
           echo "<div id='vizualizace'>";
              //funkce zobrazit_vizualizaci():
-                    //require_once(FORM."vizualizace.php");
+                    //(FORM."vizualizace.php");
           
              //zde se zobrazi vizualizace
           echo "</div>";

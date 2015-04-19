@@ -6,12 +6,17 @@
  **/
 function pridat_do_vyberu(hodnota, id_slova) {
     /** zjisti zda uz oblast neni ve vyberu */
+    
+   //var hodnota = hodnota.replace(/\ /g, '_');
+   
+
     if ($("#oblast_" + hodnota).length == 0) {
         if (hodnota != 0) {
             $("#posledni_cast").html("");
             $("#hlaska_oblast").html("<img src='image/loading.gif' alt='' />");
             $.ajax({
                 url: "view/body_parts/formular/vybrane_oblasti/vybrana_oblast.php",
+                type: 'GET',
                 data: { oblast: hodnota },
                 cache: false,
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -144,7 +149,12 @@ function zobrazit_vizualizaci() {
  *	idOblasti - id oblasti, která se má odebrat 
  */
 function odeberOblast(idOblasti) {
+   // idOblasti = idOblasti.replace(/\ /g, '_');
+    //window.alert(idOblasti);
+
     $("#posledni_cast").html("");
+
+
     $("#" + idOblasti).detach();
     $("#hlaska_oblast").html("<span class='red'>Oblast byla z výběru odebrána</span>");
 

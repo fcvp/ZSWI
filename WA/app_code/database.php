@@ -33,19 +33,22 @@ if (($_GET["forma"]!=null) and ($_GET["typ"]!=null )){
               typ_studia ON obor.ID_typ = typ_studia.ID_typ  JOIN
               forma_studia ON obor.ID_forma = forma_studia.ID_forma";
 
+    $typ = $_GET["typ"];
+    $forma = $_GET["forma"];
+    
     //jsou vybrany obe formy studia
-    if (strpos($_GET["forma"],'_')) {
-        $where = "typ_nazev='".$_GET["typ"]."'";
+    if (strpos($forma,'_')) {
+        $where = "typ_nazev='".$typ."'";
     } else{
-        $where = "typ_nazev='".$_GET["typ"]."' and forma_nazev='".$_GET["forma"]."'";
+        $where = "typ_nazev='".$typ."' and forma_nazev='".$forma."'";
     }
     $result['OBLAST'] = select($dbh,"DISTINCT oblast.*",$from, $where,"oblast_nazev");
     
     //seznam klicovych slov
     $result['KLICOVE_SLOVO'] = select($dbh,"DISTINCT klicove_slovo.id_klicove_slovo, Slovo, oblast.id_oblast, oblast_nazev",$from, $where,"klicove_slovo.id_oblast");
   //  echo $result['KLICOVE_SLOVO'][0][1];
-    
-}
+}    
+
 
 
 
