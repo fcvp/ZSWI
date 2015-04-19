@@ -36,17 +36,27 @@ if (($_GET["forma"]!=null) and ($_GET["typ"]!=null )){
     $typ = $_GET["typ"];
     $forma = $_GET["forma"];
     
-    //jsou vybrany obe formy studia
+  
     if (strpos($forma,'_')) {
+        //jsou vybrany obe formy studia
         $where = "typ_nazev='".$typ."'";
     } else{
-        $where = "typ_nazev='".$typ."' and forma_nazev='".$forma."'";
+        $where = "typ_nazev='".$typ."' AND forma_nazev='".$forma."'";
     }
     $result['OBLAST'] = select($dbh,"DISTINCT oblast.*",$from, $where,"oblast_nazev");
+    //---------------------
     
     //seznam klicovych slov
     $result['KLICOVE_SLOVO'] = select($dbh,"DISTINCT klicove_slovo.id_klicove_slovo, Slovo, oblast.id_oblast, oblast_nazev",$from, $where,"klicove_slovo.id_oblast");
-  //  echo $result['KLICOVE_SLOVO'][0][1];
+ 
+    //---------------------
+    
+    //seznam oboru
+    $from = $from." JOIN priorita ON obor_slovo.ID_priorita = priorita.ID_priorita";
+    $where = $where." AND  (priorita.Hodnota >= 0.5)";
+    
+    $result['OBOR'] = select($dbh,"DISTINCT obor_nazev, url, popis, oblast_nazev ",$from, $where,"obor_nazev");
+    //---------------------
 }    
 
 

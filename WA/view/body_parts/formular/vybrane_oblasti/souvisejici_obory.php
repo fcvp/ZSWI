@@ -1,8 +1,7 @@
 <tr>
     <td colspan="2">
         <ul>
-            <!-- for ... -->
-            <li class='bold'>Finanční informatika a statistika </li>
+            <li class='bold'><?php echo $row[0]; ?></li>
         </ul>
     </td>
 </tr>

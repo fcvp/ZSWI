@@ -10,7 +10,6 @@
 
     
     require_once($_SERVER['DOCUMENT_ROOT']."/app_code/config.php"); 
-    //echo " ".$result['KLICOVE_SLOVO'][0][0];
     
     include(VYBRANE_OBLASTI."oblast_hlavicka.php");
     include(VYBRANE_OBLASTI."oblast_telo.php");
