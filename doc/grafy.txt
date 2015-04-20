@@ -1,0 +1,6 @@
+https://developers.google.com/chart/interactive/docs/gallery/piechart
+https://developers.google.com/chart/interactive/docs/gallery/columnchart
+
+((
+https://developers.google.com/chart/interactive/docs/gallery/gauge
+))
