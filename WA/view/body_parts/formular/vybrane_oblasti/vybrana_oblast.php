@@ -11,8 +11,8 @@
     
     require_once($_SERVER['DOCUMENT_ROOT']."/app_code/config.php"); 
     
-    include(VYBRANE_OBLASTI."oblast_hlavicka.php");
-    include(VYBRANE_OBLASTI."oblast_telo.php");
+    include(VYBRANE_OBLASTI."VO_oblast_hlavicka.php");
+    include(VYBRANE_OBLASTI."VO_oblast_telo.php");
     ?>
 
 

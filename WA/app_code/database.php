@@ -47,8 +47,8 @@ if (($_GET["forma"]!=null) and ($_GET["typ"]!=null )){
     //---------------------
     
     //seznam klicovych slov
-    $result['KLICOVE_SLOVO'] = select($dbh,"DISTINCT klicove_slovo.id_klicove_slovo, Slovo, oblast.id_oblast, oblast_nazev",$from, $where,"klicove_slovo.id_oblast");
- 
+    $result['KLICOVE_SLOVO'] = select($dbh,"DISTINCT klicove_slovo.id_klicove_slovo, Slovo, oblast.id_oblast, oblast_nazev",$from, $where,"oblast_nazev");
+    
     //---------------------
     
     //seznam oboru
@@ -63,3 +63,4 @@ if (($_GET["forma"]!=null) and ($_GET["typ"]!=null )){
 
 
 ?>
+

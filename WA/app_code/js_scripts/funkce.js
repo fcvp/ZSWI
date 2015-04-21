@@ -6,10 +6,6 @@
  **/
 function pridat_do_vyberu(hodnota, id_slova) {
     /** zjisti zda uz oblast neni ve vyberu */
-    
-   //var hodnota = hodnota.replace(/\ /g, '_');
-   
-
     if ($("#oblast_" + hodnota).length == 0) {
         if (hodnota != 0) {
             $("#posledni_cast").html("");
@@ -178,3 +174,6 @@ function oblast_odstran_hlasku() {
 function klicove_slovo_odstran_hlasku() {
     $("#hlaska_klicove_slovo").html("");
 }
+
+
+

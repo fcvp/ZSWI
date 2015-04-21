@@ -19,7 +19,7 @@
 
             <!--
                 Po zvoleni formy a typu funkce zobraz_formular() zobrazi formular pro vyber oblasti:
-                   require_once(BODY."formular.php");
+                   (BODY."formular.php");
              -->
         </form>
     </div>
