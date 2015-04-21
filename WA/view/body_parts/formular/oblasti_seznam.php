@@ -15,7 +15,7 @@ echo "<option value='0'>--Vyber oblast--</option>\n";
 
 foreach($result['OBLAST']  as $row)
 {
-    echo "<option id=\"O_".$row[0]."\" value=\"".normalize_url($row[1])."\">".$row[1]." </option>";
+    echo "<option id=\"O_".$row[0]."\" value=\"".normalize_str($row[1])."\">".$row[1]." </option>";
 }
 
 echo "</select>";

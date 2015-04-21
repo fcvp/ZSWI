@@ -12,30 +12,33 @@
             <?php 
             $pocet_slov=0;
             foreach ($result['KLICOVE_SLOVO'] as $row) {
-                if(normalize_url($row[3])==$_GET['oblast'])
+                if(normalize_str($row[3])==$_GET['oblast'])
                 {
                     $klicova_slova[$pocet_slov]=$row;
                     $pocet_slov++;
                 }
             }
             
+            $vyznam = array(1=>"ne", 2=>"spíše ne", 3=>"nevadí mi", 4=>"spíše ano", 5=>"ano");
+            for($j=1; $j<=5; $j++)
+            {
+                if($j==3) {
+                    echo "<input type='radio' class='klicove_slovo'  checked=\"checked\" name=\"".$_GET['oblast']."\" value='".$j."' >".$vyznam[$j]."</input>\n";
+                }
+                else{
+                    echo "<input type='radio' class='klicove_slovo'  name=\"".$_GET['oblast']."\" value='".$j."' >".$vyznam[$j]."</input>\n";
+                }
+                
+            }
+            
             ?>
 
-            <input type="radio" name="<?php echo $_GET["oblast"];?>" value="1"/>
-            ne 
-            <input type="radio" name="<?php echo $_GET["oblast"];?>" value="2" />
-            spíše ne
-            <input type="radio" name="<?php echo $_GET["oblast"];?>" value="3" checked="checked" />
-            nevadí mi
-            <input type="radio" name="<?php echo $_GET["oblast"];?>" value="4" />
-            spíše ano
-            <input type="radio" name="<?php echo $_GET["oblast"];?>" value="5" />
-            ano
-		      &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;
 
             <!-- skryte pole obsahujici nazev oblasti pro identifikaci tlacitka a radio buttonu v JS -->
             <input type="hidden" id="oblast_nazev" value="<?php echo $_GET["oblast"];?>"  />
 
+            <!-- ...................... -->
             <input type="button" id="btn_aplikovat_<?php echo $_GET["oblast"];?>" data-pocet="<?php echo $pocet_slov;?>"
                  title="Hodnocení u oblasti se aplikuje i na klíčová slova, která k ní patří." value="Aplikovat hodnocení" />
 

@@ -8,12 +8,18 @@ foreach ($klicova_slova as $row) {
     $i++;
 }
 
-foreach ($result['OBOR'] as $row) {
-    if(normalize_url($row[3])==$_GET['oblast'])
-    {
-        require(VYBRANE_OBLASTI."VO_souvisejici_obory.php");
-    }
-}
+echo "<tr>";
+    echo "<td>";
+    echo "<br><label><b>Souvisejici obory:</b></label>";
+        foreach ($result['OBOR'] as $row) {
+            if(normalize_str($row[3])==$_GET['oblast'])
+            {
+                require(VYBRANE_OBLASTI."VO_souvisejici_obory.php");
+            }
+        }
+    echo "</td>";
+echo "</tr>";
+
 echo "</table>";
 ?>
 

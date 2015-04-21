@@ -1,14 +1,19 @@
 <tr>
-    <td  id="<?php echo $row[0]; ?>">
+    <td  id="<?php echo "ks_".$row[0]; ?>" >
         <b><?php echo $row[1]; ?> </b>
     </td>
     <td>
-        <input type="radio" class='klicove_slovo'  name="<?php echo $_GET["oblast"]."_".$i; ?>" value="1">
-        ne 
-        <input type="radio" class='klicove_slovo' name="<?php echo $_GET["oblast"]."_".$i; ?>" value="2">spíše ne 
-        <input type="radio" class='klicove_slovo' name="<?php echo $_GET["oblast"]."_".$i; ?>" value="3" checked="checked">nevadí mi
-        <input type="radio" class='klicove_slovo'  name="<?php echo $_GET["oblast"]."_".$i; ?>" value="4">spíše ano  
-        <input type="radio" class='klicove_slovo'  name="<?php echo $_GET["oblast"]."_".$i; ?>" value="5">
-        ano
+        <?php 
+            $vyznam = array(1=>"ne", 2=>"spíše ne", 3=>"nevadí mi", 4=>"spíše ano", 5=>"ano");
+            for($j=1; $j<=5; $j++)
+            {
+                if($j==3) {
+                    echo "<input type='radio' class='klicove_slovo' id=\"ks_".$row[0]."\" checked=\"checked\"  name=\"".$_GET['oblast']."_".$i."\" value='".$j."' >".$vyznam[$j]."</input>\n";
+                }
+                else{
+                    echo "<input type='radio' class='klicove_slovo' id=\"ks_".$row[0]."\" name=\"".$_GET['oblast']."_".$i."\" value='".$j."' >".$vyznam[$j]."</input>\n";
+                } 
+            }
+        ?>
     </td>
 </tr>

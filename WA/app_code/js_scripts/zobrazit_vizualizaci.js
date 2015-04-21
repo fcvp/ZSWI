@@ -1,19 +1,27 @@
-//zobrazi graf ve vybrane zalozce
-$(document).ready(function () {
-    $("#vizualizace .menu .graf").click(function () {
-        if (!$(this).is(".actual")) {
-            if ($(this).is(".kruhovy")) {
-                $("#vizualizace .menu .graf").removeClass("actual");
-                $("#paprskovy").hide();
-                $("#kruhovy").show();
-                $(this).addClass("actual");
+﻿
+/**
+ *	Zobrazí výslednou vizualizaci
+ *	 
+ */
+function vybrat_graf() {
+    var str = $("form").serialize();
+
+
+    $("#loading").fadeIn().queue(function (n) {
+        $.ajax({
+            url: "view/body_parts/vizualizace.php",
+            data: { vars: str },
+            cache: false,
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("chyba pri nacitani.");
             }
-            else {
-                $("#vizualizace .menu .graf").removeClass("actual");
-                $("#kruhovy").hide();
-                $("#paprskovy").show();
-                $(this).addClass("actual");
-            }
-        }
+        }).done(function (html) {
+            $("#vizualizace").html(html);
+        });
+
+        n();
+    }).queue(function (n) {
+        $("#loading").fadeOut();
+        n();
     });
-});
+}
