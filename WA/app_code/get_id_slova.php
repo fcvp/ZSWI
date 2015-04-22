@@ -1,5 +1,20 @@
 <?php
 
+/**
+ * database.php
+ * ---------
+ * Najde ID slova a oblast, prislusejici ke klicovemu 
+ * slovu zadanemu ve vyhledavani.
+ * 
+ * ------------
+ * Volano v zobraz_oblast.js
+ *
+ * ------------
+ *   20.4.2014
+ *   @version 1.0
+ * 
+ * */
+
 session_start();
 
 $_GET["typ"] = $_SESSION['typ'];

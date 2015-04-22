@@ -1,3 +1,17 @@
+<!--
+ * VO_souvisejici_obory.php
+ * ---------
+ * Obory, souvisejici se zvolenymi klicovymi slovy, zobrazene v seznamu vybranych oblasti.
+ * 
+ * ------------
+ * Vlozeno v VO_oblast_telo.php
+ *
+ * ------------
+ *   20.4.2014
+ *   @version 1.0
+ * 
+ -->
+
 <tr>
     <td colspan="2">
         <ul>

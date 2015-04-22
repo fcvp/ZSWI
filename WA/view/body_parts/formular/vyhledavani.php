@@ -1,4 +1,18 @@
 <?php
+/**
+ * vyhledavani.php
+ * ---------
+ * Textove pole pro vyhledani klicoveho slova.
+ * 
+ * ------------
+ * Vlozeno v formular.php
+ *
+ * ------------
+ *   20.4.2014
+ *   @version 1.0
+ * 
+ */
+
 echo "<div class='bunka' style='padding-top: 0px;'>";
 echo "<label for='q'>";
 echo "<span class='bold'>Zadejte klíčová slova (předmět, oblast) nebo (a) vyberte oblasti ze seznamu níže (nepovinné):</span>";
@@ -13,7 +27,7 @@ echo "&nbsp;&nbsp;";
 
 echo "<input type='button' value='Přidat slovo do výběru' onclick='pridat_klicove_slovo($(\"#klicove_slovo\").val())'>";
 echo "<br />";
-echo "<span id='hlaska_klicove_slovo'></span>";
+echo "<span id='hlaska_klicove_slovo'></span><br>";
 
 
 echo "<script type=\"text/javascript\" src=\"app_code/js_scripts/naseptavac.js\"></script>";

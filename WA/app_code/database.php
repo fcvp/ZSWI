@@ -1,24 +1,27 @@
 <?php
 /**
- * Pripojeni k databazi a priprava dotazu
+ * database.php
+ * ---------
+ * Pripojeni k databazi. Priprava sql dotazu.
+ * 
+ * ------------
+ * Vlozeno v config.php.
+ *
+ * ------------
+ *   20.4.2014
+ *   @version 1.0
  * 
  * */
 
-try {
-    /*persistent connection - spojeni neni po skonceni skriptu uzavreno - lze ho sdilet ve vice skriptech*/
-    $dbh = new PDO('mysql:host=localhost;dbname=zswi;charset=utf8', 'root', 'heslo', array(PDO::ATTR_PERSISTENT => true));
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch (PDOException $e) {
-    echo "Error!: " . $e->getMessage() . "<br/>";
-    die();
-}
-
+require_once(APP_CODE."connect_db.php");
 //----------------
 
 require_once(APP_CODE."remove_diacritic.php");
 require_once(APP_CODE."select.php");
 //----------------
+//---------------
+
+
 
 $result['FORMA'] = select($dbh,"*", "forma_studia",null,"id_forma");
 $result['TYP'] = select($dbh,"*", "typ_studia",null,"id_typ");
@@ -36,7 +39,7 @@ if (($_GET["forma"]!=null) and ($_GET["typ"]!=null )){
     $typ = $_GET["typ"];
     $forma = $_GET["forma"];
     
-  
+    
     if (strpos($forma,'_')) {
         //jsou vybrany obe formy studia
         $where = "typ_nazev='".$typ."'";

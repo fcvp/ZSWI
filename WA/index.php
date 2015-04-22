@@ -1,8 +1,15 @@
+<!-- 
+    index.php
+    -----------
+    17.4.2014
+    @version 1.0
+-->
+
 <!DOCTYPE HTML>
 <html>
 <head>
     <!-- meta  -->
-    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <meta http-equiv="content-language" content="cs" />
     <meta name="generator" content="PSPad editor, www.pspad.com" />
     <!--/meta  -->
@@ -18,13 +25,13 @@
 
     <script type="text/javascript" src="app_code/js_scripts/zobrazit_formular.js"></script>
     <script type="text/javascript" src="app_code/js_scripts/zobrazit_vizualizaci.js"></script>
-    <script type="text/javascript" src="app_code/js_scripts/zobraz_oblast.js"></script>
+    <script type="text/javascript" src="app_code/js_scripts/zobrazit_oblast.js"></script>
     <!-- /js  -->
 
     <title>Výběr studijního oboru na FAV</title>
 </head>
 <body>
-   
+
     <?php
     require_once("app_code/config.php");
     
@@ -34,7 +41,7 @@
     
     require_once(LAYOUT."footer.php");
     ?>
-    
+
     <table id="loading">
         <tr>
             <td><span>loading</span></td>

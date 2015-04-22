@@ -1,7 +1,21 @@
+<!--
+ * VO_oblast_hlavicka.php
+ * ---------
+ * Oblasti v seznamu vybranych oblasti.
+ * 
+ * ------------
+ * Vlozeno ve vybrana_oblast.php
+ *
+ * ------------
+ *   20.4.2014
+ *   @version 1.0
+ * 
+-->
+
 <table class='oblast_hlavicka'>
     <tr>
         <td style='width: 20px;'>
-            <img src='image/cross.png' alt='Odebrat oblast' title='Odebrat oblast' class='odebrat_oblast' onclick="odeberOblast('oblast_<?php echo $_GET["oblast"];?>');" />
+            <img src='image/cross.png' alt='Odebrat oblast' title='Odebrat oblast' class='odebrat_oblast' onclick="odeber_oblast('oblast_<?php echo $_GET["oblast"];?>');" />
         </td>
         <td>
             <b>

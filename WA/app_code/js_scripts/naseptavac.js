@@ -1,6 +1,19 @@
+/**
+* naseptavac.js
+* -----------------------
+*  Zobrazeni napovedy naseptavace, po zapsani znaku hledaneho vyrazu.
+* ------------
+* 
+* Vlozeno v vyhledavani.php
+* ------------
+*    20.4.2014
+*    @version 1.0
+*/
+
+
 var options = {
     //PUVODNI TESTOVACI SKRIPT// script:"autosuggest/test.php?json=true&limit=99990&",
-    script: "autosuggest/generator.php?json=true&limit=99990&Bakalarsky",
+    script: "autosuggest/generator.php?json=true&limit=99990",
     varname: "input",
     json: true,
     shownoresults: true,

@@ -1,4 +1,17 @@
 ﻿/**
+* aplikovat_hodnoceni.js
+* -----------------------
+*  Aplikování hodnoceni na prislusna klicova slova. 
+*  Akce onclick tlacitka vedle nazvu oblasti v seznamu vybranych oblasti.
+* ------------
+* 
+* Vlozeno v VO_oblast_telo.php
+* ------------
+*    21.4.2014
+*    @version 1.0
+*/
+
+/**
 * Aplikovani hodnoceni oblasti na klicova slova
 */
 $(document).ready(function () {

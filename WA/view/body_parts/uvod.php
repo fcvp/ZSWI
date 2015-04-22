@@ -1,3 +1,18 @@
+<!--
+ * uvod.php
+ * ---------
+ * Uvodni text / nadpis stranky.
+ * 
+ * ------------
+ * Vlozeno v body.php
+ *
+ * ------------
+ *   20.4.2014
+ *   @version 1.0
+ * 
+-->
+
+
 <div class='bunka'>
     <h1>Výběr studijního oboru na FAV</h1>
     <p>

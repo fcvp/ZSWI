@@ -1,4 +1,16 @@
-
+<!--
+ * vybrana_oblast.php
+ * ---------
+ * Vybrana oblast - nazev oblasti (hlavicka) a klicova slova, obory (telo) v seznamu zvolenych oblasti.
+ * 
+ * ------------
+ * Vlozeno v zobraz_oblast.js
+ *
+ * ------------
+ *   20.4.2014
+ *   @version 1.0
+ * 
+ -->
 
 <div class='oblast' id="oblast_<?php echo $_GET["oblast"];?>">
 

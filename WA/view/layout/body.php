@@ -1,3 +1,18 @@
+<!--
+ * body.php
+ * ---------
+ * Telo aplikace. 
+ * 
+ * ------------
+ * Vlozeno v index.php.
+ *
+ * ------------
+ *   20.4.2014
+ *   @version 1.0
+ * 
+-->
+
+
 
 <div id="page_content">
     <div id="page">

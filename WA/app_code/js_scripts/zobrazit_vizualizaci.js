@@ -1,4 +1,16 @@
-﻿
+﻿/**
+* zobraz_vizualizaci.js
+* -----------------------
+* Zobrazi oblast s grafy a seznamem oboru po stisku tlacitka zobrazit vizualizaci.
+* ------------
+* 
+* Vlozeno v index.php
+* ------------
+*    20.4.2014
+*    @version 1.0
+*/
+
+
 /**
  *	Zobrazí výslednou vizualizaci
  *	 

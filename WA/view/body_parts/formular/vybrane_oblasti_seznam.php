@@ -1,5 +1,17 @@
 <?php
-
+/**
+ * vybrane_oblasti_seznam.php
+ * ---------
+ * Seznam vybranych oblasti a klicovych slov.
+ * 
+ * ------------
+ * Vlozeno v formular.php
+ *
+ * ------------
+ *   20.4.2014
+ *   @version 1.0
+ * 
+ */
 
 
 echo "<div class='bunka noborder' style='padding-bottom: 0px;' id='popis_oblasti'>";

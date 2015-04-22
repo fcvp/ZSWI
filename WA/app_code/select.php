@@ -1,4 +1,20 @@
 <?php
+/**
+ * select.php
+ * -----------------------
+ * Generovani sql dotazu pro vyber dat z DB (select)
+ * 
+ * -----------------------
+ * 
+ * Vlozeno v database.php.
+ * -----------------------
+ * 
+ *    20.4.2014
+ *    @version 1.0
+ */
+
+
+
 
 /**
  * Vrati pole hodnot nactenych z databaze sql dotazem,

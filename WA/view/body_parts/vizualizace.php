@@ -1,3 +1,18 @@
+<!--
+ * vizualizace.php
+ * ---------
+ * Zobrazeni grafu a seznamu oboru.
+ * 
+ * ------------
+ * Vlozeno v zobrazit_vizualizaci.js
+ *
+ * ------------
+ *   20.4.2014
+ *   @version 1.0
+ * 
+-->
+
+
 <div id="vizualizace">
     <div class='menu'>
         <span class='bold'>Zobrazení</span><span class='graf paprskovy actual'>Paprskový graf</span><span class='graf kruhovy'>Kruhový graf</span>

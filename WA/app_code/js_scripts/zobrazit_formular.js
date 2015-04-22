@@ -1,5 +1,18 @@
 ﻿/**
- *	Zobrazí formulář
+* zobrazit_formular.js
+* -----------------------
+* Zobrazi formular pro vybrani klicoveho slova a oblasti. Provede se po vybrani formy a typu studia.
+* ------------
+* 
+* Vlozeno v index.php
+* ------------
+*    20.4.2014
+*    @version 1.0
+*/
+
+
+/**
+ *	Zobrazi formular
  *	
  */
 function zobraz_formular() {

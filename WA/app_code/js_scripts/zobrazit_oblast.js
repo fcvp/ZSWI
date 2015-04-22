@@ -1,3 +1,17 @@
+/**
+* zobrazit_oblast.js
+* -----------------------
+* Pridani/smazani oblasti do/ze seznamu vybranych oblasti, zobrazovane pod formularem,
+* po stisknuti tlacitka vedle vyhledavani (pridat_klicove_slovo), seznamu oblasti (pridat_do_vyberu) 
+* nebo krizku vedle nazvu oblasti v seznamu vybranych oblasti (odeber_oblast)
+* ------------
+* 
+* Vlozeno v index.php
+* ------------
+*    20.4.2014
+*    @version 1.0
+*/
+
 
 /**
  * Přidá oblast do výběru
@@ -90,7 +104,7 @@ function nastav_slovo(id_slova) {
  *	Odebere oblast z výběru
  *	idOblasti - id oblasti, která se má odebrat 
  */
-function odeberOblast(idOblasti) {
+function odeber_oblast(idOblasti) {
    // idOblasti = idOblasti.replace(/\ /g, '_');
     //window.alert(idOblasti);
 

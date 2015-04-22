@@ -1,12 +1,26 @@
 <?php
 
+/**
+ * forma_seznam.php
+ * ---------
+ * Seznam forem studia, zobrazeny v horni casti aplikace.
+ * 
+ * ------------
+ * Vlozeno v body.php
+ *
+ * ------------
+ *   20.4.2014
+ *   @version 1.0
+ * 
+ */
+
+
 echo "<span class='bold'>Forma studia </span>\n";
 echo "<select name=\"forma\" id=\"forma_studia\" onchange=\"zobraz_formular();\">\n";
    echo "<option value=\"0\">--Vyber formu studia--</option>\n";
 
     foreach($result['FORMA']  as $row)
     {
-        //$value = strtoupper(substr($row[1],0,1));
         echo "<option id=\"F_".$row[0]."\" value=\"".$row[1]."\">".$row[1]." </option>\n";
     }
     //Obe formy

@@ -1,4 +1,19 @@
 <?php	
+/**
+ * formular.php
+ * ---------
+ * Formular pro zadani klicovych slov a oblasti a prostor pro zobrazeni vizualizace.
+ * 
+ * ------------
+ * Vlozeno v zobrazit_formular.js
+ *
+ * ------------
+ *   20.4.2014
+ *   @version 1.0
+ * 
+ */
+
+
     /**
      * Zobrazeni formulare pro zadani klicovych slov/oblasti
      * */
@@ -16,7 +31,7 @@
         $_SESSION['forma'] = $_GET["forma"];
 
         // formular
-          require_once(FORM."vyhledani.php");
+          require_once(FORM."vyhledavani.php");
           require_once(FORM."oblasti_seznam.php");
         
           require_once(FORM."vybrane_oblasti_seznam.php");
@@ -29,10 +44,7 @@
           
              //zde se zobrazi vizualizace
           echo "</div>";
-		
-          //naseptavac (js)
-         // echo "<script type=\"text/javascript\" src=\"app_code/js_scripts/naseptavac.js\"></script>";
-         
+
 	}
     
     

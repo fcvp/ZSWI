@@ -1,10 +1,24 @@
 <?php
 /**
- * Definice konstant cest do jednotlivých adresáøù
-
+ * config.php
+ * ---------
+ * Definice konstant cest do jednotlivých adresáøù. 
+ * Pripojeni databazi.
+ * 
+ * ------------
+ * 
+ * Vlozeno v index.php, formular.php, vybrana_oblast.php, generator.php, get_id_slova.php
+ * ------------
+ *   20.4.2014
+ *   @version 1.0
+ * 
  * */
 
-    
+
+/**
+ * Definice konstant cest do jednotlivých adresáøù
+ * */
+
 define('ROOT', $_SERVER['DOCUMENT_ROOT']."/");
 
 
@@ -23,8 +37,6 @@ define('IMAGE',ROOT."image/");
 
 //pripojeni databaze
 require_once(APP_CODE."database.php");
-//nacteni dat
-require_once(APP_CODE."load_data.php");
 
 
 ?>

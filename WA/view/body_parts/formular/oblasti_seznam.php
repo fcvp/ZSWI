@@ -1,5 +1,17 @@
 <?php
-
+/**
+ * oblasti_seznam.php
+ * ---------
+ * Seznam oblasti. Zobrazeno ve formulari.
+ * 
+ * ------------
+ * Vlozeno v formular.php
+ *
+ * ------------
+ *   20.4.2014
+ *   @version 1.0
+ * 
+ */
 
 echo "<br /><br />\n";
 echo "<span class='bold'>Vyberte jednu nebo více oblastí, která vás zajímají, ze seznamu (nepovinné):</span>\n";

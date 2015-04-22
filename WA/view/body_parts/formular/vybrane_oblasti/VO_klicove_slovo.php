@@ -1,3 +1,17 @@
+<!--
+ * VO_souvisejici_obory.php
+ * ---------
+ * Klicova, souvisejici se zvolenymi oblastmi, zobrazene v seznamu vybranych oblasti.
+ * 
+ * ------------
+ * Vlozeno v VO_oblast_telo.php
+ *
+ * ------------
+ *   20.4.2014
+ *   @version 1.0
+ * 
+ -->
+
 <tr>
     <td  id="<?php echo "ks_".$row[0]; ?>" >
         <b><?php echo $row[1]; ?> </b>
