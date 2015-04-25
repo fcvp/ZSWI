@@ -1,0 +1,33 @@
+INSERT INTO `klicove_slovo` (`ID_klicove_slovo`, `Slovo`, `ID_oblast`, `Vyznam`) VALUES
+(11, 'Lineární algebra', 4, 'neco'),
+(12, 'Diskrétní matematika', 4, ''),
+(25, 'Databázové systémy', 6, ''),
+(26, 'Softwarové inženýrství', 6, ''),
+(27, 'Operační systémy', 6, ''),
+(28, 'Programování v C', 6, ''),
+(29, 'Programování v Javě', 6, ''),
+(30, 'Aplikovaná statistika a finance', 10, ''),
+(31, 'Ekonomie', 10, ''),
+(32, 'Správa pozemků', 10, ''),
+(33, 'Kosmická geodézie', 19, ''),
+(34, 'Vizualizace geoinformací', 19, ''),
+(35, 'Fyzikálně-chemické modelování', 5, ''),
+(36, 'Fyzikální měření', 5, '');
+
+INSERT INTO `obor_slovo` (`ID_obor`, `ID_klicove_slovo`, `ID_priorita`) VALUES
+(7, 33, 2),
+(8, 27, 2),
+(8, 28, 2),
+(6, 30, 3),
+(7, 32, 3),
+(9, 25, 3),
+(5, 35, 4),
+(7, 34, 4),
+(8, 11, 4),
+(8, 25, 4),
+(8, 26, 4),
+(5, 36, 5),
+(6, 31, 5),
+(8, 29, 5),
+(13, 11, 5),
+(13, 12, 5);
