@@ -5,3 +5,8 @@
 			pocet++;								  //potřebné pro dělení
 			}
 	procenta = (1-(diference/pocet))*100
+
+----
+
+hodnoceni = 0   -> dif = 0
+hodnoceni = 0.5 -> 

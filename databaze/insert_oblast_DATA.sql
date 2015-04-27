@@ -30,4 +30,3 @@ call insert_oblast('Geometrie');
 
 call insert_oblast('Geomatika');
 
-call insert_oblast('Výpočetní technika');
