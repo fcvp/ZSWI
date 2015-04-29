@@ -51,7 +51,7 @@ function pridat_do_vyberu(hodnota, id_slova) {
     }
 }
 /**
- *	Přidá klíčový termín do výberu (s celou jeho oblastí) a nastaví mu hodnotu 5
+ *	Přidá klíčový termín vybraný ve vyhledávání do výberu (s celou jeho oblastí) a nastaví mu hodnotu 5
  *	klicove_slovo - klíčový termín, který se má přidat do výberu 
  */
 function pridat_klicove_slovo(klicove_slovo) {

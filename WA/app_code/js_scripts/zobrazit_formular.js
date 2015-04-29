@@ -34,7 +34,10 @@ function zobraz_formular() {
             }).done(function (html) {
                 $("#cast1").html(html);
 
-                $("html, body").animate({ scrollTop: 480 }, "fast");
+                //odrolovani k nadpisu "Vyber oblasti"
+                $('html, body').animate({
+                    scrollTop: $("#formular_nadpis").offset().top
+                }, 800);
 
                 $("#submit_oblasti").show();
             });

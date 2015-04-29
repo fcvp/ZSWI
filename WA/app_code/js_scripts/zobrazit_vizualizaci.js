@@ -29,8 +29,9 @@ function vybrat_graf() {
             }
         }).done(function (html) {
             $("#vizualizace").html(html);
+            //odrolovani k tlacitku "zobrazit graf"
             $('html, body').animate({
-                scrollTop: $("#odeslat_formular").offset().top
+                scrollTop: $("#vizualizace_nadpis").offset().top
             }, 800);
         });
 

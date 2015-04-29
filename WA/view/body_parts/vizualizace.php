@@ -12,7 +12,11 @@
  * 
 -->
 
-<!-- <h2 style="text-align: left">vybrané obory</h2> -->
+<h2 style="text-align: left" id="vizualizace_nadpis">Vizualizace oborů</h2> 
+<div style="text-align: left">
+Obory s malým procentem shody jsou zapsány v seznamu pod grafem.
+</div>
+
 <div id="vizualizace">
     <div class='menu'>
        <!--  <span class='bold'>Zobrazení</span> --><span class='graf paprskovy actual'>Sloupcový graf</span><span class='graf kruhovy'>Kruhový graf</span>
