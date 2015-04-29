@@ -1,33 +1,87 @@
-INSERT INTO `klicove_slovo` (`ID_klicove_slovo`, `Slovo`, `ID_oblast`, `Vyznam`) VALUES
-(11, 'Lineární algebra', 4, 'neco'),
-(12, 'Diskrétní matematika', 4, ''),
-(25, 'Databázové systémy', 6, ''),
-(26, 'Softwarové inženýrství', 6, ''),
-(27, 'Operační systémy', 6, ''),
-(28, 'Programování v C', 6, ''),
-(29, 'Programování v Javě', 6, ''),
-(30, 'Aplikovaná statistika a finance', 10, ''),
-(31, 'Ekonomie', 10, ''),
-(32, 'Správa pozemků', 10, ''),
-(33, 'Kosmická geodézie', 19, ''),
-(34, 'Vizualizace geoinformací', 19, ''),
-(35, 'Fyzikálně-chemické modelování', 5, ''),
-(36, 'Fyzikální měření', 5, '');
+INSERT INTO `klicove_slovo` ( `Slovo`, `ID_oblast`, `Vyznam`) VALUES
+( 'matematika', 7, '') ,
+( 'diskrétní matematika', 7, '') ,
+( 'Statistická analýza', 7, '') ,
+( 'statistika a pravděpodobnost', 7, '') ,
+( 'numerické metody', 7, '') ,
+( 'matematická analýza', 7, '') ,
+( 'finanční matematika', 7, '') ,
+( 'finanční teorie', 7, '') ,
+( 'lineární algebra', 7, '') ,
+( 'pojistná matematika', 7, '') ,
+( 'finance', 7, '') ,
+( 'Matematika a její aplikace', 7, '') ,
+( 'učitelství matematiky', 7, '') ,
+( 'symbolicko-numerické výpočty', 7, '') ,
+( 'Jazyk a metody matematiky', 7, '') ,
+( 'Numerické modelování', 7, '') ,
+( 'analýza dat', 7, '') ;
 
+INSERT INTO `klicove_slovo` ( `Slovo`, `ID_oblast`, `Vyznam`) VALUES
+( 'informatika', 9, '') ,
+( 'databázové systémy', 9, '') ,
+( 'multimédia', 9, '') ,
+( 'programování v C', 9, '') ,
+( 'teoretická informatika', 9, '') ,
+( 'programování', 9, '') ,
+( 'softwarové inženýrství', 9, '') ,
+( 'operační systémy', 9, '') ,
+( 'návrh a vývoj programových systémů', 9, '') ,
+( 'objektové programování', 9, '') ,
+( 'algoritmizace', 9, '') ,
+( 'software', 9, '') ,
+( 'programovací techniky', 9, '') ,
+( 'programování v Javě', 9, '') ,
+( 'webové aplikace', 9, '') ,
+( 'Informační systémy', 9, '') ,
+( 'informační technologie', 9, '') ,
+( 'finanční informatika', 9, '') ,
+( 'objektově orientované programování', 9, '') ,
+( 'Finanční informatika a analýza', 9, '') ,
+( 'teorie informace', 9, '') ,
+( 'geoinformatika', 9, '') ;
+
+INSERT INTO `klicove_slovo` ( `Slovo`, `ID_oblast`, `Vyznam`) VALUES
+( 'technika vakua', 8, '') ,
+( 'fyzika pevných látek', 8, '') ,
+( 'fyzikálně-matematické modelování', 8, '') ,
+( 'fyzikálně-chemické modelování', 8, '') ,
+( 'fyzika technologických procesů', 8, '') ,
+( 'tenké vrstvy', 8, '') ,
+( 'fyzikální inženýrství', 8, '') ,
+( 'elektronické systémy', 8, '') ,
+( 'termodynamika', 8, '') ,
+( 'fyzikální měření', 8, '') ,
+( 'analyzační metody', 8, '') ,
+( 'modifikace povrchu', 8, '') ,
+( 'diagnostika plazmatu', 8, '') ,
+( 'plazma materiály', 8, '') ,
+( 'inženýrská fyzika', 8, '') ,
+( 'aplikovaná fyzika', 8, '') ,
+( 'experimentální fyzika', 8, '') ,
+( 'fyzika', 8, '');
+
+
+INSERT INTO `klicove_slovo` ( `Slovo`, `ID_oblast`, `Vyznam`) VALUES
+( 'počítačové sítě', 15, '') ,
+( 'výpočetní systémy', 15, '') ,
+( 'operační systémy', 15, '') ,
+( 'technika', 15, '') ,
+( 'hardware', 15, '') ,
+( 'Počítačová technika', 15, '');
+
+
+
+select id_klicove_slovo into @ks from klicove_slovo where slovo = 'Statistická analýza';
+
+select id_obor into @id from obor where obor_nazev = 'Finanční informatika a statistika';
 INSERT INTO `obor_slovo` (`ID_obor`, `ID_klicove_slovo`, `ID_priorita`) VALUES
-(7, 33, 2),
-(8, 27, 2),
-(8, 28, 2),
-(6, 30, 3),
-(7, 32, 3),
-(9, 25, 3),
-(5, 35, 4),
-(7, 34, 4),
-(8, 11, 4),
-(8, 25, 4),
-(8, 26, 4),
-(5, 36, 5),
-(6, 31, 5),
-(8, 29, 5),
-(13, 11, 5),
-(13, 12, 5);
+(@id, @ks, 2);
+
+select id_obor into @id from obor where obor_nazev = 'Finanční informatika a statistika';
+INSERT INTO `obor_slovo` (`ID_obor`, `ID_klicove_slovo`, `ID_priorita`) VALUES
+(@id, @ks, 2);
+
+
+
+								
