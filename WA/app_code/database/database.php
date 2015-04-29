@@ -57,7 +57,7 @@ if (($_GET["forma"]!=null) and ($_GET["typ"]!=null )){
     $from = $from." JOIN priorita ON obor_slovo.ID_priorita = priorita.ID_priorita";
     $where = $where." AND  (priorita.Hodnota >= 0.5)";
     
-    $result['OBOR'] = select($dbh,"DISTINCT obor_nazev, url, popis, oblast_nazev ",$from, $where,"obor_nazev");
+    $result['OBOR'] = select($dbh,"DISTINCT obor_nazev, url, popis, oblast_nazev, forma_nazev ",$from, $where,"obor_nazev");
     //---------------------
 }    
 

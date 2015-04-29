@@ -17,7 +17,7 @@
 
 echo "<span class='bold'>Typ studia </span>";
 echo "<select name=\"typ\" id=\"typ_studia\" onchange=\"zobraz_formular();\">";
-echo "<option value=\"0\">--Vyber typ studia--</option>";
+//echo "<option value=\"0\">--Vyber typ studia--</option>";
 
     foreach($result['TYP']  as $row)
     {

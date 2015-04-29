@@ -19,6 +19,8 @@
  * id_slova - ID klíčového termínu, kterému se má nastavit hodnota 5   
  **/
 function pridat_do_vyberu(hodnota, id_slova) {
+    oblast_odstran_hlasku();
+
     /** zjisti zda uz oblast neni ve vyberu */
     if ($("#oblast_" + hodnota).length == 0) {
         if (hodnota != 0) {
@@ -45,7 +47,7 @@ function pridat_do_vyberu(hodnota, id_slova) {
         }
     }
     else {
-        $("#hlaska_oblast").html("<span class='red'>Oblast již je ve výběru</span>");
+        $("#hlaska_oblast").html("<span class='red'>Oblast již je ve výběru</span><br>");
     }
 }
 /**

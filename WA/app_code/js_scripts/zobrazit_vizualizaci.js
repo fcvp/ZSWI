@@ -29,6 +29,9 @@ function vybrat_graf() {
             }
         }).done(function (html) {
             $("#vizualizace").html(html);
+            $('html, body').animate({
+                scrollTop: $("#odeslat_formular").offset().top
+            }, 800);
         });
 
         n();

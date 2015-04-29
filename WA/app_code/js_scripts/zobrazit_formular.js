@@ -33,6 +33,9 @@ function zobraz_formular() {
                 }
             }).done(function (html) {
                 $("#cast1").html(html);
+
+                $("html, body").animate({ scrollTop: 480 }, "fast");
+
                 $("#submit_oblasti").show();
             });
 
@@ -41,5 +44,7 @@ function zobraz_formular() {
             $("#loading").fadeOut();
             n();
         });
+
+        
     }
 }

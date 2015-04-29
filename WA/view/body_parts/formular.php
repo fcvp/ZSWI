@@ -12,7 +12,12 @@
  *   @version 1.0
  * 
  */
-
+          
+  echo  "<h2 name=\"form\">Výběr oblastí</h2>";
+   echo "<p>";
+  echo  "      Vyberte, ze seznamu níže oblasti, které Vás baví a rádi by jste je studovali. 
+            Oblast se po výběru zobrazí spolu s klíčovými slovy a názvy oborů. V seznamu můžete upřesnit svoje priority. ";
+  echo  "</p>";
 
     /**
      * Zobrazeni formulare pro zadani klicovych slov/oblasti
@@ -31,11 +36,15 @@
         $_SESSION['forma'] = $_GET["forma"];
 
         // formular
-          require_once(FORM."vyhledavani.php");
           require_once(FORM."oblasti_seznam.php");
-        
+        //  require_once(FORM."vyhledavani.php");
+          
+          echo "<br><hr>";
+          
           require_once(FORM."vybrane_oblasti_seznam.php");
 
+          
+          
           //vizualizace
           require_once(FORM."tlacitko_zobrazit_vizualizaci.php");   
           echo "<div id='vizualizace'>";

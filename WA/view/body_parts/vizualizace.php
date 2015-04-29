@@ -12,12 +12,13 @@
  * 
 -->
 
-
+<!-- <h2 style="text-align: left">vybrané obory</h2> -->
 <div id="vizualizace">
     <div class='menu'>
-        <span class='bold'>Zobrazení</span><span class='graf paprskovy actual'>Paprskový graf</span><span class='graf kruhovy'>Kruhový graf</span>
+       <!--  <span class='bold'>Zobrazení</span> --><span class='graf paprskovy actual'>Sloupcový graf</span><span class='graf kruhovy'>Kruhový graf</span>
     </div>
-    <img src="image/graf_paprskovy.png" id="paprskovy" alt="graf" style="width: 700px" />
+    <BR/>
+    <img src="image/Sloupcovy.BMP" id="paprskovy" alt="graf" style="width: 550px" />
     <img src="image/graf3.bmp" id="kruhovy" alt="graf" style="width: 550px" />
 </div>
 <div class="socialShare">

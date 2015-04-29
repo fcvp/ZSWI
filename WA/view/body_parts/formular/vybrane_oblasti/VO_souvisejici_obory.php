@@ -15,7 +15,7 @@
 <tr>
     <td colspan="2">
         <ul>
-            <li class='bold'><?php echo $row[0]; ?></li>
+            <li class='bold'><?php echo $row[0]." (".$row[4].")" ;  ?></li>
         </ul>
     </td>
 </tr>

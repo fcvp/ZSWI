@@ -16,7 +16,7 @@
 
 
 echo "<span class='bold'>Forma studia </span>\n";
-echo "<select name=\"forma\" id=\"forma_studia\" onchange=\"zobraz_formular();\">\n";
+echo "<select name=\"forma\" autocomplete=\"off\" id=\"forma_studia\" onchange=\"zobraz_formular();\">\n";
    echo "<option value=\"0\">--Vyber formu studia--</option>\n";
 
     foreach($result['FORMA']  as $row)
