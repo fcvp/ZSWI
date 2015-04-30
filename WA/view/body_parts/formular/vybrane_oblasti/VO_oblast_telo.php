@@ -1,3 +1,7 @@
+
+
+
+
 <?php
 /*
  * VO_oblast_telo.php
@@ -12,6 +16,7 @@
  *   @version 1.0
  * 
 */
+
 
 echo "<table class='oblast_telo'>";
 

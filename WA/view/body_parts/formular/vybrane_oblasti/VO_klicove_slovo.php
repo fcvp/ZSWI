@@ -11,12 +11,15 @@
  *   @version 1.0
  * 
  -->
-
+ 
+ 
+    
 <tr>
     <td  id="<?php echo "ks_".$row[0]; ?>" >
         <b><?php echo $row[1]; ?> </b>
     </td>
     <td>
+    
         <?php 
             $vyznam = array(1=>"ne", 2=>"spíše ne", 3=>"nevadí mi", 4=>"spíše ano", 5=>"ano");
             for($j=1; $j<=5; $j++)
@@ -28,6 +31,10 @@
                     echo "<input type='radio' class='klicove_slovo' id=\"ks_".$row[0]."\" name=\"".$_GET['oblast']."_".$i."\" value='".$j."' >".$vyznam[$j]."</input>\n";
                 } 
             }
+            
         ?>
+
+ 
     </td>
 </tr>
+
