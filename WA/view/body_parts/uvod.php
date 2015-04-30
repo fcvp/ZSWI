@@ -26,7 +26,7 @@
         <b>Nemůžete-li se rozhodnout</b>, který obor na FAV máte studovat, možná Vám pomůže tato aplikace. Ná základě Vámi vybraných oblastí a ohodnocení klíčových slov 
         (které charakterizují jednotlivé obory), se zobrazí přehledný <b>graf se seřazenými studijními obory</b>. <br/> <br/> 
         
-        V grafu jsou obory seřazeny podle shody s Vaším výběrem. Pokud si nevyberete nic zobrazí se seznam všech oborů.
+        V grafu jsou obory seřazeny podle shody s Vaším výběrem. Pokud si nevyberete nic, zobrazí se seznam všech oborů.
         </p>
 </div>
 

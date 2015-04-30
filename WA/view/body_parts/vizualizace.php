@@ -39,10 +39,10 @@ Obory s malým procentem shody jsou zapsány v seznamu pod grafem.
 <div style="text-align: left">
     <h2>Ostatní obory: </h2>
     <ul>
-        <li><a href="#">Matematika a finační studie</a></li>
+        <li><a href="#">Matematika a finanční studie</a></li>
         <li><a href="#">Finanční informatika a statistika</a></li>
         <li><a href="#">Matematika a její aplikace</a></li>
-        <li><a href="#">Systémy pro indefikaci, bezpečnost a komunikaci</a></li>
+        <li><a href="#">Systémy pro identifikaci, bezpečnost a komunikaci</a></li>
         <li><a href="#">Informační systémy</a></li>
         <li><a href="#">Výpočetní technika</a></li>
         <li><a href="#">Počítačová grafika a výpočetní systémy</a></li>

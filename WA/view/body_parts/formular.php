@@ -15,7 +15,7 @@
           
   echo  "<h2 id=\"formular_nadpis\">Výběr oblastí</h2>";
    echo "<p>";
-  echo  "      Vyberte, ze seznamu níže oblasti, které Vás baví a rádi by jste je studovali. 
+  echo  "      Vyberte ze seznamu níže oblasti, které Vás baví a rádi byste je studovali. 
             Oblast se po výběru zobrazí spolu s klíčovými slovy a názvy oborů. V seznamu můžete upřesnit svoje priority. ";
   echo  "</p>";
 
