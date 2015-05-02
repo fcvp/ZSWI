@@ -3,7 +3,7 @@ Webová aplikace pro usnadnění výběru oboru budoucím studentům na ZCU
 
 
 /doc
-   - ganttův diagram,  plán 2. iterace
+   - ganttův diagram
    
    /klicova slova
        - .xls soubory s návrhy klíčových slov
