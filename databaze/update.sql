@@ -15,6 +15,8 @@ call update_priorita(1,0,'malá priorita');
 call update_oblast(2, 'Matematika'); 
 
  -- ID_obor, ID_klicove_slovo, ID_obor_novy, ID_klicove_slovo_nove  ID_priorita
-call update_obor_slovo (1,10,1,1, 5);
+call update_obor_slovo (1,10,1,1, 3);
+call update_obor_slovo_2('Informatika', 'programování', 3, 'Prezenční');
+
 
 call update_klicove_slovo(6, 'Matematická analýza', 5, 'Definice, věty, důkazy, integrály, derivace.');

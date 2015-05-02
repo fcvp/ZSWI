@@ -12,5 +12,5 @@ call insert_oblast('Matematika');
 call insert_priorita(1, 'Klíčová oblast');
 call insert_obor_slovo (4,2, 1); -- ID_obor, ID_klicove_slovo, ID_priorita
 
-call insert_klicove_slovo('Programování', 'základy programování v Jave');
+call insert_klicove_slovo('Programování', 'informatika' ,'základy programování v Jave');
 

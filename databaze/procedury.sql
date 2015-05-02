@@ -3,111 +3,6 @@
 /*!40101 SET NAMES utf8 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-CREATE TABLE `forma_studia` ( 
-    `ID_forma` int AUTO_INCREMENT NOT NULL, 
-    `Forma_nazev` varchar(50) NOT NULL,  
-    PRIMARY KEY (`ID_forma`)
-) ENGINE=InnoDB  AUTO_INCREMENT=4  COLLATE=utf8_general_ci ;
-CREATE UNIQUE INDEX `UQ_Forma_studia_Forma_nazev` ON `forma_studia` (`Forma_nazev`);
-CREATE UNIQUE INDEX `UQ_Forma_studia_ID_forma` ON `forma_studia` (`ID_forma`);
-CREATE TABLE `klicove_slovo` ( 
-    `ID_klicove_slovo` int AUTO_INCREMENT NOT NULL, 
-    `Slovo` varchar(100) NOT NULL, 
-    `ID_oblast` int NOT NULL, 
-    `Vyznam` text NOT NULL,  
-    PRIMARY KEY (`ID_klicove_slovo`)
-) ENGINE=InnoDB  AUTO_INCREMENT=11  COLLATE=utf8_general_ci ;
-CREATE UNIQUE INDEX `UQ_Klicove_slovo_ID_klicove_slovo` ON `klicove_slovo` (`ID_klicove_slovo`);
-CREATE UNIQUE INDEX `UQ_Klicove_slovo_Slovo` ON `klicove_slovo` (`Slovo`);
-CREATE INDEX `ID_oblast` ON `klicove_slovo` (`ID_oblast`);
-CREATE TABLE `oblast` ( 
-    `ID_oblast` int AUTO_INCREMENT NOT NULL, 
-    `Oblast_nazev` varchar(100) NOT NULL,  
-    PRIMARY KEY (`ID_oblast`)
-) ENGINE=InnoDB  AUTO_INCREMENT=4  COLLATE=utf8_general_ci ;
-CREATE UNIQUE INDEX `UQ_Oblast_ID_oblast` ON `oblast` (`ID_oblast`);
-CREATE UNIQUE INDEX `UQ_Oblast_Oblast_nazev` ON `oblast` (`Oblast_nazev`);
-CREATE TABLE `obor` ( 
-    `ID_obor` int AUTO_INCREMENT NOT NULL, 
-    `Obor_nazev` varchar(255) NOT NULL, 
-    `Url` varchar(255) NOT NULL, 
-    `Popis` text NULL, 
-    `ID_typ` int NOT NULL, 
-    `ID_forma` int NOT NULL,  
-    PRIMARY KEY (`ID_obor`)
-) ENGINE=InnoDB  AUTO_INCREMENT=5  COLLATE=utf8_general_ci ;
-CREATE UNIQUE INDEX `UQ_Obor_ID_obor` ON `obor` (`ID_obor`);
-CREATE UNIQUE INDEX `UQ_id_typ_id_forma` ON `obor` (`ID_typ`,`ID_forma`,`Obor_nazev`);
-CREATE INDEX `ID_forma` ON `obor` (`ID_forma`);
-CREATE INDEX `ID_typ` ON `obor` (`ID_typ`);
-CREATE TABLE `obor_slovo` ( 
-    `ID_obor` int NOT NULL, 
-    `ID_klicove_slovo` int NOT NULL, 
-    `ID_priorita` int NOT NULL,  
-    PRIMARY KEY (`ID_obor`, `ID_klicove_slovo`)
-) ENGINE=InnoDB  COLLATE=utf8_general_ci ;
-CREATE UNIQUE INDEX `UQ_OborSlovo_ID_obor_ID_slovo` ON `obor_slovo` (`ID_obor`,`ID_klicove_slovo`);
-CREATE INDEX `ID_klicove_slovo` ON `obor_slovo` (`ID_klicove_slovo`);
-CREATE INDEX `ID_obor` ON `obor_slovo` (`ID_obor`);
-CREATE INDEX `ID_priorita` ON `obor_slovo` (`ID_priorita`);
-CREATE TABLE `priorita` ( 
-    `ID_priorita` int AUTO_INCREMENT NOT NULL, 
-    `Hodnota` float NOT NULL, 
-    `Poznamka` varchar(200) NOT NULL,  
-    PRIMARY KEY (`ID_priorita`)
-) ENGINE=InnoDB  AUTO_INCREMENT=6  COLLATE=utf8_general_ci ;
-CREATE UNIQUE INDEX `UQ_Priorita_Hodnota` ON `priorita` (`Hodnota`);
-CREATE UNIQUE INDEX `UQ_Priorita_ID_priorita` ON `priorita` (`ID_priorita`);
-CREATE TABLE `typ_studia` ( 
-    `ID_typ` int AUTO_INCREMENT NOT NULL, 
-    `Typ_nazev` varchar(50) NOT NULL,  
-    PRIMARY KEY (`ID_typ`)
-) ENGINE=InnoDB  AUTO_INCREMENT=3  COLLATE=utf8_general_ci ;
-CREATE UNIQUE INDEX `UQ_Typ_studia_Typ_nazev` ON `typ_studia` (`Typ_nazev`);
-CREATE UNIQUE INDEX `UQ_Typ_studia_ID_typ` ON `typ_studia` (`ID_typ`);
-INSERT INTO `obor_slovo` (`ID_obor`, `ID_klicove_slovo`, `ID_priorita`) VALUES
-(2, 10, 1),
-(3, 10, 1),
-(4, 10, 5);
-INSERT INTO `priorita` (`ID_priorita`, `Hodnota`, `Poznamka`) VALUES
-(1, 0, 'malá priorita'),
-(2, 0.25, '2'),
-(4, 0.75, '4'),
-(5, 1, '5 - klíčová');
-INSERT INTO `typ_studia` (`ID_typ`, `Typ_nazev`) VALUES
-(2, 'Kombinované'),
-(1, 'Prezenční');
-INSERT INTO `obor` (`ID_obor`, `Obor_nazev`, `Url`, `Popis`, `ID_typ`, `ID_forma`) VALUES
-(1, 'Informatika', 'http://fav.zcu.cz/pro-uchazece/bakalarske-studium/informatika/', 'Obor je určen pro studenty, kteří chtějí získat teoretický základ i praktické 
-    znalosti v informatice.', 2, 1),
-(2, 'Matematika', 'http://fav.zcu.cz/pro-uchazece/bakalarske-studium/informatika/', 'Obor je určen pro studenty, kteří chtějí získat teoretický základ i praktické 
-    znalosti v informatice.', 1, 1),
-(3, 'Matematika', 'http://fav.zcu.cz/pro-uchazece/bakalarske-studium/informatika/', 'Obor je určen pro studenty, kteří chtějí získat teoretický základ i praktické 
-    znalosti v informatice.', 1, 2),
-(4, 'Kybernetika', 'http://fav.zcu.cz/pro-uchazece/bakalarske-studium/informatika/', 'Obor je určen pro studenty, kteří chtějí získat teoretický základ i praktické 
-    znalosti v informatice.', 2, 2);
-INSERT INTO `forma_studia` (`ID_forma`, `Forma_nazev`) VALUES
-(1, 'Bakalářské'),
-(3, 'Doktorské'),
-(2, 'Navazující');
-INSERT INTO `klicove_slovo` (`ID_klicove_slovo`, `Slovo`, `ID_oblast`, `Vyznam`) VALUES
-(1, 'Programování v C', 1, ''),
-(2, 'Programování v Javě', 2, ''),
-(3, 'Matematika', 2, ''),
-(4, 'Databázové systémy', 2, ''),
-(5, 'Matematická analýza', 3, ''),
-(6, 'Statistika', 3, ''),
-(10, 'Lineární algebra', 2, 'Definice, věty, důkazy, integrály, derivace.');
-INSERT INTO `oblast` (`ID_oblast`, `Oblast_nazev`) VALUES
-(2, 'Informatika'),
-(3, 'Matematika'),
-(1, 'NEZAŘAZENO');
-ALTER TABLE `klicove_slovo` ADD CONSTRAINT `FK_Klicove_slovo_Oblast` FOREIGN KEY (`ID_oblast`) REFERENCES `oblast`(`ID_oblast`) ON DELETE CASCADE;
-ALTER TABLE `obor` ADD CONSTRAINT `FK_Obor_Forma_studia` FOREIGN KEY (`ID_forma`) REFERENCES `forma_studia`(`ID_forma`) ON DELETE CASCADE;
-ALTER TABLE `obor` ADD CONSTRAINT `FK_Obor_Typ_studia` FOREIGN KEY (`ID_typ`) REFERENCES `typ_studia`(`ID_typ`) ON DELETE CASCADE;
-ALTER TABLE `obor_slovo` ADD CONSTRAINT `FK_OborSlovo_Klicove_slovo` FOREIGN KEY (`ID_klicove_slovo`) REFERENCES `klicove_slovo`(`ID_klicove_slovo`) ON DELETE CASCADE;
-ALTER TABLE `obor_slovo` ADD CONSTRAINT `FK_OborSlovo_Obor` FOREIGN KEY (`ID_obor`) REFERENCES `obor`(`ID_obor`) ON DELETE CASCADE;
-ALTER TABLE `obor_slovo` ADD CONSTRAINT `FK_OborSlovo_Priorita` FOREIGN KEY (`ID_priorita`) REFERENCES `priorita`(`ID_priorita`) ON DELETE CASCADE;
 DELIMITER ;;
 /*!50010 CREATE  PROCEDURE `insert_forma`(forma_nazev varchar(50) )
 BEGIN
@@ -145,6 +40,48 @@ BEGIN
 END*/;;
 DELIMITER ;
 DELIMITER ;;
+/*!50010 CREATE  PROCEDURE `insert_klicove_slovo`(slovo VARCHAR(255), oblast varchar(50), vyznam TEXT)
+BEGIN
+
+
+    DECLARE exit handler for sqlexception
+  	BEGIN
+   		 -- ERROR
+   		-- SELECT 'sqlexception';
+   		GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+
+  		ROLLBACK;
+	END;
+	
+	DECLARE exit handler for sqlwarning
+	 BEGIN
+  		  -- WARNING
+  	    -- SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
+  	    GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+		
+ 	 	ROLLBACK;
+	END;
+	
+ 	START TRANSACTION;
+ 	
+ 		select id_oblast into @id from oblast where oblast.oblast_nazev = oblast_nazev;
+ 		
+		INSERT INTO klicove_slovo (Slovo, Vyznam, ID_oblast) VALUES (
+		     slovo, 
+		     vyznam,
+		     @id
+		);
+	COMMIT; 
+
+END*/;;
+DELIMITER ;
+DELIMITER ;;
 /*!50010 CREATE  PROCEDURE `insert_oblast`(oblast_nazev varchar(50) )
 BEGIN
     DECLARE exit handler for sqlexception
@@ -177,50 +114,6 @@ BEGIN
 		    oblast_nazev -- Oblast_nazev
 		);
 
-	COMMIT; 
-
-END*/;;
-DELIMITER ;
-DELIMITER ;;
-/*!50010 CREATE  PROCEDURE `insert_klicove_slovo`(slovo VARCHAR(255), vyznam TEXT)
-BEGIN
-
-
-    DECLARE exit handler for sqlexception
-  	BEGIN
-   		 -- ERROR
-   		-- SELECT 'sqlexception';
-   		GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
- 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
-		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
-		SELECT @full_error;
-
-  		ROLLBACK;
-	END;
-	
-	DECLARE exit handler for sqlwarning
-	 BEGIN
-  		  -- WARNING
-  	    -- SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
-  	    GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
- 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
-		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
-		SELECT @full_error;
-		
- 	 	ROLLBACK;
-	END;
-	
- 	START TRANSACTION;
- 	
- 		IF((SELECT ID_oblast FROM oblast o WHERE Oblast_nazev = 'NEZAŘAZENO') is null) then
- 			 call insert_oblast('NEZAŘAZENO');
- 		end IF;
- 		
-		INSERT INTO klicove_slovo (Slovo, Vyznam, ID_oblast) VALUES (
-		     slovo, 
-		     vyznam,
-		     (SELECT ID_oblast FROM oblast o WHERE oblast_nazev = 'NEZAŘAZENO') -- ID_oblast (DEFAULT)
-		);
 	COMMIT; 
 
 END*/;;
@@ -676,6 +569,49 @@ BEGIN
 		    os.ID_obor = id_obor
 		    AND os.ID_klicove_slovo = id_klicove_slovo;
 
+	COMMIT; 
+
+END*/;;
+DELIMITER ;
+DELIMITER ;;
+/*!50010 CREATE  PROCEDURE `update_obor_slovo_2`(obor_nazev VARCHAR(255), slovo VARCHAR(255), priorita int, forma varchar(100))
+BEGIN
+	DECLARE ks varchar(200);
+	DECLARE id varchar(200);
+	
+    DECLARE exit handler for sqlexception
+  	BEGIN
+   		 -- ERROR
+   		-- SELECT 'sqlexception';
+   		GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+
+  		ROLLBACK;
+	END;
+	
+	DECLARE exit handler for sqlwarning
+	 BEGIN
+  		  -- WARNING
+  	    -- SELECT 'sqlwarning: zkontrolujte sql dotaz nebo vstupni data.';
+  	    GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+ 		@errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		SET @full_error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		SELECT @full_error;
+		
+ 	 	ROLLBACK;
+	END;
+	
+ 	START TRANSACTION;
+ 	    
+ 		select id_klicove_slovo into @ks from klicove_slovo where klicove_slovo.slovo = slovo;
+		
+		select id_obor into @id from obor where obor.obor_nazev = obor_nazev and forma_nazev=forma;
+		
+		INSERT INTO obor_slovo (ID_obor, ID_klicove_slovo, ID_priorita) VALUES
+		(@id, @ks, priorita);
+		
 	COMMIT; 
 
 END*/;;
