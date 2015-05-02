@@ -15,18 +15,18 @@
 <table class='oblast_hlavicka'>
     <tr>
         <td style='width: 20px;'>
-            <img src='image/cross.png' alt='Odebrat oblast' title='Odebrat oblast' class='odebrat_oblast' onclick="odeber_oblast('oblast_<?php echo $_GET["oblast"];?>');" />
+            <img src='image/cross.png' alt='Odebrat oblast' title='Odebrat oblast' class='odebrat_oblast' onclick="odeber_oblast('<?php echo "".$_GET["id_vybrana_oblast"];?>');" />
         </td>
         <td>
             <b>
-                <?php echo $_GET["oblast"];?>
+                <?php echo $_GET["oblast"];    ?>
             </b>
         </td>
         <td>
             <?php 
             $pocet_slov=0;
             foreach ($result['KLICOVE_SLOVO'] as $row) {
-                if(normalize_str($row[3])==$_GET['oblast'])
+                if(/*normalize_str*/($row[3])==$_GET['oblast'])
                 {
                     $klicova_slova[$pocet_slov]=$row;
                     $pocet_slov++;

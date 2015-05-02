@@ -37,13 +37,11 @@
 
         // formular
           require_once(FORM."oblasti_seznam.php");
-        //  require_once(FORM."vyhledavani.php");
           
           echo "<br><hr>";
           
           require_once(FORM."vybrane_oblasti_seznam.php");
 
-          
           
           //vizualizace
           require_once(FORM."tlacitko_zobrazit_vizualizaci.php");   

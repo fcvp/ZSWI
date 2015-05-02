@@ -12,9 +12,11 @@
  * 
  -->
 
-<div class='oblast' id="oblast_<?php echo $_GET["oblast"];?>">
+<div class='oblast' id="<?php echo "vybrana_".$_GET["id_vybrana_oblast"];?>">
+    
 
     <?php
+
     session_start();
 
     $_GET["typ"] = $_SESSION['typ'];

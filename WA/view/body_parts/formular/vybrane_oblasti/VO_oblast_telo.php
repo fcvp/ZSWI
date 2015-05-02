@@ -30,8 +30,10 @@ foreach ($klicova_slova as $row) {
 echo "<tr>";
     echo "<td>";
     echo "<br><label><b>Souvisejici obory:</b></label>";
+    
+        //
         foreach ($result['OBOR'] as $row) {
-            if(normalize_str($row[3])==$_GET['oblast'])
+            if(/*normalize_str*/($row[3])==$_GET['oblast'])
             {
                 require(VYBRANE_OBLASTI."VO_souvisejici_obory.php");
             }

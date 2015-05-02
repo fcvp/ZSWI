@@ -18,10 +18,11 @@ Obory s malým procentem shody jsou zapsány v seznamu pod grafem.
 </div>
 
 <div id="vizualizace">
+    <br/>
     <div class='menu'>
        <!--  <span class='bold'>Zobrazení</span> --><span class='graf paprskovy actual'>Sloupcový graf</span><span class='graf kruhovy'>Kruhový graf</span>
     </div>
-    <BR/>
+    <br/><br/>
     <img src="image/Sloupcovy.BMP" id="paprskovy" alt="graf" style="width: 550px" />
     <img src="image/graf3.bmp" id="kruhovy" alt="graf" style="width: 550px" />
 </div>

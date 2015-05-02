@@ -15,112 +15,69 @@
 
 /**
  * Přidá oblast do výběru
- * hodnota - Označní oblasti
- * id_slova - ID klíčového termínu, kterému se má nastavit hodnota 5   
+
+ * @param nazev_oblast - Označní oblasti 
  **/
-function pridat_do_vyberu(hodnota, id_slova) {
-    oblast_odstran_hlasku();
+function pridat_do_vyberu(nazev_oblast) {
+    var id_oblast = $('select').find('option').filter(function () {
+        return $.trim($(this).text()) === nazev_oblast;
+    }).attr('id');
 
-    /** zjisti zda uz oblast neni ve vyberu */
-    if ($("#oblast_" + hodnota).length == 0) {
-        if (hodnota != 0) {
-            $("#posledni_cast").html("");
-            $("#hlaska_oblast").html("<img src='image/loading.gif' alt='' />");
-            $.ajax({
-                url: "view/body_parts/formular/vybrane_oblasti/vybrana_oblast.php",
-                type: 'GET',
-                data: { oblast: hodnota },
-                cache: false,
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    $("#hlaska_oblast").html("<span class='red'>Při načítání došlo k chybě</span>");
-                }
-            }).done(function (html) {
-                if ($("#popis_oblasti").is(":hidden")) {
-                    $("#popis_oblasti").show();
-                    $("#submit_oblasti").show();
-                }
-                $("#oblasti").prepend(html);
-                $("#hlaska_oblast").html("Oblast byla přidána do výběru.");
+    //window.alert(nazev_oblast);
 
-                if (id_slova != "") nastavSlovo(id_slova);
-            });
-        }
-    }
-    else {
-        $("#hlaska_oblast").html("<span class='red'>Oblast již je ve výběru</span><br>");
-    }
-}
-/**
- *	Přidá klíčový termín vybraný ve vyhledávání do výberu (s celou jeho oblastí) a nastaví mu hodnotu 5
- *	klicove_slovo - klíčový termín, který se má přidat do výberu 
- */
-function pridat_klicove_slovo(klicove_slovo) {
-    var id = "0";
-    $.ajax({
-        url: "app_code/get_id_slova.php",
-        data: { slovo: klicove_slovo },
-        cache: false,
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $("#hlaska_klicove_slovo").html("<span class='red'>Při načítání došlo k chybě</span>");
-        }
-    }).done(function (html) {
-        id = html;
 
-        if (id == 0) {
-            $("#hlaska_klicove_slovo").html("<span class='red'>Zadaný klíčový termín nebyl nalezen</span>");
+    if (nazev_oblast != 0) {
+        /** zjisti zda uz oblast neni ve vyberu */
+        if ($("#vybrana_" + id_oblast).length == 0) {
+        
+            if (id_oblast != 0) {
+                $("#posledni_cast").html("");
+                $("#hlaska_oblast").html("<img src='image/loading.gif' alt='' />");
+                $.ajax({
+                    url: "view/body_parts/formular/vybrane_oblasti/vybrana_oblast.php",
+                    type: 'GET',
+                    data: { oblast: nazev_oblast, id_vybrana_oblast: id_oblast },
+                    cache: false,
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        $("#hlaska_oblast").html("<span class='red'>Při načítání došlo k chybě</span>");
+                    }
+                }).done(function (html) {
+                    if ($("#popis_oblasti").is(":hidden")) {
+                        $("#popis_oblasti").show();
+                        $("#submit_oblasti").show();
+                    }
+                    $("#oblasti").prepend(html);
+                    $("#hlaska_oblast").html("Oblast "+ nazev_oblast +" byla přidána do výběru.");
+                    $("#hlaska").html(id);
+                });
+            }
         }
         else {
-            var split = id.split("-");
-           
-
-            var oblast = split[1];
-            var id_slova = split[0];
-           // $("#hlaska_klicove_slovo").html("id: "+id);
-
-           
-            if ($("#ks_" + id_slova).length == 0) {
-                pridat_do_vyberu(oblast, id_slova);
-            }
-            else {
-                nastav_slovo(id_slova)
-            }
-
-            $("#hlaska_klicove_slovo").html("Priorita u zadaného klíčového termínu byla nastavena na \"ano\"");
-
+            $("#hlaska_oblast").html("<span class='red'>Oblast již je ve výběru</span><br>");
         }
-    });
-}
 
-/**
- *	Nastaví klíčovému termínu hodnotu 5
- *	id_slova - id klíčového termínu
- */
-function nastav_slovo(id_slova) {
-    var policka = $('input:radio[id=ks_' + id_slova + ']');
-    policka.filter('[value=5]').prop('checked', true);
+        $("#zvolena_oblast").val("0");
 
+    }
 }
 
 
 /**
  *	Odebere oblast z výběru
- *	idOblasti - id oblasti, která se má odebrat 
+ *	id_oblast - id oblasti, která se má odebrat 
  */
-function odeber_oblast(idOblasti) {
-   // idOblasti = idOblasti.replace(/\ /g, '_');
-    //window.alert(idOblasti);
+function odeber_oblast(id_oblast) {
 
     $("#posledni_cast").html("");
 
-
-    $("#" + idOblasti).detach();
+    $("#vybrana_" + id_oblast).detach();
+    
     $("#hlaska_oblast").html("<span class='red'>Oblast byla z výběru odebrána</span>");
 
     var pocet = $("div.oblast").length;
 
     if (pocet == 0) {
         $("#popis_oblasti").hide();
-        //$("#submit_oblasti").hide();
     }
 }
 /**
@@ -133,9 +90,9 @@ function oblast_odstran_hlasku() {
 /**
  *	Odstraní zobrazenou hlášku
  */
-function klicove_slovo_odstran_hlasku() {
-    $("#hlaska_klicove_slovo").html("");
-}
+//function klicove_slovo_odstran_hlasku() {
+//    $("#hlaska_klicove_slovo").html("");
+//}
 
 
 
