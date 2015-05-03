@@ -9,7 +9,7 @@
  * 
  * Vlozeno v index.php, formular.php, vybrana_oblast.php, generator.php, get_id_slova.php
  * ------------
- *   20.4.2014
+ *   20.4.2015
  *   @version 1.0
  * 
  * */
@@ -39,9 +39,10 @@ define('VIEW',ROOT."view/");
         define('FORM',BODY."formular/");
             //casti seznamu vybranych oblasti
             define('VYBRANE_OBLASTI',FORM."vybrane_oblasti/");
-
-//naseptavac
-define('AUTOSUGGEST',ROOT."autosuggest/");           
+        //casti vizualizace
+        define('VIZUALIZACE',BODY."vizualizace/");   
+           //vykresleni grafu
+           define('GRAF',VIZUALIZACE."graf/");   
 
 //obrazky
 define('IMAGE',ROOT."image/");

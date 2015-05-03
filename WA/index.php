@@ -1,7 +1,7 @@
 <!-- 
     index.php
     -----------
-    17.4.2014
+    17.4.2015
     @version 1.0
 -->
 
@@ -11,7 +11,7 @@
     <!-- meta  -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <meta http-equiv="content-language" content="cs" />
-    <meta name="generator" content="PSPad editor, www.pspad.com" />
+    <!-- <meta name="generator" content="PSPad editor, www.pspad.com" /> -->
     <!--/meta  -->
 
     <!-- css  -->
@@ -20,6 +20,7 @@
 
     <!-- js  -->
     <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
   
     <script type="text/javascript" src="app_code/js_scripts/zobrazit_formular.js"></script>
     <script type="text/javascript" src="app_code/js_scripts/zobrazit_vizualizaci.js"></script>

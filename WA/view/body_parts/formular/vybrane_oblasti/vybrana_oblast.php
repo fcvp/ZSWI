@@ -7,7 +7,7 @@
  * Vlozeno v zobraz_oblast.js
  *
  * ------------
- *   20.4.2014
+ *   20.4.2015
  *   @version 1.0
  * 
  -->

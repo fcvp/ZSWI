@@ -1,6 +1,6 @@
 <?php
 /**
- * get_zobrazena_slova.php
+ * graf_priprava_dat.php
  * ---------
  * Vyber zobrazenych klicovych slov.
  * 
@@ -8,7 +8,7 @@
  * Vlozeno ve vizualizace.php
  *
  * ------------
- *   20.4.2014
+ *   3.5.2015
  *   @version 1.0
  * */
 
@@ -28,7 +28,6 @@ function get_zobrazena_slova($id_slova_arr, $klicova_slova_arr)
  
     $zobrazena_slova = array();
     $delka = count($klicova_slova_arr);
-  //  $delka_radek = count($result_obor_slovo[0]);
    
     $k=0;
     for($j=0; $j<$delka;$j++)
@@ -48,6 +47,8 @@ function get_zobrazena_slova($id_slova_arr, $klicova_slova_arr)
 * Seradi pole podle zvoleneho klice
 * @param klic - cislo sloupce, podle ktereho se bude radit
 * @param pole - razene vicerozmerne pole
+*
+* @return serazene pole
 */
 function multisort($klic, $pole )
 {
@@ -55,7 +56,7 @@ function multisort($klic, $pole )
         $sloupec[$key] = $row[$klic];
    }
     
-   array_multisort($sloupec, SORT_DESC, $pole);
+   array_multisort($sloupec, SORT_ASC, $pole);
    
    return  $pole;
 }

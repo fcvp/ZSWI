@@ -7,7 +7,7 @@
 * 
 * Vlozeno v VO_oblast_telo.php
 * ------------
-*    21.4.2014
+*    21.4.2015
 *    @version 1.0
 */
 

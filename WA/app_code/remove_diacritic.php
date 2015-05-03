@@ -4,7 +4,7 @@
  * -----------------------
  * odstraneni diakritiky a mezer a dalsich znaku z retezce.
  *
- *    20.4.2014
+ *    20.4.2015
  *    @version 1.0
  */
 
