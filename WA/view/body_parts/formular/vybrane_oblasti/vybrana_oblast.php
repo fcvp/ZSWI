@@ -27,6 +27,9 @@
     
     include(VYBRANE_OBLASTI."VO_oblast_hlavicka.php");
     include(VYBRANE_OBLASTI."VO_oblast_telo.php");
+    
+    
+    
     ?>
 
 

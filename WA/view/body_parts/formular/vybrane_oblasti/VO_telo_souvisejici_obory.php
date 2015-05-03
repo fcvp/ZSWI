@@ -1,5 +1,5 @@
 <!--
- * VO_souvisejici_obory.php
+ * VO_telo_souvisejici_obory.php
  * ---------
  * Obory, souvisejici se zvolenymi klicovymi slovy, zobrazene v seznamu vybranych oblasti.
  * 

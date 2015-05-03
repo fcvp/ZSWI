@@ -42,8 +42,8 @@ function select($dbh, $sloupce, $tabulka, $where, $order_by )
     
     //-----------------------------------
     try{
-        $result =  $dbh->query($query);
-        $data = $result->fetchAll(PDO::FETCH_BOTH);
+         $result =  $dbh->query($query);
+         $data = $result->fetchAll(PDO::FETCH_NUM);
     }
     catch (PDOException $e) {
         echo "Error!: " . $e->getMessage() . "<br/>";

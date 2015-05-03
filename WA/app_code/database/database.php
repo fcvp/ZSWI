@@ -25,9 +25,13 @@ require_once(APP_CODE."remove_diacritic.php");
 $result['FORMA'] = select($dbh,"*", "forma_studia",null,"id_forma");
 $result['TYP'] = select($dbh,"*", "typ_studia",null,"id_typ");
 
+$delka = count($result['FORMA'][0]);
+
+
 //---------------------
 //seznam oblasti filtrovany podle formy a typu
 if (($_GET["forma"]!=null) and ($_GET["typ"]!=null )){
+
     $from ="oblast JOIN
               klicove_slovo ON oblast.ID_oblast = klicove_slovo.ID_oblast JOIN
               obor_slovo ON klicove_slovo.ID_klicove_slovo = obor_slovo.ID_klicove_slovo JOIN
@@ -58,6 +62,9 @@ if (($_GET["forma"]!=null) and ($_GET["typ"]!=null )){
     $where = $where." AND  (priorita.Hodnota >= 0.5)";
     
     $result['OBOR'] = select($dbh,"DISTINCT obor_nazev, url, popis, oblast_nazev, forma_nazev ",$from, $where,"obor_nazev");
+    
+    $result['OBOR_SLOVO'] = select($dbh,"DISTINCT klicove_slovo.id_klicove_slovo, Slovo, obor_nazev, priorita.hodnota",$from, $where,"klicove_slovo.id_klicove_slovo");
+    
     //---------------------
 }    
 

@@ -23,7 +23,7 @@ echo "<table class='oblast_telo'>";
 //vypisujeme jenom klicova slova a obory z dane oblasti
 $i=0;
 foreach ($klicova_slova as $row) {
-    require(VYBRANE_OBLASTI."VO_klicove_slovo.php");
+    require(VYBRANE_OBLASTI."VO_telo_klicove_slovo.php");
     $i++;
 }
 
@@ -33,9 +33,9 @@ echo "<tr>";
     
         //
         foreach ($result['OBOR'] as $row) {
-            if(/*normalize_str*/($row[3])==$_GET['oblast'])
+            if(($row[3])==$_GET['oblast'])
             {
-                require(VYBRANE_OBLASTI."VO_souvisejici_obory.php");
+                require(VYBRANE_OBLASTI."VO_telo_souvisejici_obory.php");
             }
         }
     echo "</td>";

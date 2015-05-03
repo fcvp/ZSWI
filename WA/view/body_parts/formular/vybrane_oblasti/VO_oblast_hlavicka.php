@@ -19,14 +19,18 @@
         </td>
         <td>
             <b>
-                <?php echo $_GET["oblast"];    ?>
+                <?php 
+               // session_start();
+ 
+                echo $_GET["oblast"];    ?>
             </b>
         </td>
         <td>
             <?php 
             $pocet_slov=0;
+            $klicova_slova = array();
             foreach ($result['KLICOVE_SLOVO'] as $row) {
-                if(/*normalize_str*/($row[3])==$_GET['oblast'])
+                if(($row[3])==$_GET['oblast'])
                 {
                     $klicova_slova[$pocet_slov]=$row;
                     $pocet_slov++;
@@ -42,7 +46,6 @@
                 else{
                     echo "<input type='radio' class='klicove_slovo'  name=\"".$_GET['oblast']."\" value='".$j."' >".$vyznam[$j]."</input>\n";
                 }
-                
             }
             
             ?>

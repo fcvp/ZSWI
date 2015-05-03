@@ -11,11 +11,15 @@
  *   @version 1.0
  * 
 -->
+<label id="lab_viz"></label>
+
 
 <h2 style="text-align: left" id="vizualizace_nadpis">Vizualizace oborů</h2> 
 <div style="text-align: left">
 Obory s malým procentem shody jsou zapsány v seznamu pod grafem.
 </div>
+
+<label id="viz" name="viz"></label>
 
 <div id="vizualizace">
     <br/>
@@ -47,9 +51,58 @@ Obory s malým procentem shody jsou zapsány v seznamu pod grafem.
         <li><a href="#">Informační systémy</a></li>
         <li><a href="#">Výpočetní technika</a></li>
         <li><a href="#">Počítačová grafika a výpočetní systémy</a></li>
-
-
     </ul>
+    
+    <?php
+    
+     session_start();
+
+    $_GET["typ"] = $_SESSION['typ'];
+    $_GET["forma"] =  $_SESSION['forma'];
+
+    
+    require_once($_SERVER['DOCUMENT_ROOT']."/app_code/config.php"); 
+    require_once($_SERVER['DOCUMENT_ROOT']."/app_code/graf_priprava_dat.php"); 
+    
+    //-----------------------------
+  
+   //seznam zobrazenych klicovych slov
+   // $id_slovo = $_GET['id_klicova_slova'][0];
+   // $hodnoceni = $_GET['klicova_slova_hodnota'][0];
+   
+    $delka = count($result['OBOR_SLOVO']);
+    $delka_radek = count($result['OBOR_SLOVO'][0]);
+    
+    //-----------------------------
+
+    $zobrazena_slova = get_zobrazena_slova($_GET['id_klicova_slova'],$result['OBOR_SLOVO']);
+    
+    //------------
+    $delka = count($zobrazena_slova);
+    $delka_radek = count($zobrazena_slova[0]);
+        
+    //razeni podle oboru
+    //foreach ($zobrazena_slova as $key => $row) {
+    //    $obor_nazev[$key] = $row[2];
+    //}
+    
+    //array_multisort($obor_nazev, SORT_DESC, $zobrazena_slova);
+    multisort(2, $zobrazena_slova );
+    
+    for($j=0; $j<$delka;$j++)
+    {
+        if($j>0 && $zobrazena_slova[$j][2] != $zobrazena_slova[$j-1][2])
+        {
+               echo "<br>";
+        }
+        for($i=0; $i<$delka_radek; $i++)
+        {
+            echo $zobrazena_slova[$j][$i]."   ";
+        }
+        echo "<br>";
+    }
+   
+    ?>
 
 </div>
 

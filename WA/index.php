@@ -16,15 +16,11 @@
 
     <!-- css  -->
     <link rel="stylesheet" href="style.css" />
-    <!-- <link rel="stylesheet" href="autosuggest/autosuggest_inquisitor.css" type="text/css" media="screen" /> -->
     <!-- /css  -->
 
     <!-- js  -->
     <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
-    <!-- <script type="text/javascript" src="autosuggest/autos.js" charset="utf-8"></script> -->
-    
-
-
+  
     <script type="text/javascript" src="app_code/js_scripts/zobrazit_formular.js"></script>
     <script type="text/javascript" src="app_code/js_scripts/zobrazit_vizualizaci.js"></script>
     <script type="text/javascript" src="app_code/js_scripts/zobrazit_oblast.js"></script>

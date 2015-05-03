@@ -37,6 +37,7 @@ function pridat_do_vyberu(nazev_oblast) {
                     url: "view/body_parts/formular/vybrane_oblasti/vybrana_oblast.php",
                     type: 'GET',
                     data: { oblast: nazev_oblast, id_vybrana_oblast: id_oblast },
+
                     cache: false,
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         $("#hlaska_oblast").html("<span class='red'>Při načítání došlo k chybě</span>");
