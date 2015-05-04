@@ -11,7 +11,6 @@
     <!-- meta  -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <meta http-equiv="content-language" content="cs" />
-    <!-- <meta name="generator" content="PSPad editor, www.pspad.com" /> -->
     <!--/meta  -->
 
     <!-- css  -->
@@ -20,11 +19,16 @@
 
     <!-- js  -->
     <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
-    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
+
   
     <script type="text/javascript" src="app_code/js_scripts/zobrazit_formular.js"></script>
     <script type="text/javascript" src="app_code/js_scripts/zobrazit_vizualizaci.js"></script>
     <script type="text/javascript" src="app_code/js_scripts/zobrazit_oblast.js"></script>
+    
+   <script type="text/javascript">
+     
+    </script>
     <!-- /js  -->
 
     <title>Výběr studijního oboru na FAV</title>

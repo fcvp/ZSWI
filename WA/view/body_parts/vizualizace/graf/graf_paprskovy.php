@@ -11,5 +11,6 @@
  *   @version 1.0
  * 
 -->
-
-<img src="image/graf3.bmp" id="radar" alt="graf" style="width: 550px" />
+<div id="radar" >
+    <img src="image/graf3.bmp" id="radar_gr" alt="graf" style="width: 550px" />
+</div>

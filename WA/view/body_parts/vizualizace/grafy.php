@@ -20,9 +20,7 @@
     <br/><br/>
     <?php 
     require_once(GRAF."graf_sloupcovy.php"); 
-   // require_once(GRAF."graf_paprskovy.php"); 
+    require_once(GRAF."graf_paprskovy.php"); 
     ?>
-    
-   <!--  <img src="image/Sloupcovy.BMP" id="sloupcovy" alt="graf" style="width: 550px" />
-    <img src="image/graf3.bmp" id="radar" alt="graf" style="width: 550px" />  -->
+
 </div>

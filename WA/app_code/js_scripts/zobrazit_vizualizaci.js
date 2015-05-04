@@ -15,7 +15,7 @@
  *	Zobrazí výslednou vizualizaci
  *	 @param oblast_arr pole s názvy oblatí
  */
-function vybrat_graf(id_slova_arr) {
+function zobrazit_vizulizaci(id_slova_arr) {
 
     var str = $("form").serialize();
     //delka pole

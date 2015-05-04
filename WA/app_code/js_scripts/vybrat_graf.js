@@ -11,21 +11,23 @@
 */
 
 //zobrazi graf ve vybrane zalozce
-//$(document).ready(function () {
-//    $("#vizualizace .menu .graf").click(function () {
-//        if (!$(this).is(".actual")) {
-//            if ($(this).is(".radar")) {
-//                $("#vizualizace .menu .graf").removeClass("actual");
-//                $("#sloupcovy").hide();
-//                $("#radar").show();
-//                $(this).addClass("actual");
-//            }
-//            else {
-//                $("#vizualizace .menu .graf").removeClass("actual");
-//                $("#radar").hide();
-//                $("#sloupcovy").show();
-//                $(this).addClass("actual");
-//            }
-//        }
-//    });
-//});
+$(document).ready(function () {
+    $("#vizualizace .menu .graf").click(function () {
+        if (!$(this).is(".actual")) {
+            if ($(this).is(".radar")) {
+                $("#vizualizace .menu .graf").removeClass("actual");
+                $("#sloupcovy").hide();
+                $("#radar").show();
+                $(this).addClass("actual");
+                
+            }
+            else {
+                google.setOnLoadCallback(drawChart);
+                $("#vizualizace .menu .graf").removeClass("actual");
+                $("#radar").hide();
+                $("#sloupcovy").show();
+                $(this).addClass("actual");
+            }
+        }
+    });
+});

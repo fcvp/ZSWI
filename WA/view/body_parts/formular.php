@@ -46,7 +46,7 @@
           //vizualizace
           require_once(FORM."tlacitko_zobrazit_vizualizaci.php");   
           echo "<div id='vizualizace'>";
-             //funkce vybrat_graf():
+             //funkce zobrazit_vizulizaci():
                     //(FORM."vizualizace.php");
           
              //zde se zobrazi vizualizace
