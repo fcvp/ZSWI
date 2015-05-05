@@ -62,7 +62,7 @@ if (($_GET["forma"]!=null) and ($_GET["typ"]!=null )){
    // $where = $where." AND  (priorita.Hodnota >= 0.5)";
     
     $result['OBOR'] = select($dbh,"DISTINCT obor_nazev, url, popis, oblast_nazev, forma_nazev ",$from, $where,"obor_nazev");
-    $result['OBOR2'] = select($dbh,"DISTINCT obor_nazev, url, popis, forma_nazev ",$from, $where,"obor_nazev");
+    $result['OBOR2'] = select($dbh,"DISTINCT obor_nazev, url, popis, forma_nazev ",$from, $where,"forma_nazev, obor_nazev");
     
     $result['OBOR_SLOVO'] = select($dbh,"DISTINCT klicove_slovo.id_klicove_slovo, Slovo, obor_nazev, url, popis, forma_nazev, priorita.hodnota",$from, $where,"klicove_slovo.id_klicove_slovo");
     

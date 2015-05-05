@@ -21,7 +21,7 @@
 * @param $forma_id - cislo sloupce s nazvem formy
 * @param $row      - data
 */
-function vypis_obor($url_id, $nazev_id, $forma_id, $row){
+function vykresli_nazev_oboru($url_id, $nazev_id, $forma_id, $row){
      echo "<li><a href=\"$row[$url_id]\" target=\"_blank\">$row[$nazev_id]</a> ($row[$forma_id])</li>";
 }
 

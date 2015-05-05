@@ -40,7 +40,7 @@
             $vyznam = array(1=>"ne", 2=>"spíše ne", 3=>"nevadí mi", 4=>"spíše ano", 5=>"ano");
             for($j=1; $j<=5; $j++)
             {
-                if($j==3) {
+                if($j==5) {
                     echo "<input type='radio' class='klicove_slovo'  checked=\"checked\" name=\"".$_GET['oblast']."\" value='".$j."' >".$vyznam[$j]."</input>\n";
                 }
                 else{

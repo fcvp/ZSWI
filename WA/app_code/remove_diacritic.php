@@ -9,16 +9,19 @@
  */
 
 
-
 /**
  * Odstrani vsechny nevhodne znaky a mezery nahradi podtrzitkem
+ *
  * @param String $input vstup
  * @return String   retezec 
  */
 function normalize_str($input){
-    $input =  preg_replace('/[ ]/','_', $input);
-    
-    return preg_replace('/[^a-zA-Z0-9_]/','',iconv('UTF-8', 'ASCII//TRANSLIT', $input));
+
+   setlocale(LC_ALL, 'czech');
+   
+   $input =  preg_replace('/[ ]/','_', $input);
+   // záleží na použitém systému
+   return preg_replace('/[^a-zA-Z0-9_]/','',iconv("utf-8", "us-ascii//TRANSLIT", $input));
 }
 
 

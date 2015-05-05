@@ -12,16 +12,19 @@
  * 
 -->
     
-<div id="sloupcovy"> 
-
-    <label>Kliknutím na jeden ze sloupců zobrazíte detail oboru.</label>
+<div id="sloupcovy" align="center"> 
+    <?php 
+       //$obory_final
     
+    ?>
+
+    Kliknutím na jeden ze sloupců zobrazíte detail oboru.
+    <br/>
     
     <script type="text/javascript" src="../../../../app_code/js_scripts/graf_sloupcovy.js"></script>
-    <div id="chart_div" style="width: 650px;">
+    <div id="chart_div" style="width: 600px;   ">
        <!-- Zde se zobrazi sloupcovy graf -->
     </div>
-    
     
     <script>
         //zobrazeni grafu

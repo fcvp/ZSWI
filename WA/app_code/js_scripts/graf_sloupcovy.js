@@ -44,7 +44,7 @@ function drawChart() {
         // Use an HTML tooltip.
         tooltip: { isHtml: true, trigger: 'selection' },
         legend: { position: 'none' },
-        width: 500,
+        width: 600,
 
     };
 
