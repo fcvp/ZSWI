@@ -13,23 +13,21 @@
 -->
     
 <div id="sloupcovy" align="center"> 
-    <?php 
-       //$obory_final
-    
-    ?>
 
     Kliknutím na jeden ze sloupců zobrazíte detail oboru.
     <br/>
     
     <script type="text/javascript" src="../../../../app_code/js_scripts/graf_sloupcovy.js"></script>
-    <div id="chart_div" style="width: 600px;   ">
+    <div id="chart_div" style="width: 800px;">
        <!-- Zde se zobrazi sloupcovy graf -->
     </div>
     
     <script>
         //zobrazeni grafu
         $(document).ready(function () {
-           drawChart();
+           
+            
+           drawChart('<?php echo json_encode($obory_final);      ?>');
         });
     </script>
 </div>

@@ -13,19 +13,7 @@
 -->
 
 <div id="vizualizace">
-    <?php
-    echo "<table>";
 
-    foreach($obory_final as $obor)
-    {
-        echo "<tr>";
-        echo "<td>".($obor[0])."</td><td>".$obor[3]."</td><td>".$obor[4]."</td>";
-        echo "</tr>";
-
-    }
-    echo "</table>";
-    
-    ?>
     <br/>
     <div class='menu'>
       <span class='graf sloupcovy actual'>Sloupcový graf</span><span class='graf radar'>Paprskový graf</span>

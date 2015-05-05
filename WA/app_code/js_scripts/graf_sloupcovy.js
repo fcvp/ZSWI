@@ -11,7 +11,11 @@
 *    @version 1.0
 */
 
-function drawChart() {
+/**
+* Vykresleni sloupcoveho grafu
+* @param obory_nazvy pole s obory
+*/
+function drawChart(obory_nazvy) {
     var dataTable = new google.visualization.DataTable();
 
     dataTable.addColumn('string', 'Obor');
@@ -19,13 +23,19 @@ function drawChart() {
     dataTable.addColumn({ 'type': 'string', 'role': 'tooltip', 'p': { 'html': true } });
     dataTable.addColumn('number', '%');
 
-    var obor = ["Obor 1", "Obor 2", "Obor 3", "Obor 4"];
-    var hodnoty = [1, 5, 0.5, 1];
+    /*
+    ------------
+    DATA
+    -----------
+    */
+    //rozparsovane pole s obory
+    var obory = JSON.parse(obory_nazvy);
 
+    for (var i = 0; i < obory.length; i++) {
+        var nazev = obory[i][0].replace(" ","\n");
 
-    for (var i = 1; i < obor.length; i++) {
         dataTable.addRow(
-           [obor[i], createCustomHTMLContent(hodnoty[i], obor[i]), hodnoty[i]]
+           [nazev, createCustomHTMLContent(obory[i][4], obory[i][0]), obory[i][4]]
         );
     }
 
@@ -44,7 +54,9 @@ function drawChart() {
         // Use an HTML tooltip.
         tooltip: { isHtml: true, trigger: 'selection' },
         legend: { position: 'none' },
-        width: 600,
+        width: 700,
+        height: 400,
+        bar: { groupWidth: "50%" }
 
     };
 
@@ -64,6 +76,6 @@ function createCustomHTMLContent(procenta, obor) {
 
     return '<div style="padding:5px 5px 5px 5px;">' +
         '<a href="http://www.seznam.cz" target="_blank"  ><h3>' + obor + '</h3></a>' +
-        '<br>' + procenta + '%<br><br>' +
-        arr+"</div>";
+        '<br>' + (Math.round(procenta * 100) / 100) + '%<br><br>' +
+        arr + "</div>";
 }

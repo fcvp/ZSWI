@@ -27,35 +27,41 @@ Obory s malým procentem shody jsou zapsány v seznamu pod grafem. Pokud není v
     require_once(APP_CODE."graf_data_priprava.php"); 
     require_once(VIZUALIZACE."ostatni_obory_seznam.php"); 
     require_once(APP_CODE."graf_data_vypocet.php");
+    
     //-----------------------------
-  
-   //seznam zobrazenych klicovych slov
-   // $id_slovo = $_GET['id_klicova_slova']; $hodnoceni = $_GET['klicova_slova_hodnota'];
-   
+    // priprava dat
     //-----------------------------
     //zobrazena klicova slova s ulozenou hodnotou, ostatni s hodnotu = 0
     $slova_s_hodnocenim = get_zobrazena_slova($_GET['id_klicova_slova'], $_GET['klicova_slova_hodnota'],  $result['OBOR_SLOVO']);
     $slova_s_hodnocenim = multisort(2,5, $slova_s_hodnocenim );//seradi slova podle oboru a formy
     
-    //------------------
+    //-----------------------------
+    // vypocet
+    //-----------------------------
     $obory_procenta = spocti_shodu($slova_s_hodnocenim);
     $obory_final = array();
     
+    //-----------------------------
+    // priprava dat -final
+    //-----------------------------
     //do pole s obory jako posledni sloupec zkopirujeme procenta
+    $i=0;
     foreach($result['OBOR2'] as $key => $obor)
     {
         $forma =   substr($result['OBOR2'][$key][3], 0, 1);
         $procenta = $obory_procenta[normalize_str($forma." ".$obor[0])];
 
         if($procenta > 0){
-           $obory_final[$key] = $obor;
-           $obory_final[$key][4] = $procenta;
+           $obory_final[$i] = $obor;
+           $obory_final[$i][4] = $procenta;
+           $i++;
         }
     }
     
  
-    
-    //-----------
+    //-----------------------------
+    // vykresleni
+    //-----------------------------
     $delka = count($slova_s_hodnocenim);
     $delka_radek = count($slova_s_hodnocenim[0]);
     $pocet_vybranych = count($_GET['id_klicova_slova']);
