@@ -1,0 +1,43 @@
+<div id="nastroje">
+	<a href="javascript:void(0)" onclick="pridej();" id="pridej"><img src='add.png' alt='' /></a>
+</div>
+<div id="obsah2">
+	
+	<? echo $upozorneni == "" ? "" : "<span class='var'>".$_upozorneni."</span>";?>
+	
+  <div class='tabulka'>Nový studijní obor</div>
+		<form method="post" action="" name='formular'>
+			<table class='seznam2'>
+				<tr>
+					<td class='bold'>Název oboru</td><td><input type='text' name='nazev' value='<?= $post["nazev"];?>' /></td>
+					<td>Odkaz na popis oboru na stránkách FAV</td><td class='right'><input type='text' name='url' value='<?= $post["url"];?>' /></td>
+				</tr>
+				<tr>
+					<td class='bold'>Forma studia</td><td><select name='forma'>
+						<?php
+							foreach($formy as $forma)	{
+						?>
+								<option value='<?= $forma["id"]?>' <?php echo $forma["id"]==$post["forma"] ? "selected='selected'" : "";?>><?= $forma["nazev"]?></option>
+						<?php
+							}
+						?>
+					</select></td>
+					<td class='bold'>Typ studia</td><td class='right'><select name='typ'>
+						<?php
+							foreach($typy as $typ)	{
+						?>
+								<option value='<?= $typ["id"]?>' <?php echo $typ["id"]==$post["typ"] ? "selected='selected'" : "";?>><?= $typ["nazev"]?></option>
+						<?php
+							}
+						?>
+					</select></td>
+				</tr>
+				<tr><td>Popis oboru</td></tr>
+				<tr><td colspan='4'><textarea name='popis'></textarea></td></tr>
+				<tr><td><input type='submit' name='odeslat' value='Přidat' /></td></tr>
+			</table>
+	    <script type="text/javascript">
+			  CKEDITOR.replace( 'popis' );
+		  </script>
+		</form>
+</div>

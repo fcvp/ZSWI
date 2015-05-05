@@ -1,0 +1,20 @@
+<div id="nastroje">
+	<a href="javascript:void(0)" onclick="edituj();" id="edituj"><img src='edit.png' alt='' /></a>
+</div>
+<div id="obsah2">
+	
+	<? echo $upozorneni == "" ? "" : "<span class='var'>".$_upozorneni."</span>";?>
+	
+	<form method='post' action='' name='formular'>
+		<input type='hidden' name='zvyrazni' value="<?= $zvyrazni?>" />
+		<?php
+			foreach ($typy as $typ)	{
+				echo "<div class='tabulka'>Typ #".$typ["id"]."</div>";
+				echo "<table class='seznam2' id='tabulka_".$typ["id"]."'>";
+					echo "<tr><td class='bold'>Název typu</td><td><input type='text' name='nazev_".$typ["id"]."' value='".$typ["nazev"]."' /></td></tr>";
+					echo "<tr><td><input type='submit' name='odeslat' value='Upravit' /></td></tr>";
+				echo "</table>";
+			}
+		?>
+	</form>
+</div>

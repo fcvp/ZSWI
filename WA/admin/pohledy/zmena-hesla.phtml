@@ -1,0 +1,19 @@
+<div id="nastroje">
+	<a href="javascript:void(0)" onclick="edituj();" id="edituj"><img src='edit.png' alt='' /></a>
+</div>
+<div id="obsah2">
+	
+	<? echo $upozorneni == "" ? "" : "<span class='var'>".$_upozorneni."</span>";?>
+	
+  <div class='tabulka'>Změna hesla</div>
+		<form method="post" action="" name='formular'>
+			<input type='hidden' name='edit' id='edit' value='0' />
+			<table class='seznam2'>
+				<tr><td>Uživatelské jméno</td><td><input type='text' name='nickname' value='<?= $prezdivka?>' readonly="readonly" /></td></tr>
+				<tr><td class='bold'>Nové heslo</td><td><input type='password' name='password' value='' /></td></tr>
+				<tr><td class='bold'>Nové heslo znovu</td><td><input type='password' name='password2' value='' /></td></tr>
+				<tr><td class='bold'>Stávající heslo (pro kontrolu)</td><td><input type='password' name='old_password' value='' /></td></tr>
+				<tr><td><input type='submit' name='odeslat' value='Upravit heslo' /></td></tr>
+			</table>
+		</form>
+</div>

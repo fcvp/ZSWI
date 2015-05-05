@@ -1,0 +1,74 @@
+<div id="nastroje">
+	<a href="javascript:void(0)" onclick="edituj();" id="edituj"><img src='edit.png' alt='' /></a>
+</div>
+<div id="obsah2">
+	
+	<? echo $upozorneni == "" ? "" : "<span class='var'>".$_upozorneni."</span>";?>
+	
+	<form method='post' action='' name='formular'>
+		<input type='hidden' name='zvyrazni' value="<?= $zvyrazni?>" />
+		<?php
+			foreach ($obory as $obor)	{
+		?>
+				<div class='tabulka'>Studijní obor #<?= $obor["id"]?></div>
+				<table class='seznam2' id='tabulka_<?= $obor["id"]?>'>
+					<tr>
+						<td class='bold'>Název oboru</td><td><input type='text' name='nazev_<?= $obor["id"]?>' value='<?= $obor["nazev"]?>' /></td>
+						<td>Odkaz na popis oboru na stránkách FAV</td><td class='right'><input type='text' name='url_<?= $obor["id"]?>' value='<?= $obor["url"]?>' /></td>
+					</tr>
+					<tr>
+						<td class='bold'>Forma studia</td><td><select name='forma_<?= $obor["id"]?>'>
+							<?php
+								foreach($formy as $forma)	{
+							?>
+									<option value='<?= $forma["id"]?>' <?php echo $forma["id"]==$obor["id_forma"] ? "selected='selected'" : "";?>><?= $forma["nazev"]?></option>
+							<?php
+								}
+							?>
+						</select></td>
+						<td class='bold'>Typ studia</td><td class='right'><select name='typ_<?= $obor["id"]?>'>
+							<?php
+								foreach($typy as $typ)	{
+							?>
+									<option value='<?= $typ["id"]?>' <?php echo $typ["id"]==$obor["id_typu"] ? "selected='selected'" : "";?>><?= $typ["nazev"]?></option>
+							<?php
+								}
+							?>
+						</select></td>
+					</tr>
+					<tr><td>Popis oboru</td></tr>
+					<tr><td colspan='4'><textarea name='popis_<?= $obor["id"]?>'><?= $obor["popis"]?></textarea></td></tr>
+					<tr><td><input type='submit' name='odeslat' value='Upravit' /></td></tr>
+				</table>
+				<table class='seznam' cellspacing='0' cellpadding='0' border='0'>
+					<tr><th>Klíčová slova</th><th>Priorita daného slova v oboru</th></tr>
+					<?php
+						$i = 0;
+						foreach ($slova as $slovo)	{
+					?>
+						<tr <?php echo $i%2==1 ? "class='sudy'" : "";?>>
+							<td>&nbsp; <?= $slovo["nazev"]?></td>
+							<td><select name='priorita_<?= $slovo["id"]?>_<?= $obor["id"]?>'>
+								<option value='0'>Žádná</option>
+								<?php
+									foreach ($priority as $priorita)	{
+								?>
+									<option value='<?= $priorita["id"]?>' <?php echo $priorita["id"]==$obor["priorita_".$slovo["id"]] ? "selected='selected='" : "";?>><?= $priorita["nazev"]?></option>
+								<?php
+									}
+								?>
+							</select></td>
+						</tr>
+					<?php
+							$i++;
+						}
+					?>
+			</table>
+				<script type="text/javascript">
+				  CKEDITOR.replace( 'popis_<?= $obor["id"]?>' );
+			  </script>
+		<?php
+			}
+		?>
+	</form>
+</div>

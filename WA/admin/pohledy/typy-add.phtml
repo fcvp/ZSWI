@@ -1,0 +1,15 @@
+<div id="nastroje">
+	<a href="javascript:void(0)" onclick="pridej();" id="pridej"><img src='add.png' alt='' /></a>
+</div>
+<div id="obsah2">
+	
+	<? echo $upozorneni == "" ? "" : "<span class='var'>".$_upozorneni."</span>";?>
+	
+  <div class='tabulka'>Nový typ studia</div>
+		<form method="post" action="" name='formular'>
+			<table class='seznam2'>
+				<tr><td class='bold'>Název typu</td><td><input type='text' name='nazev' value='<?= $post["nazev"];?>' /></td></tr>
+				<tr><td><input type='submit' name='odeslat' value='Přidat' /></td></tr>
+			</table>
+		</form>
+</div>

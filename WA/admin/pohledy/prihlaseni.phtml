@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <base href="/admin/" />
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title><?= $titulek ?></title>
+  <meta name="description" content="<?= $popis ?>" />
+  <meta name="keywords" content="<?= $klicova_slova ?>" />
+  <meta name="author" content="Jan Baxa - jencekk@email.cz" />
+  <style>
+    body  {padding: 0px; margin: 0px; background: #ffffff;}
+    #stranka {position: relative; width: 888px; height: 690px; margin: 10px auto 0px auto;}
+    #login  {float: left; margin: 109px 0px 0px 389px; width: 445px; height: 245px;}
+  </style>
+</head>
+<body>
+  <div id="stranka">
+    <div id="login">
+    	<?= $_prihlaseni?>
+      <form method="post" action="">
+        <table>
+          <tr><td><b><label for="prezdivka">Přezdívka</label></b></td><td><input type="text" name="prezdivka" id="prezdivka" /></td></tr>
+          <tr><td><b><label for="heslo">Heslo</label></b></td><td><input type="password" name="heslo" id="heslo" /></td></tr>
+          <tr><td colspan="2"><center><input type="submit" name="prihlasit" value="Přihlásit se do administrace" /></td></tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

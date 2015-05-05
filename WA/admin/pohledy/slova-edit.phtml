@@ -1,0 +1,69 @@
+<div id="nastroje">
+	<a href="javascript:void(0)" onclick="edituj();" id="edituj"><img src='edit.png' alt='' /></a>
+</div>
+<div id="obsah2">
+	
+	<? echo $upozorneni == "" ? "" : "<span class='var'>".$_upozorneni."</span>";?>
+	
+	<span class='var info'>
+		Pokud obor, ke kterému přiřazujete klíčové slovo, existuje ve více formách (prezenční i kombinovaná) se stejným názvem a typem studia, bude klíčové slovo k těmto oborům také přiřazeno.
+	</span>
+	<form method='post' action='' name='formular'>
+		<input type='hidden' name='zvyrazni' value="<?= $zvyrazni?>" />
+		<?php
+			foreach ($slova as $slovo)	{
+		?>
+				<div class='tabulka'>Klíčové slovo #<?= $slovo["id"]?></div>
+				<table class='seznam2' id='tabulka_<?= $slovo["id"]?>'>
+					<tr>
+						<td class='bold'>Klíčové slovo</td><td><input type='text' name='nazev_<?= $slovo["id"]?>' value='<?= $slovo["nazev"]?>' /></td>
+						<td>Význam slova</td><td class='right'><input type='text' name='vyznam_<?= $slovo["id"]?>' value='<?= $slovo["vyznam"]?>' /></td>
+					</tr>
+					<tr>
+						<td class='bold'>Oblast studia</td><td><select name='oblast_<?= $slovo["id"]?>'>
+							<?php
+								foreach($oblasti as $oblast)	{
+							?>
+									<option value='<?= $oblast["id"]?>' <?php echo $oblast["id"]==$slovo["id_oblast"] ? "selected='selected'" : "";?>><?= $oblast["nazev"]?></option>
+							<?php
+								}
+							?>
+						</select></td>
+					</tr>
+					<tr><td><input type='submit' name='odeslat' value='Upravit' /></td></tr>
+				</table>
+				<table class='seznam' cellspacing='0' cellpadding='0' border='0'>
+				<?php
+					foreach ($typy as $typ)	{	
+				?>
+					<tr><th><?= $typ["nazev"]?> studijní obory</th><th>Priorita v daném oboru</th></tr>
+					<?php
+						$i = 0;
+						foreach ($typ["radky"] as $radek)	{
+					?>
+						<tr <?php echo $i%2==1 ? "class='sudy'" : "";?>>
+							<td><input type='hidden' name='<?= $typ["id"]?>_obor_<?= $i?>_<?= $slovo["id"]?>' value='<?= $radek["nazev"]?>' />&nbsp; <?= $radek["nazev"]?></td>
+							<td><select name='<?= $typ["id"]?>_priorita_<?= $i?>_<?= $slovo["id"]?>'>
+								<option value='0'>Žádná</option>
+								<?php
+									foreach ($priority as $priorita)	{
+								?>
+									<option value='<?= $priorita["id"]?>' <?php echo $priorita["id"]==$slovo[$typ["id"]."_priorita_".$i] ? "selected='selected='" : "";?>><?= $priorita["nazev"]?></option>
+								<?php
+									}
+								?>
+							</select></td>
+						</tr>
+					<?php
+							$i++;
+						}
+					?>
+				<?php
+					}
+				?>
+			</table>
+		<?php
+			}
+		?>
+	</form>
+</div>

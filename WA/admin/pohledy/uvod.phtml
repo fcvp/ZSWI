@@ -1,0 +1,11 @@
+<div id="obsah2">
+  <div class='tabulka'><a href='posledni-akce'>Poslední změny webu</a></div>
+    <table class='seznam' cellspacing="0" cellpadding="0" border="0">
+      <tr><th style=''>Datum</th><th style=''>Akce</th><th>Typ záznamu</th><th style='width: 100px;'>ID záznamu</th></tr>
+      <?php
+        foreach ($posledni_akce as $posledniAkce)	{
+					echo "<tr ".(++$i%2==1 ? "class='sudy'" : "")."><td>&nbsp; ".$posledniAkce["datum"]."</td><td><span class='".($posledniAkce["typ"]=="Added" ? "green" : ($posledniAkce["typ"]=="Edited" ? "orange" : "red"))."'>".$posledniAkce["typ"]."</span></td><td>".$posledniAkce["clanek"]."</td><td class='center'>".$posledniAkce["id_clanku"]."</td></tr>\n";
+				}
+      ?>  
+    </table>
+</div>

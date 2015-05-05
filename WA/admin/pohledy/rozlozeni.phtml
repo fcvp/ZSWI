@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <base href="/admin/" />
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title><?= $titulek ?></title>
+  <meta name="description" content="<?= $popis ?>" />
+  <meta name="keywords" content="<?= $klicova_slova ?>" />
+  <meta name="author" content="Jan Baxa - jencekk@email.cz" />
+  <link rel="stylesheet" type="text/css" href="css.css" />
+  <script type='text/javascript' src="jquery-1.11.2.min.js"></script>
+  <script type='text/javascript' src='javascript.js'></script>
+  <script type='text/javascript' src='ckeditor/ckeditor.js'></script>
+</head>
+<body>
+  <div id="lista">
+    <div class="lista">
+      <div class='prihlasen'>Přihlášen přes účet: <?= $prezdivka;?></div>
+      <div class='ikonky'>
+        <a href="uvod"><img src="home.png" alt="home" title="Úvodní strana" /></a>
+        <a href="odhlasit"><img src="logout.png" alt="log out" title="Odhlásit se" /></a>
+        <a href="help"><img src="help.png" alt="help" title="Zobrazit nápovědu" /></a>
+      </div>
+    </div>
+  </div>
+	<div id="stranka">
+    <div id="menu">
+      <img src="menu_top.png" alt="" style="float: left; margin-left: -15px;" />
+      <table cellspacing='0' cellpadding='0' border='0'>
+        <tr><th style='width: 50px; text-align: right;'><img src='menu1.png' alt='' /></th><th>Nastavení</th></tr>
+        	<tr><td colspan='2'><a href='formy'>Formy studia</a></td></tr>
+        	<tr><td colspan='2'><a href='typy'>Typy studia</a></td></tr>
+        	<tr><td colspan='2'><a href='oblasti'>Oblasti studia</a></td></tr>
+        	<tr><td colspan='2'><a href='obory'>Studijní obory</a></td></tr>
+        	<tr><td colspan='2'><a href='slova'>Klíčová slova</a></td></tr>
+        <tr><th style='width: 50px; text-align: right;'><img src='menu4.png' alt='' /></th><th>Uživatelé</th></tr>
+          <tr><td colspan='2'><a href='zmena-hesla'>Změna hesla</a></td></tr>
+      </table>
+    </div>
+    <div id="obsah">
+      <?php $this->kontroler->vypisPohled();?> 
+    </div>
+  </div>
+</body>
+</html>

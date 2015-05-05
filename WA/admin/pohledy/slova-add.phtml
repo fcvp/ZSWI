@@ -1,0 +1,61 @@
+<div id="nastroje">
+	<a href="javascript:void(0)" onclick="pridej();" id="pridej"><img src='add.png' alt='' /></a>
+</div>
+<div id="obsah2">
+	
+	<? echo $upozorneni == "" ? "" : "<span class='var'>".$_upozorneni."</span>";?>
+	<span class='var info'>
+		Pokud obor, ke kterému přiřazujete klíčové slovo, existuje ve více formách (prezenční i kombinovaná) se stejným názvem a typem studia, bude klíčové slovo k těmto oborům také přiřazeno.
+	</span>
+  <div class='tabulka'>Nové klíčové slovo</div>
+		<form method="post" action="" name='formular'>
+			<table class='seznam2'>
+				<tr>
+					<td class='bold'>Klíčové slovo</td><td><input type='text' name='nazev' value='<?= $post["nazev"];?>' /></td>
+					<td>Význam slova</td><td class='right'><input type='text' name='vyznam' value='<?= $post["vyznam"];?>' /></td>
+				</tr>
+				<tr>
+					<td class='bold'>Oblast studia</td><td><select name='oblast'>
+						<?php
+							foreach($oblasti as $oblast)	{
+						?>
+								<option value='<?= $oblast["id"]?>' <?php echo $oblast["id"]==$post["oblast"] ? "selected='selected'" : "";?>><?= $oblast["nazev"]?></option>
+						<?php
+							}
+						?>
+					</select></td>
+				</tr>
+				<tr><td><input type='submit' name='odeslat' value='Přidat' /></td></tr>
+			</table>
+			<table class='seznam' cellspacing='0' cellpadding='0' border='0'>
+				<?php
+					foreach ($typy as $typ)	{	
+				?>
+					<tr><th><?= $typ["nazev"]?> studijní obory</th><th>Priorita v daném oboru</th></tr>
+					<?php
+						$i = 0;
+						foreach ($typ["radky"] as $radek)	{
+					?>
+						<tr <?php echo $i%2==1 ? "class='sudy'" : "";?>>
+							<td><input type='hidden' name='<?= $typ["id"]?>_obor_<?= $i?>' value='<?= $radek["nazev"]?>' />&nbsp; <?= $radek["nazev"]?></td>
+							<td><select name='<?= $typ["id"]?>_priorita_<?= $i?>'>
+								<option value='0'>Žádná</option>
+								<?php
+									foreach ($priority as $priorita)	{
+								?>
+									<option value='<?= $priorita["id"]?>' <?php echo $priorita["id"]==$post[$typ["id"]."_priorita_".$i] ? "selected='selected='" : "";?>><?= $priorita["nazev"]?></option>
+								<?php
+									}
+								?>
+							</select></td>
+						</tr>
+					<?php
+							$i++;
+						}
+					?>
+				<?php
+					}
+				?>
+			</table>
+		</form>
+</div>

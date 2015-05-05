@@ -1,0 +1,35 @@
+<div id="nastroje">
+	<a href="obory-add" id='pridej'><img src='add.png' alt='' /></a><a href="javascript:void(0)" onclick="editujSeznam();" id="edituj"><img src='edit.png' alt='' /></a><a href="javascript:void(0)" onclick="smazSeznam('obory');" id="vymaz"><img src='delete.png' alt='' /></a>
+</div>
+<div id="obsah2">
+	
+	<? echo $upozorneni == "" ? "" : "<span class='var'>".$_upozorneni."</span>";?>
+	
+  <span class='var info'>
+		Studijní obory, které existují ve více formách (prezenční i kombinovaná) by měly mít stejné názvy. Usnadňuje to pak přiřazování klíčových slov k oborům ve všech formách najednou.
+	</span>
+	<form method="post" action="" name='formular'>
+		<input type='hidden' name='delete' id='delete' value='0' />
+		<input type='hidden' name='edit' id='edit' value='0' />
+		<input type='hidden' name='edit_polozky' id='edit_polozky' value='' />
+		<input type='hidden' name='delete_polozky' id='delete_polozky' value='' />
+		
+		<?php
+			foreach ($typy as $typ)	{
+		?>
+			<div class='tabulka'>Typ: <?= $typ["nazev"]?> <input type='button' name='vybrat_vse' value='Vybrat vše' onclick='vyberVse("tabulka_<?= $typ["id"]?>")' /></div>
+				<table class='seznam' cellspacing='0' cellpadding='0' border='0' id='tabulka_<?= $typ["id"]?>'>
+					<tr><th style='width: 50px;'>ID</th><th>Název oboru</th><th>Forma studia</th><th style='width: 58px;'>[ ]</th></tr>
+					<?php
+						$i = 0;
+						foreach ($typ["radky"] as $radek)	{
+							echo "<tr ".($i++%2==1 ? "class='sudy'" : "")."><td>&nbsp;#".$radek["id"]."</td><td>".$radek["nazev"]."</td><td>".$radek["forma"]."</td><td class='center'><input type='checkbox' name='radek_".$radek["id"]."' value='1' /></td></tr>";
+						}
+					?>
+				</table>
+		<?php
+			}
+		?>
+		
+	</form>
+</div>

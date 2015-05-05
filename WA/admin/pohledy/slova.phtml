@@ -1,0 +1,33 @@
+<div id="nastroje">
+	<a href="slova-add" id='pridej'><img src='add.png' alt='' /></a><a href="javascript:void(0)" onclick="editujSeznam();" id="edituj"><img src='edit.png' alt='' /></a><a href="javascript:void(0)" onclick="smazSeznam('obory');" id="vymaz"><img src='delete.png' alt='' /></a>
+</div>
+<div id="obsah2">
+	
+	<? echo $upozorneni == "" ? "" : "<span class='var'>".$_upozorneni."</span>";?>
+	
+  
+	<form method="post" action="" name='formular'>
+		<input type='hidden' name='delete' id='delete' value='0' />
+		<input type='hidden' name='edit' id='edit' value='0' />
+		<input type='hidden' name='edit_polozky' id='edit_polozky' value='' />
+		<input type='hidden' name='delete_polozky' id='delete_polozky' value='' />
+		
+		<?php
+			foreach ($oblasti as $oblast)	{
+		?>
+			<div class='tabulka'>Oblast: <?= $oblast["nazev"]?> <input type='button' name='vybrat_vse' value='Vybrat vše' onclick='vyberVse("tabulka_<?= $oblast["id"]?>")' /></div>
+				<table class='seznam' cellspacing='0' cellpadding='0' border='0' id='tabulka_<?= $oblast["id"]?>'>
+					<tr><th style='width: 50px;'>ID</th><th>Klíčové slovo</th><th>Výnam</th><th style='width: 58px;'>[ ]</th></tr>
+					<?php
+						$i = 0;
+						foreach ($oblast["radky"] as $radek)	{
+							echo "<tr ".($i++%2==1 ? "class='sudy'" : "")."><td>&nbsp;#".$radek["id"]."</td><td>".$radek["nazev"]."</td><td>".$radek["vyznam"]."</td><td class='center'><input type='checkbox' name='radek_".$radek["id"]."' value='1' /></td></tr>";
+						}
+					?>
+				</table>
+		<?php
+			}
+		?>
+		
+	</form>
+</div>

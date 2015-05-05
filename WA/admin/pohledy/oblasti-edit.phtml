@@ -1,0 +1,20 @@
+<div id="nastroje">
+	<a href="javascript:void(0)" onclick="edituj();" id="edituj"><img src='edit.png' alt='' /></a>
+</div>
+<div id="obsah2">
+	
+	<? echo $upozorneni == "" ? "" : "<span class='var'>".$_upozorneni."</span>";?>
+	
+	<form method='post' action='' name='formular'>
+		<input type='hidden' name='zvyrazni' value="<?= $zvyrazni?>" />
+		<?php
+			foreach ($oblasti as $oblast)	{
+				echo "<div class='tabulka'>Oblast #".$oblast["id"]."</div>";
+				echo "<table class='seznam2' id='tabulka_".$oblast["id"]."'>";
+					echo "<tr><td class='bold'>Název oblasti</td><td><input type='text' name='nazev_".$oblast["id"]."' value='".$oblast["nazev"]."' /></td></tr>";
+					echo "<tr><td><input type='submit' name='odeslat' value='Upravit' /></td></tr>";
+				echo "</table>";
+			}
+		?>
+	</form>
+</div>
