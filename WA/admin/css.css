@@ -19,6 +19,8 @@ html  {min-height: 100%;}
     .seznam td {color: #212121; background: #c7c7c7;}
     .seznam .sudy td {background: #d6d6d6;}
     .seznam tr:hover td  {background: #e6e6e6;}
+    .seznam tr.klicova_slova_v_oboru	{display: none;}
+    	.seznam tr.klicova_slova_v_oboru td	{padding: 2px 5px 15px 5px; background: #ffffff; line-height: 1.5;}
   .obsah2 {float: left; width: 802px; padding: 10px 5px 10px 5px; border-top: 1px solid #212121;}
   
   .seznam2 {float: left; width: 812px; margin-bottom: 36px;}

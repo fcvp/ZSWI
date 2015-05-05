@@ -29,7 +29,19 @@
 					foreach ($vsechnyTypy as $typ)	{
 						$typy[$i]["id"] = $typ["id"];
 						$typy[$i]["nazev"] = $typ["nazev"];
-						$typy[$i++]["radky"] = Obor::getObory($typ["id"]);
+						
+						$vsechnyObory = Obor::getObory($typ["id"]);
+						
+						$obory = "";
+						$j = 0;
+						foreach ($vsechnyObory as $obor)	{
+							$obory[$j]["id"] = $obor["id"];
+							$obory[$j]["nazev"] = $obor["nazev"];
+							$obory[$j]["forma"] = $obor["forma"];
+							$obory[$j++]["slova"] = Slovo::getSlovaPodleOboru($obor["id"]);
+						}
+						
+						$typy[$i++]["radky"] =$obory;
 					}
 					
 					$this->data["typy"] = $typy;

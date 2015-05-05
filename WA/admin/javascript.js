@@ -25,6 +25,15 @@ function vyberVse(idTabulky)	{
 	});
 }
 
+function zobrazKlicovaSlova(idRadku)	{
+	if ($("#"+idRadku).is(":hidden"))	{
+		$("#"+idRadku).show();
+	}
+	else	{
+		$("#"+idRadku).hide();
+	}
+}
+
 function smazSeznam(typ)	{
 	var pocetVybranych = $("input[name*='radek_']:checked").length; 
 	if (pocetVybranych==0)	{

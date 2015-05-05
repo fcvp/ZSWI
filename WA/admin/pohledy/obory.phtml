@@ -19,11 +19,18 @@
 		?>
 			<div class='tabulka'>Typ: <?= $typ["nazev"]?> <input type='button' name='vybrat_vse' value='Vybrat vše' onclick='vyberVse("tabulka_<?= $typ["id"]?>")' /></div>
 				<table class='seznam' cellspacing='0' cellpadding='0' border='0' id='tabulka_<?= $typ["id"]?>'>
-					<tr><th style='width: 50px;'>ID</th><th>Název oboru</th><th>Forma studia</th><th style='width: 58px;'>[ ]</th></tr>
+					<tr><th style='width: 50px;'>ID</th><th>Název oboru</th><th>Forma studia</th><th style='width: 150px;'>[ ]</th><th style='width: 58px;'>[ ]</th></tr>
 					<?php
 						$i = 0;
 						foreach ($typ["radky"] as $radek)	{
-							echo "<tr ".($i++%2==1 ? "class='sudy'" : "")."><td>&nbsp;#".$radek["id"]."</td><td>".$radek["nazev"]."</td><td>".$radek["forma"]."</td><td class='center'><input type='checkbox' name='radek_".$radek["id"]."' value='1' /></td></tr>";
+							echo "<tr ".($i++%2==1 ? "class='sudy'" : "")."><td>&nbsp;#".$radek["id"]."</td><td>".$radek["nazev"]."</td><td>".$radek["forma"]."</td><td class='right'><a href='javascript:void(0)' onclick='zobrazKlicovaSlova(\"klicova_slova_v_oboru_".$radek["id"]."\")'>Zobrazit klíčová slova</a></td><td class='center'><input type='checkbox' name='radek_".$radek["id"]."' value='1' /></td></tr>\n";
+							echo "<tr class='klicova_slova_v_oboru' id='klicova_slova_v_oboru_".$radek["id"]."'><td colspan='5'>\n";
+								$j = 0;
+								foreach ($radek["slova"] as $slovo)	{
+									echo ($j==0 ? "" : " - ").$slovo["nazev"];
+									$j++;
+								}
+							echo "</td></tr>\n";
 						}
 					?>
 				</table>
