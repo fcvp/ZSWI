@@ -20,6 +20,7 @@ function normalize_str($input){
    setlocale(LC_ALL, 'czech');
    
    $input =  preg_replace('/[ ]/','_', $input);
+   
    // záleží na použitém systému
    return preg_replace('/[^a-zA-Z0-9_]/','',iconv("utf-8", "us-ascii//TRANSLIT", $input));
 }

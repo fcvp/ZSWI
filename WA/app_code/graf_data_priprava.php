@@ -87,14 +87,14 @@ function get_zobrazena_slova($id_slova_arr, $slova_hodnoceni_arr, $klicova_slova
 *
 * @return serazene pole
 */
-function multisort($klic, $klic2, $pole )
+function multisort($klic, $klic2, $pole, $sort )
 {
    foreach ($pole as $key => $row) {
         $sloupec2[$key] = $row[$klic2];
         $sloupec[$key] = $row[$klic];
    }
     
-   array_multisort($sloupec2, SORT_ASC, $sloupec, SORT_ASC, $pole);
+   array_multisort($sloupec2, $sort, $sloupec, $sort, $pole);
    
    return  $pole;
 }

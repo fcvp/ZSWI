@@ -35,7 +35,7 @@ function drawChart(obory_nazvy) {
         var nazev = obory[i][0].replace(" ","\n");
 
         dataTable.addRow(
-           [nazev, createCustomHTMLContent(obory[i][4], obory[i][0]), obory[i][4]]
+           [nazev, createCustomHTMLContent(obory,i), obory[i][4]]
         );
     }
 
@@ -54,10 +54,14 @@ function drawChart(obory_nazvy) {
         // Use an HTML tooltip.
         tooltip: { isHtml: true, trigger: 'selection' },
         legend: { position: 'none' },
-        width: 700,
-        height: 400,
-        bar: { groupWidth: "50%" }
-
+        width: 800,
+        height: 400
+        /*vAxis: {
+            viewWindow: {
+                max: 100
+            }
+        }
+        */
     };
 
     // Create and draw the visualization.
@@ -71,11 +75,17 @@ tooltip
 --------
 */
 
-function createCustomHTMLContent(procenta, obor) {
-    var arr = "Slovo 1<br>" + "Slovo 2<br>";
+/**
+* Definice toolboxu
+* @param obor   pole s obory
+* @param i     radek
+*/
+function createCustomHTMLContent(obor, i) {
 
     return '<div style="padding:5px 5px 5px 5px;">' +
-        '<a href="http://www.seznam.cz" target="_blank"  ><h3>' + obor + '</h3></a>' +
-        '<br>' + (Math.round(procenta * 100) / 100) + '%<br><br>' +
-        arr + "</div>";
+        '<a href="' + obor[0][1] + '" target="_blank"  ><h3>' + obor[i][0] + '</h3></a>' +
+        '<div style="margin-top:-10px">' + obor[i][3] + '</div>' +
+        '<br>' + (Math.round(obor[i][4] * 100) / 100) + '%<br><br>' +
+        '' + obor[i][2] + '<br><br>' +
+        '</div>';
 }

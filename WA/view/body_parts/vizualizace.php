@@ -17,7 +17,8 @@ Obory s malým procentem shody jsou zapsány v seznamu pod grafem. Pokud není v
 </div>
 
     <?php
-     echo "<div style=\"text-align: left\">";
+echo "<div style=\"text-align: left\">";
+
      session_start();
 
     $_GET["typ"] = $_SESSION['typ'];
@@ -25,40 +26,30 @@ Obory s malým procentem shody jsou zapsány v seznamu pod grafem. Pokud není v
     
     require_once($_SERVER['DOCUMENT_ROOT']."/app_code/config.php"); 
     require_once(APP_CODE."graf_data_priprava.php"); 
-    require_once(VIZUALIZACE."ostatni_obory_seznam.php"); 
     require_once(APP_CODE."graf_data_vypocet.php");
+    require_once(APP_CODE."graf_data_final.php");
     
     //-----------------------------
     // priprava dat
     //-----------------------------
     //zobrazena klicova slova s ulozenou hodnotou, ostatni s hodnotu = 0
     $slova_s_hodnocenim = get_zobrazena_slova($_GET['id_klicova_slova'], $_GET['klicova_slova_hodnota'],  $result['OBOR_SLOVO']);
-    $slova_s_hodnocenim = multisort(2,5, $slova_s_hodnocenim );//seradi slova podle oboru a formy
+    $slova_s_hodnocenim = multisort(2,5, $slova_s_hodnocenim,SORT_ASC );//seradi slova podle oboru a formy
     
     //-----------------------------
     // vypocet
     //-----------------------------
     $obory_procenta = spocti_shodu($slova_s_hodnocenim);
-    $obory_final = array();
+   
     
     //-----------------------------
-    // priprava dat -final
+    // data - final
     //-----------------------------
     //do pole s obory jako posledni sloupec zkopirujeme procenta
-    $i=0;
-    foreach($result['OBOR2'] as $key => $obor)
-    {
-        $forma =   substr($result['OBOR2'][$key][3], 0, 1);
-        $procenta = $obory_procenta[normalize_str($forma." ".$obor[0])];
-
-        if($procenta > 0){
-           $obory_final[$i] = $obor;
-           $obory_final[$i][4] = $procenta;
-           $i++;
-        }
-    }
-    
- 
+     $obory_final = array();
+    $obory_final = get_data_final($result['OBOR2'], $obory_procenta);
+   
+   
     //-----------------------------
     // vykresleni
     //-----------------------------
@@ -76,34 +67,10 @@ Obory s malým procentem shody jsou zapsány v seznamu pod grafem. Pokud není v
     //------------
     // seznam oboru
     //------------
-    
-    //ostatni obory
-    echo "<h2>Ostatní obory: </h2>";
-    echo "<ul>";
-      if($pocet_vybranych==0){
-          //pokud nejsou vybrany zadne oblasti
-          foreach($result['OBOR2'] as $row)
-          {
-               vykresli_nazev_oboru(1, 0, 3, $row);
-          }
-      }else
-      {    //je vybrana alespon jedna oblast
-          foreach($result['OBOR2'] as $row)
-          {
-             $forma =  substr($row[3], 0, 1);
-             $procenta = $obory_procenta[normalize_str($forma." ".$row[0])];
-             
-             if(intval($procenta) < 1)
-               vykresli_nazev_oboru(1, 0, 3, $row);
-          }
-      }
-      
-      
-    echo "</ul>";
-    
-    echo "</div>";
+    require_once(VIZUALIZACE."ostatni_obory_seznam.php"); 
+
    
-    ?>
+?>
 
 
 <script type="text/javascript" src="../../app_code/js_scripts/vybrat_graf.js"></script>

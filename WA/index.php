@@ -39,9 +39,7 @@
     require_once("app_code/config.php");
     
     require_once(LAYOUT."header.php");
-    
     require_once(LAYOUT."body.php");
-    
     require_once(LAYOUT."footer.php");
     ?>
 

@@ -15,10 +15,10 @@
 <div id="vizualizace">
 
     <br/>
-    <div class='menu'>
-      <span class='graf sloupcovy actual'>Sloupcový graf</span><span class='graf radar'>Paprskový graf</span>
+    <!-- <div class='menu'>
+      <span class='graf sloupcovy actual'>Sloupcový graf</span><span class='graf radar'>Paprskový graf</span> 
     </div>
-    <br/><br/>
+    <br/><br/>-->
     <?php 
     require_once(GRAF."graf_sloupcovy.php"); 
     require_once(GRAF."graf_paprskovy.php"); 
