@@ -9,7 +9,7 @@
  * Vlozeno ve vizualizace.php
  *
  * ------------
- *   3.5.2015
+ *   5.5.2015
  *   @version 1.0
  * */
  

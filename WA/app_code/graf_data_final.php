@@ -18,8 +18,6 @@
  * */
 
 
-
-
 /**
 * Spoji pole oboru s procenty. 
 * Pokud jsou vybrany obe formy, budou se vykreslovat 

@@ -21,7 +21,7 @@
     <br/><br/>-->
     <?php 
     require_once(GRAF."graf_sloupcovy.php"); 
-    require_once(GRAF."graf_paprskovy.php"); 
+    //require_once(GRAF."graf_paprskovy.php"); 
     ?>
 
 </div>

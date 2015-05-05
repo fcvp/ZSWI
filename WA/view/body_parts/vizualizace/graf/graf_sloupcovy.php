@@ -22,11 +22,9 @@
        <!-- Zde se zobrazi sloupcovy graf -->
     </div>
     
-    <script>
+    <script type="text/javascript">
         //zobrazeni grafu
-        $(document).ready(function () {
-           
-            
+        $(document).ready(function () {       
            drawChart('<?php echo json_encode($obory_final);  ?>');
         });
     </script>
