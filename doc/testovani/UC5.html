@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://zswi.php5.cz/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=forma_studia</td>
+	<td>label=Prezenční</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=zvolena_oblast</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=zvolena_oblast</td>
+	<td>label=Informatika</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=oblast_9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=zvolena_oblast</td>
+	<td>label=Informatika</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=zvolena_oblast</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=oblast_9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=img.odebrat_oblast</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@onclick=&quot;odeber_oblast('oblast_9');&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>id=vybrana_oblast_9</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
