@@ -35,7 +35,7 @@ function drawChart(obory_nazvy) {
         var nazev = obory[i][0].replace(" ","\n");
 
         dataTable.addRow(
-           [nazev, createCustomHTMLContent(obory,i), obory[i][4]]
+           [nazev, createCustomHTMLContent(obory,i), obory[i][4]/100]
         );
     }
 
@@ -55,13 +55,9 @@ function drawChart(obory_nazvy) {
         tooltip: { isHtml: true, trigger: 'selection' },
         legend: { position: 'none' },
         width: 800,
-        height: 400
-        /*vAxis: {
-            viewWindow: {
-                max: 100
-            }
-        }
-        */
+        height: 400,
+        vAxis: { format: 'percent' }
+        
     };
 
     // Create and draw the visualization.

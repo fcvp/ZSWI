@@ -11,6 +11,7 @@
  *   5.5.2015
  *   @version 1.0
  * */
+ 
 
 
 /**
@@ -24,46 +25,53 @@
 */
 function get_zobrazena_slova($id_slova_arr, $slova_hodnoceni_arr, $klicova_slova_arr)
 {
+    $hodnoceni = sluc_pole($id_slova_arr, $slova_hodnoceni_arr);
+    $hodnoceni = multisort(0, 0, $hodnoceni, SORT_ASC);
+   
     sort($id_slova_arr);
  
  
     $zobrazena_slova = array();
     $delka = count($klicova_slova_arr);
-    $delka_radek = count($klicova_slova_arr[0]);
     
+    
+    $zobrazena_slova = $klicova_slova_arr;
+    $delka_radek = count($zobrazena_slova[0]);
+   // echo $delka_radek;
     $shoda[0]=false;
     $shoda[1]=false;
-
+    
+    //inicializace hodnoceni na nula
+    foreach($zobrazena_slova as $key => $ks)
+    {
+       $zobrazena_slova[$key][$delka_radek] = 0;
+    }
    
-    $k=0;
+    $k = 0;
     $j = 0;
     //for($j = 0; $j < $delka; $j++)
     while($j < $delka)
     {       //pokud se id zobrazeneho rovna id slova nacteneho z databaze
     
-            if($id_slova_arr[$k] === $klicova_slova_arr[$j][0])
+            if($hodnoceni[$k][0] === $klicova_slova_arr[$j][0])
             {
                  $shoda[0]=true;
                  $shoda[1]=false;
                  
-                 $zobrazena_slova[$j] = $klicova_slova_arr[$j];
                  //jako posledni sloupec pridame hodnoceni slova uzivatelem
-                 $zobrazena_slova[$j][$delka_radek] = $slova_hodnoceni_arr[$k];
+                 $zobrazena_slova[$j][$delka_radek] = ($hodnoceni[$k][1]-1)/4;
             }
-            else if($id_slova_arr[$k] !== $klicova_slova_arr[$j][0])
+            else if($hodnoceni[$k][0] !== $klicova_slova_arr[$j][0])
             {
                 if($shoda[0] == true){
                    $shoda[1]=true;
                 }
-                $zobrazena_slova[$j] = $klicova_slova_arr[$j];
-                //hodnoceni uzivatele = 0
-                $zobrazena_slova[$j][$delka_radek] = 0;
             }
             
             
             //doslo k prechodu "id1 id1" na "id1 id2" ($id_slova_arr[$k]!=$klicova_slova_arr[$j][0])
             if($shoda[0] == true && $shoda[1] == true)
-            {//posuneme se na dalsi radek $id_slova_arr[]
+            {//posuneme se na dalsi radek $hodnoceni[]
                $k++;
                $shoda[0]=false;
                $shoda[1]=false;
@@ -98,6 +106,25 @@ function multisort($klic, $klic2, $pole, $sort )
    
    return  $pole;
 }
+
+/**
+ * Spoji dv sloupce do jednoho pole
+ * @param $arr1 pole s 1 sloupcem
+ * @param $arr2 pole s 1 sloupcem
+ *
+ * @return sloucene pole se 2 sloupci
+ */
+ function sluc_pole($arr1, $arr2)
+ {
+    $arr = array();
+    for($i = 0; $i < count($arr1); $i++)
+    {
+      $arr[$i][0] = $arr1[$i];   
+      $arr[$i][1] = $arr2[$i];
+    }
+    
+    return $arr;
+ }
 
 
 ?>

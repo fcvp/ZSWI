@@ -49,7 +49,7 @@ function pridat_do_vyberu(nazev_oblast) {
                     }
                     $("#oblasti").prepend(html);
                     $("#hlaska_oblast").html("Oblast "+ nazev_oblast +" byla přidána do výběru.");
-                    $("#hlaska").html(id);
+                   // $("#hlaska").html(id);
                 });
             }
         }

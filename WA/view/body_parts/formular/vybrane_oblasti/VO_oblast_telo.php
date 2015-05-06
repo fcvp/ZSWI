@@ -33,7 +33,7 @@ echo "<tr>";
     
         //
         foreach ($result['OBOR'] as $row) {
-            if(($row[3])==$_GET['oblast'])
+            if(($row[1])==$_GET['oblast'])
             {
                 require(VYBRANE_OBLASTI."VO_telo_souvisejici_obory.php");
             }

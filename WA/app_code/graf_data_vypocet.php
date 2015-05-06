@@ -24,28 +24,27 @@ function spocti_shodu($slova_s_hodnocenim){
     $zaklad_obory = spocti_zaklad($slova_s_hodnocenim);
     $cast_obory = spocti_cast($slova_s_hodnocenim);
     
-    
     $procenta = array();
     foreach($cast_obory as $key => $cast) 
     {
         $key = normalize_str($key);
         $procenta[$key] = ($cast / $zaklad_obory[$key]) * 100;
     }
-
+    
     return $procenta; 
 }
 
 
 /**
 * Udela vypocet "zakladu": soucet priorit pro jednotlive obory
-* @param $serazene_obory_arr pole s obory a jejich klicovymi slovy
+* @param $slova_s_hodnocenim pole s obory a jejich klicovymi slovy
 *
 * @return pole se souctem priorit, klicem jsou øetìzce "P název oboru" nebo "K název oboru"
 */
-function spocti_zaklad($serazene_obory_arr)
+function spocti_zaklad($slova_s_hodnocenim)
 {
-    $delka = count($serazene_obory_arr);
-    $delka_radek = count($serazene_obory_arr[0]);
+    $delka = count($slova_s_hodnocenim);
+    $delka_radek = count($slova_s_hodnocenim[0]);
     $zaklad_obory = array();
    
     $soucet = 0;
@@ -55,17 +54,16 @@ function spocti_zaklad($serazene_obory_arr)
     for($j = 1; $j <= $delka; $j++)
     {
        if($j<$delka){
-          $nazev_i1 = $serazene_obory_arr[$j][2];
+          $nazev_i1 = $slova_s_hodnocenim[$j][2];
        }
        else
        {
           $nazev_i1="";
        }
        
-        $forma_i0 = substr($serazene_obory_arr[$j-1][$delka_radek-3], 0, 1);
-        $nazev_i0 = $serazene_obory_arr[$j-1][2];
-        
-        $soucet += $serazene_obory_arr[$j-1][$delka_radek-2];  
+        $forma_i0 = substr($slova_s_hodnocenim[$j-1][3], 0, 1);
+        $nazev_i0 = $slova_s_hodnocenim[$j-1][2];
+        $soucet += $slova_s_hodnocenim[$j-1][4];  
 
         if(normalize_str($nazev_i1) !== normalize_str($nazev_i0))
         {
@@ -83,52 +81,44 @@ function spocti_zaklad($serazene_obory_arr)
 /**
 * Udela vypocet "casti": soucet vyrazu (hodnota * priorita) pro jednotlive obory
 
-* @param $serazene_obory_arr pole s obory a jejich klicovymi slovy
+* @param $slova_s_hodnocenim pole s obory a jejich klicovymi slovy
 *
 * @return pole se souctem výrazu (hodnota * priorita), klicem jsou øetìzce "P název oboru" nebo "K název oboru" (s pouzitym normalize_str())
 */
-function spocti_cast($serazene_obory_arr)
+function spocti_cast($slova_s_hodnocenim)
 {
-    $delka = count($serazene_obory_arr);
-    $delka_radek = count($serazene_obory_arr[0]);
+    $delka = count($slova_s_hodnocenim);
+    $delka_radek = count($slova_s_hodnocenim[0]);
     
     $cast = array();
     $soucet = 0;
         
-   
     $k=0;
     
     //cast = hodnota * priorita
     for($j = 1; $j <= $delka; $j++)
     {
        if($j<$delka){
-           $nazev_i1 = $serazene_obory_arr[$j][2];
+           $nazev_i1 = $slova_s_hodnocenim[$j][2];
        }
        else
        {
           $nazev_i1="";
        }
     
-        $forma_i0 = substr($serazene_obory_arr[$j-1][$delka_radek-3], 0, 1);
-        $nazev_i0 = $serazene_obory_arr[$j-1][2];
+        $forma_i0 = substr($slova_s_hodnocenim[$j-1][3], 0, 1);
+        $nazev_i0 = $slova_s_hodnocenim[$j-1][2];
         
-        $priorita = $serazene_obory_arr[$j-1][$delka_radek-2];
-        $hodnota_0 = $serazene_obory_arr[$j-1][$delka_radek-1];
-        
-        //hodnoceni 1 az 5 na 0 az 1= (((1 az 5) - 1) / 4)
-        if($hodnota_0 > 0){
-            $hodnota = ($hodnota_0-1)/4.0;
-        }else{
-            $hodnota = 0;
-        }
-        
+        $priorita = $slova_s_hodnocenim[$j-1][4];
+        $hodnota = $slova_s_hodnocenim[$j-1][5];
+
         $soucet += ($priorita*$hodnota);
-        
         if(normalize_str($nazev_i1) !== normalize_str($nazev_i0))
         {
             $cast[normalize_str($forma_i0." ".$nazev_i0)] = $soucet;
             $soucet = 0;
         }
+        
         
     }
     

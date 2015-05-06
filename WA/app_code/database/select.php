@@ -26,7 +26,7 @@
  * @param String $where      "where" podminka
  * @param String $order_by   "order by" - sloupec (sloupce) podle kterych maji byt data razena
  *                              
- * @return mixed             pole nactenych hodnot
+ * @return mixed             pole nactenych hodnot 
  */
 function select($dbh, $sloupce, $tabulka, $where, $order_by )
 {
@@ -53,4 +53,6 @@ function select($dbh, $sloupce, $tabulka, $where, $order_by )
     
     return $data;
 }
+
+
 ?>
