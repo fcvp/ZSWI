@@ -1,3 +1,4 @@
+
 <!-- 
     index.php
     -----------
@@ -25,10 +26,7 @@
     <script type="text/javascript" src="app_code/js_scripts/zobrazit_formular.js"></script>
     <script type="text/javascript" src="app_code/js_scripts/zobrazit_vizualizaci.js"></script>
     <script type="text/javascript" src="app_code/js_scripts/zobrazit_oblast.js"></script>
-    
-   <script type="text/javascript">
-     
-    </script>
+
     <!-- /js  -->
 
     <title>Výběr studijního oboru na FAV</title>

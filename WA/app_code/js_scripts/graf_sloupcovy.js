@@ -35,7 +35,7 @@ function drawChart(obory_nazvy) {
         var nazev = obory[i][0].replace(" ","\n");
 
         dataTable.addRow(
-           [nazev, createCustomHTMLContent(obory,i), obory[i][4]/100]
+           [nazev, createCustomHTMLContent(obory,i), (obory[i][4]/100)]
         );
     }
 

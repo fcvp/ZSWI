@@ -29,63 +29,67 @@ echo "<div style=\"text-align: left\">";
     require_once(APP_CODE."graf_data_vypocet.php");
     require_once(APP_CODE."graf_data_final.php");
     
-    //-----------------------------
-    // priprava dat
-    //-----------------------------
-    //zobrazena klicova slova s ulozenou hodnotou, ostatni s hodnotu = 0
-    $slova_s_hodnocenim = array();
-    $slova_s_hodnocenim = get_zobrazena_slova($_GET['id_klicova_slova'], $_GET['klicova_slova_hodnota'],  $result['OBOR_SLOVO']);
-    $slova_s_hodnocenim = multisort(2,3, $slova_s_hodnocenim,SORT_ASC );//seradi slova podle oboru a formy
+    $pocet_vybranych = count($_GET['id_klicova_slova']);
+    
+    if($pocet_vybranych != 0){
+        //-----------------------------
+        // priprava dat
+        //-----------------------------
+        //zobrazena klicova slova s ulozenou hodnotou, ostatni s hodnotu = 0
+        $slova_s_hodnocenim = array();
+        $slova_s_hodnocenim = get_zobrazena_slova($_GET['id_klicova_slova'], $_GET['klicova_slova_hodnota'],  $result['OBOR_SLOVO']);
+    
+        $slova_s_hodnocenim = multisort(2,3, $slova_s_hodnocenim,SORT_ASC );//seradi slova podle oboru a formy
 
    
-    //-----------------------------
-    // vypocet
-    //-----------------------------
-    $obory_s_procenty = array();
-    $obory_s_procenty = spocti_shodu($slova_s_hodnocenim);
+        //-----------------------------
+        // vypocet
+        //-----------------------------
+        $obory_s_procenty = array();
+        $obory_s_procenty = spocti_shodu($slova_s_hodnocenim);
    
   
-    //-----------------------------
-    // data - final
-    //-----------------------------
-    //do pole s obory jako posledni sloupec zkopirujeme procenta
-    $obory_final = array();
-    $obory_final = get_data_final($result['OBOR2'], $obory_s_procenty);
+        //-----------------------------
+        // data - final
+        //-----------------------------
+        //do pole s obory jako posledni sloupec zkopirujeme procenta
+        $obory_final = array();
+        $obory_final = get_data_final($result['OBOR2'], $obory_s_procenty);
     
-    $pocet_obory_final = count($obory_final);
+        $pocet_obory_final = count($obory_final);
     
     
 
-    //echo "<table>";
-    //foreach($obory_final as $radek)
-    //{
-    //    echo "<tr>";
-    //    foreach($radek as $slova)
-    //    {
-    //        echo "<td>";
-    //        echo $slova;
-    //        echo "</td>";
+        //echo "<table>";
+        //foreach($obory_final as $radek)
+        //{
+        //    echo "<tr>";
+        //    foreach($radek as $slova)
+        //    {
+        //        echo "<td>";
+        //        echo $slova;
+        //        echo "</td>";
         
-    //    }
-    //    echo "</tr>";
-    //}
-    //echo "</table>";
+        //    }
+        //    echo "</tr>";
+        //}
+        //echo "</table>";
     
    
-    //-----------------------------
-    // vykresleni
-    //-----------------------------
-    $delka = count($slova_s_hodnocenim);
-    $delka_radek = count($slova_s_hodnocenim[0]);
-    $pocet_vybranych = count($_GET['id_klicova_slova']);
-    //------------
+        //-----------------------------
+        // vykresleni
+        //-----------------------------
+        $delka = count($slova_s_hodnocenim);
+        $delka_radek = count($slova_s_hodnocenim[0]);
     
-    if($pocet_vybranych != 0 && $pocet_obory_final !=0 ){
-        require_once(VIZUALIZACE."grafy.php");  
-        require_once(VIZUALIZACE."tlacitka_sdileni.php");  
+        //------------
+    
+        if($pocet_vybranych != 0 && $pocet_obory_final !=0 ){
+            require_once(VIZUALIZACE."grafy.php");  
+            require_once(VIZUALIZACE."tlacitka_sdileni.php");  
+        }
+    
     }
-    
-    
     //------------
     // seznam oboru
     //------------
