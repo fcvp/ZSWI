@@ -25,10 +25,11 @@
 *
 * @param $obory_arr pole s obory
 * @param $obory_procenta_arr pole s procenty a klici ve forme "P nazev oboru" nebo "K nazev oboru"
+* @param $min_zobrazeno minimalni pocet procent, pro ktere se bude obor jeste zobrazovat 
 *
 *  @return pole s obory s procentualni shodou > 0
 */
-function get_data_final($obory_arr, $obory_procenta_arr){
+function get_data_final($obory_arr, $obory_procenta_arr, $min_zobrazeno){
 
     $i=0;
     
@@ -42,8 +43,8 @@ function get_data_final($obory_arr, $obory_procenta_arr){
            continue;
         }
         
-        
-        if($procenta > 0){
+         
+        if($procenta > $min_zobrazeno){
         
            $obory_final[$i] = $obor;
            $obory_final[$i][4] = $procenta;

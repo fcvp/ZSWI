@@ -22,7 +22,7 @@ echo "<h2>Ostatní obory: </h2>";
             //pokud nejsou vybrany zadne oblasti
             foreach($result['OBOR2'] as $row)
             {
-                vykresli_nazev_oboru(1, 0, 3, $row);
+                vykresli_nazev_oboru(0, 0, 1, 0, 3, $row);
             }
         }else
         {    //je vybrana alespon jedna oblast
@@ -31,8 +31,11 @@ echo "<h2>Ostatní obory: </h2>";
                 $forma =  substr($row[3], 0, 1);
                 $procenta = $obory_s_procenty[normalize_str($forma." ".$row[0])];
              
-                if($procenta < 1)
-                   vykresli_nazev_oboru(1, 0, 3, $row);
+                if($procenta < $min_zobrazeno)
+                {
+                   vykresli_nazev_oboru($min_zobrazeno, $procenta, 1, 0, 3, $row);
+                }
+                   
             }
         }
       

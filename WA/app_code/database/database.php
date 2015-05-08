@@ -21,11 +21,8 @@ require_once(APP_CODE."remove_diacritic.php");
 //---------------
 
 
-
 $result['FORMA'] = select($dbh,"*", "forma_studia",null,"id_forma");
 $result['TYP'] = select($dbh,"*", "typ_studia",null,"id_typ");
-
-$delka = count($result['FORMA'][0]);
 
 
 //---------------------
@@ -59,13 +56,11 @@ if (($_GET["forma"]!=null) and ($_GET["typ"]!=null )){
     
     //seznam oboru
     $from = $from." JOIN priorita ON obor_slovo.ID_priorita = priorita.ID_priorita";
-   // $where = $where." AND  (priorita.Hodnota >= 0.5)";
     
     $result['OBOR'] = select($dbh,"DISTINCT obor_nazev, oblast_nazev, forma_nazev ",$from, $where,"obor_nazev");
     $result['OBOR2'] = select($dbh,"DISTINCT obor_nazev, url, popis, forma_nazev ",$from, $where,"forma_nazev, obor_nazev");
     
     $result['OBOR_SLOVO'] = select($dbh,"DISTINCT klicove_slovo.id_klicove_slovo, Slovo, obor_nazev, forma_nazev, priorita.hodnota",$from, $where,"klicove_slovo.id_klicove_slovo");
-//    $result['OBOR_SLOVO2'] = select2($dbh,"DISTINCT klicove_slovo.id_klicove_slovo, Slovo, obor_nazev, forma_nazev, priorita.hodnota",$from, $where,"klicove_slovo.id_klicove_slovo");
     //---------------------
 }    
 

@@ -35,7 +35,7 @@ foreach($rows as $key => $row)
        echo "<td>";
            echo "<input type=\"checkbox\" id=\"oblast_".$column[0]."\" value=\"".($column[1])."\"
                  onclick='pridat_do_vyberu(\"".$column[1]."\",\"oblast_".$column[0]."\" );' > ".
-              $column[1].
+              "<label id=\"oblast_".$column[0]."\" for=\"oblast_".$column[0]."\"  >".$column[1]."<label>".
            " </input><br/>";
        echo "</td>";
     }
