@@ -36,7 +36,9 @@
 							$priority = null;
 							foreach ($typy[$i]["obory"] as $obor)	{
 								$idPriority = Obor::getVazbaOborSlovo($slovo["id"], $obor["id"]);
-								$priority[$k] = Priorita::getHodnotaPriority($idPriority);
+								$priority[$k]["obor"] = $obor["nazev"];
+								$priority[$k]["forma"] = $obor["forma"];
+								$priority[$k]["hodnota"] = Priorita::getHodnotaPriority($idPriority);
 								$k++;
 							}
 							

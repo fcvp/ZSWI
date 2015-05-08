@@ -33,14 +33,14 @@
 								$i = 0;
 								foreach ($slovo["priority"] as $priorita)	{
 									$tridaBarvy = "";
-									switch ($priorita)	{
+									switch ($priorita["hodnota"])	{
 										case "0.5": $tridaBarvy = "red"; break;
 										case "0.75": $tridaBarvy = "orange"; break;
 										case "1": $tridaBarvy = "green"; break;
 										default: $tridaBarvy = "grey"; break;
 									}
 							?>
-								<td class='sloupec_<?= $i?>'><span class='<?= $tridaBarvy?>'><?= $priorita;?></span></td>
+								<td class='sloupec_<?= $i?>' title='<?= $priorita["obor"]?> (<?= $priorita["forma"][0]?>)'><span class='<?= $tridaBarvy?>'><?= $priorita["hodnota"];?></span></td>
 							<?php
 									$i++;
 								}
