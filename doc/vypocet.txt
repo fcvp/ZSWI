@@ -1,31 +1,14 @@
 ﻿
 Výpočet:
 
-Hodnocení uživatele: 0 - 100%
+Hodnocení uživatele je chapano jako: 0 - 100% z priority zadane u slova
+př.: Hodnoceni = 0.5, Priorita = 1 => 50% z 1 = 0.5
+
 
 zaklad = suma 1..n [priorit vsech klicovych slov oboru]
-cast = suma 1..m [(priorita * hodnoceni v %) pro vybrana slova prislusici oboru]
+cast = suma 1..m [(priorita * hodnoceni) pro vybrana slova prislusici oboru]
 
 % = (cast / zaklad) * 100
 
 
-
-
-
-
-
--------------------------------------------
-2. možnost:
-
-foreach (obor.typ[])										  //pole oborů pro daný typ studia
-	foreach (klíčový termín v oboru[])							  //každé klíčové slovo související s oborem z pole
-		if (isset(Get[".."] && GET[".."] !=0.5){
-			diference = Math.abs (isset(Get[".."]) - db.getValue(ID_oboru, ID_slova)) //vezme hodnotu zadaného slova a porovná s hodnotou v db
-			pocet++;								  //potřebné pro dělení
-			}
-	procenta = (1-(diference/pocet))*100
-
-----
-
-hodnoceni = 0   -> dif = 0
-hodnoceni = 0.5 -> 
+v grafu se zobrazi jen obory se shodou >= průměr/4
