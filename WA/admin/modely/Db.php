@@ -5,7 +5,7 @@
 	 * @author Jan Baxa	 
 	 */	 	 	
 	class Db	{
-		/** připojení k databázi */
+		/** @var PDO $spojeni instance objektu PDO */
 		private static $spojeni;
 		
 		/** nastavení připojení k databázi */

@@ -1,14 +1,22 @@
 <?php
+	/**
+	 * Kontroler pro podstránku Editace studijních oborů
+	 * 
+	 * @author Jan Baxa	 	 
+	 */	
 	class OboryEditKontroler extends Kontroler	{
 	    public function zpracuj($parametry)
 	    {
+	    		// nastavení titulku stránky
 	        $this->hlavicka = array(
                 'titulek' => "Editace studijních oborů"
         	);
 					
+					// získání seznamu klíčových slov
 					$vsechnaSlova = Slovo::getVsechnaSlova();
-					$idPolozek = explode("-", $parametry[0]);
 					
+					// získání editovaných oborů a vazeb ke každému klíčovému slovu
+					$idPolozek = explode("-", $parametry[0]);
 					$i = 0;
 					foreach ($idPolozek as $idPolozky)	{
 						$obor = Obor::getObor($idPolozky);
@@ -21,11 +29,14 @@
 						}
 					}
 					
+					// pomocná proměnná pro případ, že editace položky selže
 					$this->data["zvyrazni"] = "";
 					
+					// po odeslání formuláře
 					if (!empty($_POST))	{
 						$this->data["upozorneni"] = "";
 						
+						// editace všech editovaných položek (oborů a jejich vazeb ke klíčovým slovům) v cyklu
 						$i=0;
 						foreach ($idPolozek as $idPolozky)	{
 							$nazev = trim($_POST["nazev_".$idPolozky]);
@@ -34,21 +45,28 @@
 							$url = $_POST["url_".$idPolozky];
 							$popis = $_POST["popis_".$idPolozky];
 							
-							$upraveno[$i] = 0;
+							// pomocná proměnná
+							$upraveno = 0;
+							// ověření vstupu
 							if ($nazev!="")	{
+								// ověření vstupu
 								if (Vstup::overNazev($nazev))	{
+									// ověření vstupu
 									if (Vstup::overUrl($url))	{
+										// ověření vstupu
 										if (Vstup::overPopis($popis))	{
+											// úprava oboru proběhla úspěšně
 											if (Obor::upravObor($idPolozky, $nazev, $idFormy, $idTypu, $url, $popis))	{
 												$this->data["upozorneni"] .= "Obor #".$idPolozky." byl upraven.<br />";
 												$polozky[$i] = Obor::getObor($idPolozky);
 												
+												// nastavení vazeb mezi oborem a všemi klíčovými slovy
 												foreach($vsechnaSlova as $slovo)	{
 													Obor::vazbaOborSlovo($slovo["id"], $idPolozky, $_POST["priorita_".$slovo["id"]."_".$idPolozky]);
 													$polozky[$i]["priorita_".$slovo["id"]] = $_POST["priorita_".$slovo["id"]."_".$idPolozky];
 												}
 												
-												$upraveno[$i] = 1;
+												$upraveno = 1;
 												new Udalost("Edited", "Studijní obor", $idPolozky);
 											}
 											else	{
@@ -71,7 +89,8 @@
 								$this->data["upozorneni"] .= "Vyplňte název oboru #".$idPolozky."<br />";
 							}
 							
-							if ($upraveno[$i]==0)	{
+							// úprava neproběhla z nějakého důvodu úspěšne -> celý objekt se obarví červeně a ve formuláři zůstanou odeslaná data
+							if ($upraveno==0)	{
 								$polozky[$i] = array(
 									"id" => $idPolozky,
 									"nazev" => $nazev,
@@ -96,6 +115,7 @@
 					
 					$this->data["obory"] = $polozky;
 					
+					// nastavení pohledu
 					$this->pohled = 'obory-edit';
 	    }
 	}

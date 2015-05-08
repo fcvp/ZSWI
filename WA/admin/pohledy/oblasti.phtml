@@ -1,3 +1,4 @@
+<!-- Panel nástrojů -->
 <div id="nastroje">
 	<a href="oblasti-add" id="pridej"><img src='add.png' alt='' /></a><a href="javascript:void(0)" onclick="editujSeznam();" id="edituj"><img src='edit.png' alt='' /></a><a href="javascript:void(0)" onclick="smazSeznam('oblasti');" id="vymaz"><img src='delete.png' alt='' /></a>
 </div>
@@ -5,6 +6,7 @@
 	
 	<? echo $upozorneni == "" ? "" : "<span class='var'>".$_upozorneni."</span>";?>
 	
+	<!-- Tabulka s oblastmi studia -->
   <div class='tabulka'>Oblasti studia <input type='button' name='vybrat_vse' value='Vybrat vše' onclick='vyberVse("tabulka_1")' /></div>
 		<form method="post" action="" name='formular'>
 			<input type='hidden' name='delete' id='delete' value='0' />
@@ -13,6 +15,7 @@
 			<input type='hidden' name='delete_polozky' id='delete_polozky' value='' />
 			<table class='seznam' cellspacing='0' cellpadding='0' border='0' id="tabulka_1">
 				<tr><th style='width: 50px;'>ID</th><th>Název oblasti</th><th style='width: 58px;'>[ ]</th></tr>
+				<!-- Výpis jednotlivých oblastí studia -->
 				<?php
 					$i = 0;
 					foreach ($radky as $radek)	{

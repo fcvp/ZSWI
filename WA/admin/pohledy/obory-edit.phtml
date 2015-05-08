@@ -1,3 +1,4 @@
+<!-- Panel nástrojů -->
 <div id="nastroje">
 	<a href="javascript:void(0)" onclick="edituj();" id="edituj"><img src='edit.png' alt='' /></a>
 </div>
@@ -7,6 +8,7 @@
 	
 	<form method='post' action='' name='formular'>
 		<input type='hidden' name='zvyrazni' value="<?= $zvyrazni?>" />
+			<!-- Výpis jednotlivých studijních oborů -->
 		<?php
 			foreach ($obory as $obor)	{
 		?>
@@ -40,6 +42,7 @@
 					<tr><td colspan='4'><textarea name='popis_<?= $obor["id"]?>'><?= $obor["popis"]?></textarea></td></tr>
 					<tr><td><input type='submit' name='odeslat' value='Upravit' /></td></tr>
 				</table>
+					<!-- Výpis jednotlivých klíčových slov pro možnost vytvoření vazby mezi oborem a klíčovými slovy -->
 				<table class='seznam' cellspacing='0' cellpadding='0' border='0'>
 					<tr><th>Klíčová slova</th><th>Priorita daného slova v oboru</th></tr>
 					<?php

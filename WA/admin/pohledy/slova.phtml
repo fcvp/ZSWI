@@ -1,3 +1,4 @@
+	<!-- Panel nástrojů -->
 <div id="nastroje">
 	<a href="slova-add" id='pridej'><img src='add.png' alt='' /></a><a href="javascript:void(0)" onclick="editujSeznam();" id="edituj"><img src='edit.png' alt='' /></a><a href="javascript:void(0)" onclick="smazSeznam('obory');" id="vymaz"><img src='delete.png' alt='' /></a>
 </div>
@@ -11,13 +12,14 @@
 		<input type='hidden' name='edit' id='edit' value='0' />
 		<input type='hidden' name='edit_polozky' id='edit_polozky' value='' />
 		<input type='hidden' name='delete_polozky' id='delete_polozky' value='' />
-		
+		<!-- Výpis oblastí studia -->
 		<?php
 			foreach ($oblasti as $oblast)	{
 		?>
 			<div class='tabulka'>Oblast: <?= $oblast["nazev"]?> <input type='button' name='vybrat_vse' value='Vybrat vše' onclick='vyberVse("tabulka_<?= $oblast["id"]?>")' /></div>
 				<table class='seznam' cellspacing='0' cellpadding='0' border='0' id='tabulka_<?= $oblast["id"]?>'>
 					<tr><th style='width: 50px;'>ID</th><th>Klíčové slovo</th><th>Výnam</th><th style='width: 58px;'>[ ]</th></tr>
+					<!-- Výpis klíčových slov, které patří do dané oblasti -->
 					<?php
 						$i = 0;
 						foreach ($oblast["radky"] as $radek)	{

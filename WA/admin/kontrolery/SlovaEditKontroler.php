@@ -1,13 +1,21 @@
 <?php
+	/**
+	 * Kontroler pro podstránku Editace klíčových slov
+	 * 
+	 * @author Jan Baxa	 	 
+	 */	
 	class SlovaEditKontroler extends Kontroler	{
 	    public function zpracuj($parametry)
 	    {
+	    		// nastavení titulku stránky
 	        $this->hlavicka = array(
                 'titulek' => "Editace klíčových slov"
         	);
 					
+					// získání typů studia, protože obory jsou pod klíčovými slovy řazeny do skupin podle typu studia
 					$vsechnyTypy = Typ::getVsechnyTypy();
 					
+					// ke každému typu studia jsou přiřazeny obory
 					$typy;
 					$i = 0;
 					foreach ($vsechnyTypy as $typ)	{
@@ -18,6 +26,7 @@
 					
 					$idPolozek = explode("-", $parametry[0]);
 					
+					// získání editovaných klíčových slov a vazeb k jednotlivým oborům
 					$i = 0;
 					foreach ($idPolozek as $idPolozky)	{
 						$slovo = Slovo::getSlovo($idPolozky);
@@ -35,25 +44,34 @@
 						}
 					}
 					
+					// pomocná proměnná pro případ, že editace položky selže
 					$this->data["zvyrazni"] = "";
 					
+					// po odeslání formuláře
 					if (!empty($_POST))	{
 						$this->data["upozorneni"] = "";
 						
+						// editace všech editovaných položek (klíčových slov a vazeb k oborům) v cyklu
 						$i=0;
 						foreach ($idPolozek as $idPolozky)	{
 							$nazev = trim($_POST["nazev_".$idPolozky]);
 							$idOblasti = $_POST["oblast_".$idPolozky];
 							$vyznam = $_POST["vyznam_".$idPolozky];
 							
-							$upraveno[$i] = 0;
+							// pomocná proměnná
+							$upraveno = 0;
+							// ověření vstupu
 							if ($nazev!="")	{
+								// ověření vstupu
 								if (Vstup::overNazev($nazev))	{
+									// ověření vstupu
 									if (Vstup::overNazev($vyznam))	{
+										// úprava oboru proběhla úspěšně
 										if (Slovo::upravSlovo($idPolozky, $nazev, $idOblasti, $vyznam))	{
 											$this->data["upozorneni"] .= "Klčové slovo #".$idPolozky." bylo upraveno.<br />";
 											$polozky[$i] = Slovo::getSlovo($idPolozky);
 											
+											// nastavení vazeb mezi klíčovým slovem a všemi obory
 											foreach($typy as $typ)	{
 												$j = 0;
 												foreach ($typ["radky"] as $radek)	{
@@ -82,6 +100,7 @@
 								$this->data["upozorneni"] .= "Zadejte klíčové slovo #".$idPolozky."<br />";
 							}
 							
+							// úprava neproběhla z nějakého důvodu úspěšne -> celý objekt se obarví červeně a ve formuláři zůstanou odeslaná data
 							if ($upraveno[$i]==0)	{
 								$polozky[$i] = array(
 									"id" => $idPolozky,
@@ -109,6 +128,7 @@
 					
 					$this->data["slova"] = $polozky;
 					
+					// nastavení pohledu
 					$this->pohled = 'slova-edit';
 	    }
 	}

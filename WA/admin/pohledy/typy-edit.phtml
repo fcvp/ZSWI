@@ -1,3 +1,4 @@
+<!-- Panel nástrojů -->
 <div id="nastroje">
 	<a href="javascript:void(0)" onclick="edituj();" id="edituj"><img src='edit.png' alt='' /></a>
 </div>
@@ -7,6 +8,7 @@
 	
 	<form method='post' action='' name='formular'>
 		<input type='hidden' name='zvyrazni' value="<?= $zvyrazni?>" />
+		<!-- Výpis jednotlivých forem studia -->
 		<?php
 			foreach ($typy as $typ)	{
 				echo "<div class='tabulka'>Typ #".$typ["id"]."</div>";

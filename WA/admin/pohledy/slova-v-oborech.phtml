@@ -1,9 +1,12 @@
+<!-- Podstránka pro zobrazení všech klíčových slov a jejich vazeb k jednotlivým oborům -->
 <div class='csstransforms'>
+		<!-- Výpis typů studia -->
 		<?php
 			foreach ($typy as $typ)	{
 		?>
 		<div class='tabulka'>Typ studia: <?= $typ["nazev"]?></div>
 			<table class="table table-header-rotated">
+			<!-- Hlavička tabulky - studijní obory v daném typu studia -->
 				<thead>
 					<tr>
 						<th></th>
@@ -19,6 +22,7 @@
 					</tr>
 				</thead>
 				<tbody>
+					<!-- Tělo tabulky - klíčová slova a jejich priority vazeb k oborům -->
 					<?php
 						if ($typ["obory"])	{
 							foreach ($typ["slova"] as $slovo)	{

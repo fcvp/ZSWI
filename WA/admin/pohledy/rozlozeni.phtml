@@ -12,6 +12,7 @@
   <script type='text/javascript' src='javascript.js'></script>
 </head>
 <body>
+		<!-- Horní lišta s panelem nástrojů -->
   <div id="lista">
     <div class="lista">
       <div class='prihlasen'>Přihlášen přes účet: <?= $prezdivka;?></div>
@@ -23,6 +24,7 @@
     </div>
   </div>
 	<div id="stranka">
+		<!-- Levý panel s nabídkou (menu) -->
     <div id="menu">
       <img src="menu_top.png" alt="" style="float: left; margin-left: -15px;" />
       <table cellspacing='0' cellpadding='0' border='0'>
@@ -37,6 +39,7 @@
           <tr><td colspan='2'><a href='zmena-hesla'>Změna hesla</a></td></tr>
       </table>
     </div>
+    	<!-- Měnící se obsah -->
     <div id="obsah">
       <?php $this->kontroler->vypisPohled();?> 
     </div>

@@ -1,17 +1,22 @@
 <?php
+	/**
+	 * Kontroler pro podstránku Poslední akce
+	 * 
+	 * @author Jan Baxa	 	 
+	 */	 	
 	class PosledniAkceKontroler extends Kontroler	{
 	    public function zpracuj($parametry)
 	    {
 	        
-	        // klicova slova a popis by se bral z databaze, pokud by se nejednalo o staticke stranky
+	        // nastavení titulku stránky
 	        $this->hlavicka = array(
-                'titulek' => "Poslední akce",
-                'klicova_slova' => "",
-                'popis' => "",
+                'titulek' => "Poslední akce"
         	);
         	
+        	// Získání všech událostí
 	        $this->data["posledni_akce"] = Udalost::vypisUdalosti();
         	
+        	// nastavení pohledu
 	        $this->pohled = 'posledni-akce';
 	    }
 	}

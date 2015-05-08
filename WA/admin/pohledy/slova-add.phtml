@@ -1,3 +1,4 @@
+<!-- Panel nástrojů -->
 <div id="nastroje">
 	<a href="javascript:void(0)" onclick="pridej();" id="pridej"><img src='add.png' alt='' /></a>
 </div>
@@ -7,6 +8,7 @@
 	<span class='var info'>
 		Pokud obor, ke kterému přiřazujete klíčové slovo, existuje ve více formách (prezenční i kombinovaná) se stejným názvem a typem studia, bude klíčové slovo k těmto oborům také přiřazeno.
 	</span>
+	<!-- Tabulka s údaji pro nové klíčové slovo -->
   <div class='tabulka'>Nové klíčové slovo</div>
 		<form method="post" action="" name='formular'>
 			<table class='seznam2'>
@@ -27,6 +29,7 @@
 				</tr>
 				<tr><td><input type='submit' name='odeslat' value='Přidat' /></td></tr>
 			</table>
+			<!-- Seznam oborů sežazených do skupin podle typu studia pro možnost vytvoření vazby mezi klíčovým slovem a studijními obory -->
 			<table class='seznam' cellspacing='0' cellpadding='0' border='0'>
 				<?php
 					foreach ($typy as $typ)	{	

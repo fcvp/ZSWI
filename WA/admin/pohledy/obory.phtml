@@ -1,3 +1,4 @@
+<!-- Panel nástrojů -->
 <div id="nastroje">
 	<a href="obory-add" id='pridej'><img src='add.png' alt='' /></a><a href="javascript:void(0)" onclick="editujSeznam();" id="edituj"><img src='edit.png' alt='' /></a><a href="javascript:void(0)" onclick="smazSeznam('obory');" id="vymaz"><img src='delete.png' alt='' /></a>
 </div>
@@ -13,13 +14,14 @@
 		<input type='hidden' name='edit' id='edit' value='0' />
 		<input type='hidden' name='edit_polozky' id='edit_polozky' value='' />
 		<input type='hidden' name='delete_polozky' id='delete_polozky' value='' />
-		
+		<!-- Výpis typů studia -->
 		<?php
 			foreach ($typy as $typ)	{
 		?>
 			<div class='tabulka'>Typ: <?= $typ["nazev"]?> <input type='button' name='vybrat_vse' value='Vybrat vše' onclick='vyberVse("tabulka_<?= $typ["id"]?>")' /></div>
 				<table class='seznam' cellspacing='0' cellpadding='0' border='0' id='tabulka_<?= $typ["id"]?>'>
 					<tr><th style='width: 50px;'>ID</th><th>Název oboru</th><th>Forma studia</th><th style='width: 150px;'>[ ]</th><th style='width: 58px;'>[ ]</th></tr>
+					<!-- Tabulka oborů, které patří do daného typu studia -->
 					<?php
 						$i = 0;
 						foreach ($typ["radky"] as $radek)	{

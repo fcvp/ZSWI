@@ -1,5 +1,11 @@
+/**
+ * JS soubor pro usnadnění práce v administrace
+ */ 
+
+/**
+ * Pokud na stránce existuje input[name='zvyrazni'], metoda získá jeho hodnotu, vyparsuje jednotlivá ID tabulek, která se mají označit a těm přidá class='chyba' -> (tabulka se označí červeně)
+ */ 
 $(document).ready(function()	{
-	
 	if ($("input[name='zvyrazni']").length==1)	{
 		var chybnePolozky = "";
 		var tmp = $("input[name='zvyrazni']").val().split("-");
@@ -11,20 +17,36 @@ $(document).ready(function()	{
 	
 });
 
+/**
+ * Odešle formulář pro editaci záznamů
+ */ 
 function edituj()	{
-	$("#edit").val(1);
 	document.forms['formular'].submit();
 }
+
+/**
+ * Odešle formulář pro přidání záznamu
+ */ 
 function pridej()	{
 	document.forms['formular'].submit();
 }
 
+/**
+ * Zaškrtne všechny checkboxy v tabulce s daným ID
+ * 
+ * @param String idTabulky ID tabulky  
+ */ 
 function vyberVse(idTabulky)	{
 	$("#"+idTabulky+" input[type='checkbox']").each(function() {
     $(this).prop("checked", true);
 	});
 }
 
+/**
+ * Zobrazí/Skryje klíčová slova v daném řádku
+ * 
+ * @param String idRadku ID řádku
+ */ 
 function zobrazKlicovaSlova(idRadku)	{
 	if ($("#"+idRadku).is(":hidden"))	{
 		$("#"+idRadku).show();
@@ -34,6 +56,11 @@ function zobrazKlicovaSlova(idRadku)	{
 	}
 }
 
+/**
+ * Zobrazí dotaz, zda si uživatel opravdu přeje smazat označené záznamy a pokud ano, vloží do skrytého inputu jejich ID oddělené pomlčkou a odešle formulář
+ * 
+ * @param String typ typ, který určuje, jaké záznamy se snažíme smazat (Oblasti, Formy studia, ...)  
+ */ 
 function smazSeznam(typ)	{
 	var pocetVybranych = $("input[name*='radek_']:checked").length; 
 	if (pocetVybranych==0)	{
@@ -67,6 +94,9 @@ function smazSeznam(typ)	{
 	}
 }
 
+/**
+ * Do skrytého inputu vloží ID editovaných položek a odešle formulář
+ */ 
 function editujSeznam()	{
 	var pocetVybranych = $("input[name*='radek_']:checked").length; 
 	if(pocetVybranych==0)	{
