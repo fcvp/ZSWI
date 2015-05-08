@@ -18,9 +18,16 @@
 					
 					if (!empty($_POST))	{
 						$_POST["nazev"] = trim($_POST["nazev"]);
+						$this->data["post"] = $_POST;
+						
 						if ($_POST["nazev"]=="")	{
 							$this->data["upozorneni"] = "Zadejte klíčové slovo.";
-							$this->data["post"] = $_POST;
+						}
+						else if (!Vstup::overNazev($_POST["nazev"]))	{
+							$this->data["upozorneni"] = "Klíčové slovo".Vstup::spatnyNazev;
+						}
+						else if (!Vstup::overNazev($_POST["vyznam"]))	{
+							$this->data["upozorneni"] = "Význam slova".Vstup::spatnyNazev;
 						}
 						else	{
 							if (Slovo::pridejSlovo($_POST["nazev"], $_POST["oblast"], $_POST["vyznam"]))	{
@@ -35,13 +42,12 @@
 									}
 								}
 								
-								
 								$this->data["upozorneni"] = "Klíčové slovo bylo přidáno.";
 								new Udalost("Added", "Klíčové slovo", $idSlova);
+								$this->data["post"] = null;
 							}
 							else	{
 								$this->data["upozorneni"] = "Toto klíčové slovo již je v databázi.";
-								$this->data["post"] = $_POST;
 							}
 						}
 					}

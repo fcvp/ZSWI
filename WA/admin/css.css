@@ -16,6 +16,7 @@ html  {min-height: 100%;}
   .seznam {float: left; width: 812px; border: 1px solid #212121; margin-bottom: 36px;}
     .seznam th, .seznam td  {height: 26px; vertical-align: middle;}
     .seznam th {text-align: center; color: #e6e6e6; background: #212121;}
+    	.seznam th .vertical-text	{transform: rotate(90deg); transform-origin: left top 0;}
     .seznam td {color: #212121; background: #c7c7c7;}
     .seznam .sudy td {background: #d6d6d6;}
     .seznam tr:hover td  {background: #e6e6e6;}
@@ -28,7 +29,7 @@ html  {min-height: 100%;}
 		.seznam2 td {vertical-align: middle; padding: 3px;}
   
   
-span.var  {float: left; width: 792px; padding: 10px; border: 1px dashed #212121; color: #212121; background: #d6d6d6; margin-bottom: 10px;}
+span.var  {float: left; width: 790px; padding: 10px; border: 1px dashed #212121; color: #212121; background: #d6d6d6; margin-bottom: 10px;}
 span.var.info	{background: #76e7ff; border: 1px dashed #002ff7;}
 
 
@@ -41,6 +42,7 @@ a img {border: none;}
 
 input,textarea, select {border: thin solid black;}
 	input[type=text],input[type=password]	{width: 210px;}
+	textarea	{width: 780px; height: 60px;}
 input.skore {width: 50px; text-align: right;}
 
 #lista  {position: fixed; background: url(bg.png); width: 100%; height: 54px; min-width: 1130px; z-index: 10;}
@@ -54,7 +56,7 @@ input.skore {width: 50px; text-align: right;}
     #nastroje {position: fixed; width: 282px; height: 34px; padding: 2px; background: url(tools.png); margin-left: 140px; top: 52px; text-align: center; z-index: 11;}
       #nastroje img {width: 92px; height: 34px; margin: 0px 1px 0px 1px;}
   
-    #obsah2 {position: relative; width: 812px; top: 144px; z-index: 1;}
+    #obsah2 {position: relative; width: 812px; top: 144px; z-index: 1; overflow-x: auto;}
   
   #menu {position: fixed; height: 100%; width: 220px; padding: 0px 2px 0px 15px; background: url(menu.png); color: #ffffff; top: 52px; z-index: 11;}
     #menu table {float: left; width: 220px;}

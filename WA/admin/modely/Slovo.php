@@ -68,7 +68,7 @@
 		public static function getSlovaPodleOboru($idOboru)	{
 			return Db::dotazVsechny("select slovo as nazev from klicove_slovo join obor_slovo on obor_slovo.id_klicove_slovo=klicove_slovo.id_klicove_slovo where id_obor = ? order by nazev", array($idOboru));
 		}
-		
+				
 		public static function getSlova($idOblasti)	{
 			return Db::dotazVsechny('select id_klicove_slovo as id,slovo as nazev,vyznam from klicove_slovo where id_oblast=? order by nazev', array($idOblasti));
 		}

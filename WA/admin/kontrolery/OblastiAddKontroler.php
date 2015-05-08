@@ -8,18 +8,22 @@
 					
 					if (!empty($_POST))	{
 						$_POST["nazev"] = trim($_POST["nazev"]);
+						$this->data["post"] = $_POST;
+						
 						if ($_POST["nazev"]=="")	{
 							$this->data["upozorneni"] = "Zadejte název oblasti.";
-							$this->data["post"] = $_POST;
+						}
+						else if (!Vstup::overNazev($_POST["nazev"]))	{
+							$this->data["upozorneni"] = "Název oblasti studia".Vstup::spatnyNazev;
 						}
 						else	{
 							if (Oblast::pridejOblast($_POST["nazev"]))	{
 								$this->data["upozorneni"] = "Oblast byla přidána.";
 								new Udalost("Added", "Oblast studia", Oblast::getIdOblasti($_POST["nazev"]));
+								$this->data["post"] = null;
 							}
 							else	{
 								$this->data["upozorneni"] = "Oblast s tímto názvem již je v databázi.";
-								$this->data["post"] = $_POST;
 							}
 						}
 					}

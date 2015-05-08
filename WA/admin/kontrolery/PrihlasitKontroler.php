@@ -25,7 +25,6 @@
 						}
 					}
 					
-					$this->pohled = 'prihlaseni';
 	    }
 	}
 ?>

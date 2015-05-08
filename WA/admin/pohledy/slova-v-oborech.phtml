@@ -1,0 +1,54 @@
+<div class='csstransforms'>
+		<?php
+			foreach ($typy as $typ)	{
+		?>
+		<div class='tabulka'>Typ studia: <?= $typ["nazev"]?></div>
+			<table class="table table-header-rotated">
+				<thead>
+					<tr>
+						<th></th>
+						<?php
+							if ($typ["obory"])	{
+								foreach ($typ["obory"] as $obor)	{
+						?>
+							<th class="rotate"><div><span><?= $obor["nazev"]?> (<?= $obor["forma"][0]?>)</span></div></th>
+						<?php
+								}
+							}
+						?>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+						if ($typ["obory"])	{
+							foreach ($typ["slova"] as $slovo)	{
+					?>
+						<tr>
+							<th class="row-header"><?= $slovo["nazev"]?></th>
+							<?php
+								$i = 0;
+								foreach ($slovo["priority"] as $priorita)	{
+									$tridaBarvy = "";
+									switch ($priorita)	{
+										case "0.5": $tridaBarvy = "red"; break;
+										case "0.75": $tridaBarvy = "orange"; break;
+										case "1": $tridaBarvy = "green"; break;
+										default: $tridaBarvy = "grey"; break;
+									}
+							?>
+								<td class='sloupec_<?= $i?>'><span class='<?= $tridaBarvy?>'><?= $priorita;?></span></td>
+							<?php
+									$i++;
+								}
+							?>
+						</tr>
+					<?php
+							}
+						}
+					?>
+				</tbody>
+			</table>
+		<?php
+			}
+		?>
+</div>

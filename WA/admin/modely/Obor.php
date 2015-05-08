@@ -123,7 +123,7 @@
 		 * @return mixed[][] studijní obory		 		 		 
 		 */	
 		public static function getObory($idTypu)	{
-			return Db::dotazVsechny('select id_obor as id,obor_nazev as nazev,forma_nazev as forma from obor join forma_studia on forma_studia.id_forma = obor.id_forma where obor.id_typ=? order by nazev', array($idTypu));
+			return Db::dotazVsechny('select id_obor as id,obor_nazev as nazev,forma_nazev as forma from obor join forma_studia on forma_studia.id_forma = obor.id_forma where obor.id_typ=? order by nazev, forma desc', array($idTypu));
 		}
 		
 		/**

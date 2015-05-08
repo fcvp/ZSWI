@@ -3,11 +3,8 @@ mb_internal_encoding("UTF-8");
 
 // Callback pro automatické načítání tříd controllerů a modelů
 function autoloadFunkce($trida)	{
-  if (preg_match('/Kontroler$/', $trida))	{	
-		require("kontrolery/".$trida.".php");
-	}
-	else
-		require("modely/".$trida.".php");
+  if (file_exists('kontrolery/'.$trida.'.php'))	require("kontrolery/".$trida.".php");
+	else require("modely/".$trida.".php");
 }
 
 // Registrace callbacku

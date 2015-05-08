@@ -22,7 +22,12 @@
 				
 				$this->data['prezdivka'] = $uzivatel->getPrezdivka();
 				
-				$this->pohled = 'rozlozeni';
+				if ($tridaKontroleru == "SlovaVOborechKontroler")	{
+					$this->pohled = 'prazdna-stranka';
+				}
+				else	{				
+					$this->pohled = 'rozlozeni';
+				}
 			}
 			else	{
 				$tridaKontroleru = 'PrihlasitKontroler';
