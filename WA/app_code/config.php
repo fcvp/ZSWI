@@ -1,5 +1,5 @@
 <?php
-/**
+/** 
  * config.php
  * ---------
  * Definice konstant cest do jednotlivých adresáøù. 

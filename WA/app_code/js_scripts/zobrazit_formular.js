@@ -1,4 +1,4 @@
-﻿/**
+﻿/** 
 * zobrazit_formular.js
 * -----------------------
 * Zobrazi formular pro vybrani klicoveho slova a oblasti. Provede se po vybrani formy a typu studia.

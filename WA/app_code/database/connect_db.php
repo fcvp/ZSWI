@@ -1,5 +1,5 @@
 <?php
-/**
+/** 
  * connect_db.php
  * ---------
  * Pripojeni k databazi.

@@ -1,4 +1,4 @@
-/**
+/** 
 * zobrazit_oblast.js
 * -----------------------
 * Pridani/smazani oblasti do/ze seznamu vybranych oblasti, zobrazovane pod formularem,
@@ -80,7 +80,7 @@ function odeber_oblast(id_oblast) {
     //odznaceni checkboxu v seznamu oblasti
     var oblast_chb = $('input:checkbox[id=' + id_oblast + ']');
     oblast_chb.attr('checked', false);
-    oblast_chb.checkboxradio('refresh');
+   // oblast_chb.checkboxradio('refresh');
 
     
 

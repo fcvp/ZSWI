@@ -18,7 +18,7 @@ require_once(VIZUALIZACE."ostatni_obory_polozka.php");
   //ostatni obory
 echo "<h2>Ostatní obory: </h2>";
     echo "<ul>";
-        if($pocet_vybranych === 0){
+        if($pocet_vybranych === 0 || $pocet_obory_final === 0){
             //pokud nejsou vybrany zadne oblasti
             foreach($result['OBOR2'] as $row)
             {
@@ -35,11 +35,7 @@ echo "<h2>Ostatní obory: </h2>";
              
                 if($procenta < $min_zobrazeno)
                 {
-                 // if($row != null)
-                  {
                      vykresli_nazev_oboru($min_zobrazeno, $procenta, 1, 0, 3, $row);
-                  }
-                   
                 }
                    
             }

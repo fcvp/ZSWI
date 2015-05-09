@@ -1,5 +1,5 @@
 <?php
-/**
+/** 
  * database.php
  * ---------
  * Pripojeni k databazi. Priprava sql dotazu.

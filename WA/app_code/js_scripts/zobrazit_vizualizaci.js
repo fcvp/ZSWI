@@ -1,4 +1,4 @@
-﻿/**
+﻿/** 
 * zobraz_vizualizaci.js
 * -----------------------
 * Zobrazi oblast s grafy a seznamem oboru po stisku tlacitka zobrazit vizualizaci.

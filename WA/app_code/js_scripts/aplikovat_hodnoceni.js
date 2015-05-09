@@ -1,4 +1,4 @@
-﻿/**
+﻿/** 
 * aplikovat_hodnoceni.js
 * -----------------------
 *  Aplikování hodnoceni na prislusna klicova slova. 

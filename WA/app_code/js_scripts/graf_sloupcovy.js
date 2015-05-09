@@ -1,5 +1,5 @@
 ﻿
-/**
+/** 
 * graf_sloupcovy.js
 * -----------------------
 * Definice sloupcoveho grafu prostrednictvim google charts api.

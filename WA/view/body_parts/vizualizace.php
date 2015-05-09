@@ -35,7 +35,7 @@ echo "<div style=\"text-align: left\">";
     
     if($pocet_vybranych != 0){
        require_once(APP_CODE."graf_data.php");
-   
+ 
         //-----------------------------
         // vykresleni
         //-----------------------------    

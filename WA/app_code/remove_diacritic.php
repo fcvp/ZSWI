@@ -1,5 +1,5 @@
 <?php
-/**
+/** 
  * remove_diacritic.php
  * -----------------------
  * odstraneni diakritiky a mezer a dalsich znaku z retezce.

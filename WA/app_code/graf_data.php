@@ -1,6 +1,6 @@
 <?php
 
-/**
+/** 
  * graf_data.php
  * ---------
  * Priprava a vypocet dat pro zobrazeni.

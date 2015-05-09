@@ -1,6 +1,6 @@
 
 <?php
-/**
+/** 
  * graf_data_final.php
  * ---------
  * Priprava dat pro zobrazeni.
@@ -18,7 +18,7 @@
  * */
 
 
-/**
+/** 
 * Spoji pole oboru s procenty. 
 * Pokud jsou vybrany obe formy, budou se vykreslovat 
 * obory jen jednou s popiskem: 'Prezenční, Kombinované'

@@ -1,5 +1,5 @@
 <?php
-/**
+/** 
  * select.php
  * -----------------------
  * Generovani sql dotazu pro vyber dat z DB (select)

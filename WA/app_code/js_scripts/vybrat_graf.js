@@ -1,4 +1,4 @@
-/**
+/** 
 * vybrat_graf.js
 * -----------------------
 * Zobrazeni prislusneho grafu po vybrani jedne ze zalozek.

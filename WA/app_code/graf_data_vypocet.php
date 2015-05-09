@@ -1,5 +1,5 @@
 <?php
-/**  
+/**   
  * graf_data_vypocet.php
  * ---------
  * Vypocet procentualni shody pro jednotlive obory 
