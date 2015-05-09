@@ -14,9 +14,10 @@
 
 
 /**
- * Přidá oblast do výběru
+ * Prida oblast do seznamu vybranych oblasti
  *
- * @param nazev_oblast - Označní oblasti 
+ * @param nazev_oblast - nazev oblasti 
+ * @param id_oblast - id oblasti
  **/
 function pridat_do_vyberu(nazev_oblast, id_oblast) {
     var oblast_chb = $('input:checkbox[id=' + id_oblast + ']');
@@ -66,8 +67,8 @@ function pridat_do_vyberu(nazev_oblast, id_oblast) {
 
 
 /**
- *	Odebere oblast z výběru
- *	id_oblast - id oblasti, která se má odebrat 
+ *	Odebere oblast z vyberu
+ *	@param id_oblast - id oblasti, která se má odebrat 
  */
 function odeber_oblast(id_oblast) {
 
@@ -95,13 +96,6 @@ function odeber_oblast(id_oblast) {
 function oblast_odstran_hlasku() {
     $("#hlaska_oblast").html("");
 }
-
-/**
- *	Odstraní zobrazenou hlášku
- */
-//function klicove_slovo_odstran_hlasku() {
-//    $("#hlaska_klicove_slovo").html("");
-//}
 
 
 

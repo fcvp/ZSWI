@@ -21,13 +21,13 @@
 /**
 * Spoji pole oboru s procenty. 
 * Pokud jsou vybrany obe formy, budou se vykreslovat 
-* obor jen jednou s popiskem: 'Prezenční, Kombinované'
+* obory jen jednou s popiskem: 'Prezenční, Kombinované'
 *
-* @param $obory_arr pole s obory
-* @param $obory_procenta_arr pole s procenty a klici ve forme "P nazev oboru" nebo "K nazev oboru"
-* @param $min_zobrazeno minimalni pocet procent, pro ktere se bude obor jeste zobrazovat 
+* @param array $obory_arr              pole s obory
+* @param array $obory_procenta_arr     pole s procenty s klici ve forme "P nazev oboru" nebo "K nazev oboru"
+* @param array $min_zobrazeno          minimalni pocet procent, pro ktere se bude obor jeste zobrazovat 
 *
-*  @return pole s obory s procentualni shodou > 0
+*  @return array pole s obory s procentualni shodou > $min_zobrazeno
 */
 function get_data_final($obory_arr, $obory_procenta_arr, $min_zobrazeno){
 

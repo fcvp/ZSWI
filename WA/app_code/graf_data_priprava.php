@@ -1,5 +1,5 @@
 <?php
-/**
+/** 
  * graf_data_priprava.php
  * ---------
  * Vyber zobrazenych klicovych slov.
@@ -17,11 +17,11 @@
 /**
 * Prida do pole s klicovymi slovy hodnoceni uzivatele
 *   
-*   @param $id_slova_arr pole identifikatoru zobrazenych klicovych slov
-*   @param $slova_hodnoceni_arr pole hodnoceni jednotlivych slov uzivatelem
-*   @param $klicova_slova_arr klicova slova nactena z databaze 
+*   @param array $id_slova_arr         pole identifikatoru zobrazenych klicovych slov
+*   @param array $slova_hodnoceni_arr  pole hodnocenim jednotlivych slov uzivatelem
+*   @param array $klicova_slova_arr    klicova slova nactena z databaze 
 *
-*   @return pole s klicovymi slovy s hodnocenim uzivatele
+*   @return array  pole s klicovymi slovy a hodnocenim uzivatele
 */
 function get_zobrazena_slova($id_slova_arr, $slova_hodnoceni_arr, $klicova_slova_arr)
 {
@@ -88,12 +88,13 @@ function get_zobrazena_slova($id_slova_arr, $slova_hodnoceni_arr, $klicova_slova
 
 
 /**
-* Seradi pole podle zvoleneho klice
-* @param klic - cislo sloupce, podle ktereho se bude radit
-* @param klic2 - cislo sloupce, podle ktereho se bude radit
-* @param pole - razene vicerozmerne pole
+* Seradi pole podle zvolenych klicu
+* @param integer $klic     cislo sloupce, podle ktereho se bude radit
+* @param integer $klic2    cislo sloupce, podle ktereho se bude radit
+* @param array $pole       vicerozmerne pole
+* @param SORT_xxx $sort   smer razeni - SORT_ASC nebo SORT_DESC
 *
-* @return serazene pole
+* @return array    serazene pole
 */
 function multisort($klic, $klic2, $pole, $sort )
 {
@@ -108,11 +109,11 @@ function multisort($klic, $klic2, $pole, $sort )
 }
 
 /**
- * Spoji dv sloupce do jednoho pole
- * @param $arr1 pole s 1 sloupcem
- * @param $arr2 pole s 1 sloupcem
+ * Spoji dva sloupce do jednoho pole
+ * @param array $arr1   pole s 1 sloupcem
+ * @param array $arr2   pole s 1 sloupcem
  *
- * @return sloucene pole se 2 sloupci
+ * @return array   sloucene pole se 2 sloupci
  */
  function sluc_pole($arr1, $arr2)
  {

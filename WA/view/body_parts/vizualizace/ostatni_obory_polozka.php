@@ -12,15 +12,17 @@
  *   3.5.2015
  *   @version 1.0
  * */
+
+
  
 /**
 * Vykresli polozku seznamu "ostatni obory"
-
-* @param $procenta - pocet procent
-* @param $url_id - cislo sloupce s url adresou
-* @param $nazev_id - cislo sloupce s nazvem oboru
-* @param $forma_id - cislo sloupce s nazvem formy
-* @param $row      - data
+* @param $min_zobrazeno     minimum, pro ktere se jeste zobrazit obor v grafu
+* @param $procenta          pocet procent
+* @param $url_id            cislo sloupce s url adresou
+* @param $nazev_id          cislo sloupce s nazvem oboru
+* @param $forma_id          cislo sloupce s nazvem formy
+* @param $row               zobrazovana data
 */
 function vykresli_nazev_oboru($min_zobrazeno, $procenta, $url_id, $nazev_id, $forma_id, $row){
      echo "<li>";

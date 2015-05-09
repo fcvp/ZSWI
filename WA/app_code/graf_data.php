@@ -57,7 +57,7 @@ foreach($result['OBOR2'] as $key => $obor)
 $min_zobrazeno = round(($min_zobrazeno/$pocet_nenulovych)/4,2);
 
 /**
-* OBORY ZOBRAZOVANE V GRAFU
+* Data pro graf: "Nazev oboru", "url", "popis", "forma", "%"
 **/
 $graf_data_final = array();
 $graf_data_final = get_data_final($result['OBOR2'], $obory_s_procenty, $min_zobrazeno);

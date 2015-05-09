@@ -19,7 +19,6 @@ function drawChart(obory_nazvy) {
     var dataTable = new google.visualization.DataTable();
 
     dataTable.addColumn('string', 'Obor');
-    // Use custom HTML content for the domain tooltip.
     dataTable.addColumn({ 'type': 'string', 'role': 'tooltip', 'p': { 'html': true } });
     dataTable.addColumn('number', '%');
 
@@ -48,10 +47,7 @@ function drawChart(obory_nazvy) {
         title: 'Výběr oboru na FAV - vizualizace shody oborů se zvolenými oblastmi',
         colors: ['#252d53'],
 
-        // This line makes the entire category's tooltip active.
         focusTarget: 'category',
-
-        // Use an HTML tooltip.
         tooltip: { isHtml: true, trigger: 'selection' },
         legend: { position: 'none' },
         width: 800,
@@ -59,7 +55,7 @@ function drawChart(obory_nazvy) {
         vAxis: { format: 'percent'}
     };
 
-    // Create and draw the visualization.
+    // vytvorit a vykreslit graf
     new google.visualization.ColumnChart(document.getElementById('chart_div')).draw(dataTable, options);
 }
 

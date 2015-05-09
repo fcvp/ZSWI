@@ -1,8 +1,20 @@
 <?php
-/**
+/**  
  * graf_data_vypocet.php
  * ---------
- * Vypocet procentualni shody pro jednotlive obory
+ * Vypocet procentualni shody pro jednotlive obory 
+ *
+ * VÃ½poÄet:
+ * 
+ * HodnocenÃ­ uÅ¾ivatele je chapano jako: 0 - 100% z priority zadane u slova
+ * pÅ™.: Hodnoceni = 0.5, Priorita = 1 => 50% z 1 = 0.5
+ * 
+ * zaklad = suma 1..n [priorit vsech klicovych slov oboru]
+ * cast = suma 1..m [(priorita * hodnoceni) pro vybrana slova prislusici oboru]
+ * 
+ * % = (cast / zaklad) * 100
+ * 
+ * v grafu se zobrazi jen obory se shodou >= prÅ¯mÄ›r/4
  * 
  * ------------
  * Vlozeno ve vizualizace.php
@@ -16,13 +28,13 @@
 /**
 * Spocte procentualni shodu vybranych klicovych slov se slovy v databazi pro kazdy obor
 
-* @param $slova_s_hodnocenim pole klicovych slov s ohodnocenim serazene podle nazvu oboru
+* @param array $slova_s_hodnocenim_arr      pole klicovych slov s ohodnocenim serazene podle nazvu oboru
 
-* @return pole s procentualni shodou, klicem jsou øetìzce "P název oboru" nebo "K název oboru" (s pouzitym normalize_str())
+* @return array   pole s procentualni shodou, klicem jsou retezce "P nazev oboru" nebo "K nazev oboru" (s pouzitym normalize_str())
 */
-function spocti_shodu($slova_s_hodnocenim){
-    $zaklad_obory = spocti_zaklad($slova_s_hodnocenim);
-    $cast_obory = spocti_cast($slova_s_hodnocenim);
+function spocti_shodu($slova_s_hodnocenim_arr){
+    $zaklad_obory = spocti_zaklad($slova_s_hodnocenim_arr);
+    $cast_obory = spocti_cast($slova_s_hodnocenim_arr);
     
     $procenta = array();
     foreach($cast_obory as $key => $cast) 
@@ -36,15 +48,15 @@ function spocti_shodu($slova_s_hodnocenim){
 
 
 /**
-* Udela vypocet "zakladu": soucet priorit pro jednotlive obory
-* @param $slova_s_hodnocenim pole s obory a jejich klicovymi slovy
+* Udela vypocet "zakladu": soucet priorit klicovych slov pro jednotlive obory
+* @param array $slova_s_hodnocenim_arr      pole s obory a jejich klicovymi slovy
 *
-* @return pole se souctem priorit, klicem jsou øetìzce "P název oboru" nebo "K název oboru"
+* @return array     pole se souctem priorit, klicem jsou retezce "P_nazev_oboru" nebo "K_nazev_oboru" (s pouzitym normalize_str())
 */
-function spocti_zaklad($slova_s_hodnocenim)
+function spocti_zaklad($slova_s_hodnocenim_arr)
 {
-    $delka = count($slova_s_hodnocenim);
-    $delka_radek = count($slova_s_hodnocenim[0]);
+    $delka = count($slova_s_hodnocenim_arr);
+    $delka_radek = count($slova_s_hodnocenim_arr[0]);
     $zaklad_obory = array();
    
     $soucet = 0;
@@ -54,17 +66,17 @@ function spocti_zaklad($slova_s_hodnocenim)
     for($j = 1; $j <= $delka; $j++)
     {
        if($j<$delka){
-          $nazev_i1 = $slova_s_hodnocenim[$j][2];
+          $nazev_i1 = $slova_s_hodnocenim_arr[$j][2];
        }
        else
        {
           $nazev_i1="";
        }
        
-        $forma_i0 = substr($slova_s_hodnocenim[$j-1][3], 0, 1);
-        $nazev_i0 = $slova_s_hodnocenim[$j-1][2];
+        $forma_i0 = substr($slova_s_hodnocenim_arr[$j-1][3], 0, 1);
+        $nazev_i0 = $slova_s_hodnocenim_arr[$j-1][2];
         
-        $priorita = $slova_s_hodnocenim[$j-1][4];
+        $priorita = $slova_s_hodnocenim_arr[$j-1][4];
 
         $soucet += $priorita;  
 
@@ -82,16 +94,17 @@ function spocti_zaklad($slova_s_hodnocenim)
 
 
 /**
-* Udela vypocet "casti": soucet vyrazu (hodnota * priorita) pro jednotlive obory
+* Udela vypocet "casti": soucet vyrazu (hodnota * priorita) klicovych slov pro jednotlive obory
 
-* @param $slova_s_hodnocenim pole s obory a jejich klicovymi slovy
+* @param array $slova_s_hodnocenim_arr     pole s obory a jejich klicovymi slovy
 *
-* @return pole se souctem výrazu (hodnota * priorita), klicem jsou øetìzce "P název oboru" nebo "K název oboru" (s pouzitym normalize_str())
+* @return array    pole se sumou vyrazu (hodnota * priorita) pro vsechny obory,
+*                  klicem jsou retezce "P_nazev_oboru" nebo "K_nazev_oboru" (s pouzitym normalize_str())
 */
-function spocti_cast($slova_s_hodnocenim)
+function spocti_cast($slova_s_hodnocenim_arr)
 {
-    $delka = count($slova_s_hodnocenim);
-    $delka_radek = count($slova_s_hodnocenim[0]);
+    $delka = count($slova_s_hodnocenim_arr);
+    $delka_radek = count($slova_s_hodnocenim_arr[0]);
     
     $cast = array();
     $soucet = 0;
@@ -102,20 +115,21 @@ function spocti_cast($slova_s_hodnocenim)
     for($j = 1; $j <= $delka; $j++)
     {
        if($j<$delka){
-           $nazev_i1 = $slova_s_hodnocenim[$j][2];
+           $nazev_i1 = $slova_s_hodnocenim_arr[$j][2];
        }
        else
        {
           $nazev_i1="";
        }
     
-        $forma_i0 = substr($slova_s_hodnocenim[$j-1][3], 0, 1);
-        $nazev_i0 = $slova_s_hodnocenim[$j-1][2];
+        $forma_i0 = substr($slova_s_hodnocenim_arr[$j-1][3], 0, 1);
+        $nazev_i0 = $slova_s_hodnocenim_arr[$j-1][2];
         
-        $priorita = $slova_s_hodnocenim[$j-1][4];
-        $hodnota = $slova_s_hodnocenim[$j-1][5];
+        $priorita = $slova_s_hodnocenim_arr[$j-1][4];
+        $hodnota = $slova_s_hodnocenim_arr[$j-1][5];
 
         $soucet += ($priorita*$hodnota);
+        
         if(normalize_str($nazev_i1) !== normalize_str($nazev_i0))
         {
             $cast[normalize_str($forma_i0." ".$nazev_i0)] = $soucet;

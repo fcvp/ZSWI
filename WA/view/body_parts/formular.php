@@ -42,10 +42,9 @@
           
           require_once(FORM."vybrane_oblasti_seznam.php");
           
-          
           //vizualizace
           require_once(FORM."tlacitko_zobrazit_vizualizaci.php");   
-          
+
           echo "<div id='vizualizace'>";
              //funkce zobrazit_vizualizaci():
                     //(FORM."vizualizace.php");
