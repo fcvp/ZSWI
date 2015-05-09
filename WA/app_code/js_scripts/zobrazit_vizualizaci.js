@@ -15,7 +15,7 @@
  *	Zobrazí výslednou vizualizaci
  *	 @param oblast_arr pole s názvy oblatí
  */
-function zobrazit_vizulizaci(id_slova_arr) {
+function zobrazit_vizualizaci(id_slova_arr) {
 
     var str = $("form").serialize();
     //delka pole
@@ -29,11 +29,20 @@ function zobrazit_vizulizaci(id_slova_arr) {
     var j = 0;
     //nalezeni vsech zobrazenych klicovych slov
     for (var i = 0; i < id_slova_arr_delka; i++) {
-
-        var radio = $('input:radio[id=ks_' + id_slova_arr[i] + ']');
-
+        //id radio buttonu je ve tvaru 1_ks_idSlova az 5_ks_idSlova
+        var radio = $('input:radio[id=' + 1 + '_ks_' + id_slova_arr[i] + ']');
+        var hodnota=0;
         if (radio.length != 0) {
+            for (var k= 1; k <= 5; k++)
+            {
+                radio = $('input:radio[id=' + k + '_ks_' + id_slova_arr[i] + ']');
 
+                if (radio.is(':checked'))
+                {
+                    break;
+                }
+            }
+               
             id_ks[j] = id_slova_arr[i];
             ks_hodnota[j] = parseInt(radio.filter(':checked').val());
 

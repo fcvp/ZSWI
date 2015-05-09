@@ -25,7 +25,7 @@
     <script type="text/javascript">
         //zobrazeni grafu
         $(document).ready(function () {       
-           drawChart('<?php echo json_encode($obory_final);  ?>');
+           drawChart('<?php echo json_encode($graf_data_final);  ?>');
         });
     </script>
 </div>

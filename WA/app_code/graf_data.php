@@ -28,19 +28,24 @@ $slova_s_hodnocenim = multisort(2,3, $slova_s_hodnocenim,SORT_ASC );//seradi slo
 //-----------------------------
 $obory_s_procenty = array();
 $obory_s_procenty = spocti_shodu($slova_s_hodnocenim);
-   
-  
+
 //-----------------------------
 // data - final
 //-----------------------------
 $min_zobrazeno = 0;
 $pocet_nenulovych = 0;
 
+/*VSECHNY OBORY - cast se zobrazi v grafu, cast v seznamu*/
+$serazene_obory = array();
+
 foreach($result['OBOR2'] as $key => $obor)
 {
 
    $forma =   substr($obor[3], 0, 1);
    $procenta = $obory_s_procenty[normalize_str($forma." ".$obor[0])];
+
+   $serazene_obory[$key] = $obor;
+   $serazene_obory[$key][4] = $procenta;
    
    $min_zobrazeno += $procenta;
    
@@ -48,14 +53,16 @@ foreach($result['OBOR2'] as $key => $obor)
      $pocet_nenulovych++;
    }
 }
-    
+ //min. procenta, pro ktere se jeste zobrazi obor v grafu   
 $min_zobrazeno = round(($min_zobrazeno/$pocet_nenulovych)/4,2);
 
-//do pole s obory jako posledni sloupec zkopirujeme procenta
-$obory_final = array();
-$obory_final = get_data_final($result['OBOR2'], $obory_s_procenty, $min_zobrazeno);
+/**
+* OBORY ZOBRAZOVANE V GRAFU
+**/
+$graf_data_final = array();
+$graf_data_final = get_data_final($result['OBOR2'], $obory_s_procenty, $min_zobrazeno);
 
-$pocet_obory_final = count($obory_final);
+$pocet_obory_final = count($graf_data_final);
 
 
 

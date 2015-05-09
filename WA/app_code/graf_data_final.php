@@ -46,22 +46,22 @@ function get_data_final($obory_arr, $obory_procenta_arr, $min_zobrazeno){
          
         if($procenta > $min_zobrazeno){
         
-           $obory_final[$i] = $obor;
-           $obory_final[$i][4] = $procenta;
+           $graf_data_final[$i] = $obor;
+           $graf_data_final[$i][4] = $procenta;
            
            $je_kombinovane = $obory_procenta_arr[normalize_str("K ".$obor[0])];
            
            //pokud jsou vybrany obe formy studia
            if(strpos($_GET["forma"],'_') && $je_kombinovane!=null ){
-              $obory_final[$i][3]='Prezenční, Kombinované';
+              $graf_data_final[$i][3]='Prezenční, Kombinované';
            }
            
            $i++;
         }
     }
     
-    $obory_final = multisort(1,4, $obory_final,SORT_DESC);//seradi slova podle oboru a procent
+    $graf_data_final = multisort(1,4, $graf_data_final,SORT_DESC);//seradi slova podle oboru a procent
     
-    return $obory_final;
+    return $graf_data_final;
 }
 ?>

@@ -45,8 +45,8 @@ function drawChart(obory_nazvy) {
     -----------
     */
     var options = {
-        title: 'Výběr oboru na FAV',
-        //colors: ['#000000'],
+        title: 'Výběr oboru na FAV - vizualizace shody oborů se zvolenými oblastmi',
+        colors: ['#252d53'],
 
         // This line makes the entire category's tooltip active.
         focusTarget: 'category',
@@ -56,8 +56,7 @@ function drawChart(obory_nazvy) {
         legend: { position: 'none' },
         width: 800,
         height: 400,
-        vAxis: { format: 'percent' }
-        
+        vAxis: { format: 'percent'}
     };
 
     // Create and draw the visualization.

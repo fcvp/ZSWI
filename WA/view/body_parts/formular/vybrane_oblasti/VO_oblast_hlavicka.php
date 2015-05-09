@@ -41,10 +41,14 @@
             for($j=1; $j<=5; $j++)
             {
                 if($j==5) {
-                    echo "<input type='radio' class='klicove_slovo'  checked=\"checked\" name=\"".$_GET['oblast']."\" value='".$j."' >".$vyznam[$j]."</input>\n";
+                    echo "<input type='radio' class='klicove_slovo'  checked=\"checked\" id=\"".$j."_".$_GET['oblast']."\" name=\"".$_GET['oblast']."\" value='".$j."' >".
+                    "<label id=\"".$j."_".$_GET['oblast']."\" for=\"".$j."_".$_GET['oblast']."\" >".$vyznam[$j]."</label>".
+                    "</input>\n";
                 }
                 else{
-                    echo "<input type='radio' class='klicove_slovo'  name=\"".$_GET['oblast']."\" value='".$j."' >".$vyznam[$j]."</input>\n";
+                   echo "<input type='radio' class='klicove_slovo'  id=\"".$j."_".$_GET['oblast']."\" name=\"".$_GET['oblast']."\" value='".$j."' >".
+                    "<label id=\"".$j."_".$_GET['oblast']."\" for=\"".$j."_".$_GET['oblast']."\" >".$vyznam[$j]."</label>".
+                    "</input>\n";
                 }
             }
             

@@ -63,7 +63,10 @@ function spocti_zaklad($slova_s_hodnocenim)
        
         $forma_i0 = substr($slova_s_hodnocenim[$j-1][3], 0, 1);
         $nazev_i0 = $slova_s_hodnocenim[$j-1][2];
-        $soucet += $slova_s_hodnocenim[$j-1][4];  
+        
+        $priorita = $slova_s_hodnocenim[$j-1][4];
+
+        $soucet += $priorita;  
 
         if(normalize_str($nazev_i1) !== normalize_str($nazev_i0))
         {

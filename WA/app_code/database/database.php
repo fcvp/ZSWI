@@ -50,7 +50,7 @@ if (($_GET["forma"]!=null) and ($_GET["typ"]!=null )){
     //---------------------
     
     //seznam klicovych slov
-    $result['KLICOVE_SLOVO'] = select($dbh,"DISTINCT klicove_slovo.id_klicove_slovo, Slovo, oblast.id_oblast, oblast_nazev",$from, $where,"oblast_nazev");
+    $result['KLICOVE_SLOVO'] = select($dbh,"DISTINCT klicove_slovo.id_klicove_slovo, Slovo, oblast.id_oblast, oblast_nazev, vyznam",$from, $where,"oblast_nazev");
     
     //---------------------
     

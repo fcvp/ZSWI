@@ -15,7 +15,7 @@
  
 require_once(VIZUALIZACE."ostatni_obory_polozka.php"); 
 
-    //ostatni obory
+  //ostatni obory
 echo "<h2>Ostatní obory: </h2>";
     echo "<ul>";
         if($pocet_vybranych === 0){
@@ -25,15 +25,21 @@ echo "<h2>Ostatní obory: </h2>";
                 vykresli_nazev_oboru(0, 0, 1, 0, 3, $row);
             }
         }else
-        {    //je vybrana alespon jedna oblast
-            foreach($result['OBOR2'] as $row)
+        {   
+           $serazene_obory = multisort(0,4, $serazene_obory,SORT_DESC );//seradi slova podle oboru a formy
+            //je vybrana alespon jedna oblast
+            foreach($serazene_obory as $row)
             {
                 $forma =  substr($row[3], 0, 1);
                 $procenta = $obory_s_procenty[normalize_str($forma." ".$row[0])];
              
                 if($procenta < $min_zobrazeno)
                 {
-                   vykresli_nazev_oboru($min_zobrazeno, $procenta, 1, 0, 3, $row);
+                 // if($row != null)
+                  {
+                     vykresli_nazev_oboru($min_zobrazeno, $procenta, 1, 0, 3, $row);
+                  }
+                   
                 }
                    
             }

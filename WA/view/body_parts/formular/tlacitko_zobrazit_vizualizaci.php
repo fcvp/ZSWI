@@ -23,10 +23,10 @@
     $id_ks[$i] = $row[0];
     $i++;
  }
- 
 
 echo "<div class='bunka' style='text-align: center;' id='submit_oblasti'>";
-echo "<input type='button' value='Zobrazit/aktualizovat obory' onclick='zobrazit_vizulizaci(".json_encode($id_ks).");' id='zobrazit_grafy' name='zobrazit_grafy' />";
+echo "<input type='button' value='Zobrazit/aktualizovat obory' onclick='zobrazit_vizualizaci(".json_encode($id_ks).");' id='zobrazit_grafy' name='zobrazit_grafy' />";
 echo "</div>";
 
 ?>
+

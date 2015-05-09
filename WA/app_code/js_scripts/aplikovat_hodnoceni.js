@@ -17,7 +17,9 @@
 $(document).ready(function () {
     var nazev = $("#oblast_nazev").val();
 
+
     $('#btn_aplikovat_' + nazev).on("click", function () {
+
         //vybrane hodnoceni oblasti
         var oblast_rd = $('input:radio[name=' + nazev + ']');
         var oznaceno = parseInt(oblast_rd.filter(':checked').val());
