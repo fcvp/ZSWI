@@ -1,0 +1,6 @@
+1. databáze - databaze/tabulky+data.sql 
+2. zdrojové kody - složka WA a WA/admin
+      2a. nastaveni přihlašovacích údajů k databázi
+              aplikace - WA/app_code/database/connect_db.php
+              administrace - WA/admin/modely/index.php
+3. nastaveni (pokud to jde) promenne max_input_vars v php.ini alespon na 3000
