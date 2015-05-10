@@ -20,7 +20,10 @@ echo "<h2>Ostatní obory: </h2>";
     echo "<ul>";
         if($pocet_vybranych === 0 || $pocet_obory_final === 0){
             //pokud nejsou vybrany zadne oblasti
-            foreach($result['OBOR2'] as $row)
+            $obory = multisort(0,0, $result['OBOR2'],SORT_ASC );//seradi slova podle oboru a formy
+
+            
+            foreach($obory as $row)
             {
                 vykresli_nazev_oboru(0, 0, 1, 0, 3, $row);
             }

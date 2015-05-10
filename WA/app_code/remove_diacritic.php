@@ -12,7 +12,7 @@
 /**
  * Odstrani vsechny nevhodne znaky a mezery nahradi podtrzitkem
  *
- * @param $input     retezec
+ * @param string $input     retezec
  * @return string  retezec 
  */
 function normalize_str($input){

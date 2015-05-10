@@ -50,6 +50,7 @@ define('IMAGE',ROOT."image/");
 //-------------------------
 
 //pripojeni databaze
+
 require_once(DB."database.php");
 
 

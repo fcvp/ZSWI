@@ -30,7 +30,8 @@
 *  @return array pole s obory s procentualni shodou > $min_zobrazeno
 */
 function get_data_final($obory_arr, $obory_procenta_arr, $min_zobrazeno){
-
+    global $KOMBINOVANA_FORMA, $OBE_FORMY; 
+  
     $i=0;
     
     foreach($obory_arr as $key => $obor)
@@ -39,7 +40,7 @@ function get_data_final($obory_arr, $obory_procenta_arr, $min_zobrazeno){
         $procenta = $obory_procenta_arr[normalize_str($forma." ".$obor[0])];
         
         //pokud jsou vybrany obe formy studia
-        if($obor[3] === 'Kombinované' && strpos($_GET["forma"],'_')){
+        if($obor[3] === $KOMBINOVANA_FORMA && strpos($_GET["forma"],'_')){
            continue;
         }
         
@@ -53,7 +54,7 @@ function get_data_final($obory_arr, $obory_procenta_arr, $min_zobrazeno){
            
            //pokud jsou vybrany obe formy studia
            if(strpos($_GET["forma"],'_') && $je_kombinovane!=null ){
-              $graf_data_final[$i][3]='Prezenční, Kombinované';
+              $graf_data_final[$i][3]=$OBE_FORMY;
            }
            
            $i++;

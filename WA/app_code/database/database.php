@@ -20,6 +20,9 @@ require_once(DB."select.php");
 require_once(APP_CODE."remove_diacritic.php");
 //---------------
 
+$KOMBINOVANA_FORMA = "Kombinované";
+$OBE_FORMY = "Prezenční, Kombinované";
+
 
 $result['FORMA'] = select($dbh,"*", "forma_studia",null,"id_forma");
 $result['TYP'] = select($dbh,"*", "typ_studia",null,"id_typ");
@@ -47,10 +50,12 @@ if (($_GET["forma"]!=null) and ($_GET["typ"]!=null )){
         $where = "typ_nazev='".$typ."' AND forma_nazev='".$forma."'";
     }
     $result['OBLAST'] = select($dbh,"DISTINCT oblast.*",$from, $where,"oblast_nazev");
+    
     //---------------------
     
     //seznam klicovych slov
-    $result['KLICOVE_SLOVO'] = select($dbh,"DISTINCT klicove_slovo.id_klicove_slovo, Slovo, oblast.id_oblast, oblast_nazev, vyznam",$from, $where,"oblast_nazev");
+    $result['KLICOVE_SLOVO'] = select($dbh,"DISTINCT klicove_slovo.id_klicove_slovo, Slovo, oblast.id_oblast, 
+                                               oblast_nazev, vyznam",$from, $where,"oblast_nazev");
     
     //---------------------
     
@@ -60,7 +65,8 @@ if (($_GET["forma"]!=null) and ($_GET["typ"]!=null )){
     $result['OBOR'] = select($dbh,"DISTINCT obor_nazev, oblast_nazev, forma_nazev ",$from, $where,"obor_nazev");
     $result['OBOR2'] = select($dbh,"DISTINCT obor_nazev, url, popis, forma_nazev ",$from, $where,"forma_nazev, obor_nazev");
     
-    $result['OBOR_SLOVO'] = select($dbh,"DISTINCT klicove_slovo.id_klicove_slovo, Slovo, obor_nazev, forma_nazev, priorita.hodnota",$from, $where,"klicove_slovo.id_klicove_slovo");
+    $result['OBOR_SLOVO'] = select($dbh,"DISTINCT klicove_slovo.id_klicove_slovo, Slovo, obor_nazev, forma_nazev, 
+                                           priorita.hodnota",$from, $where,"klicove_slovo.id_klicove_slovo");
     //---------------------
 }    
 

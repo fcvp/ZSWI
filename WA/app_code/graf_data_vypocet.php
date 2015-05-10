@@ -30,7 +30,8 @@
 
 * @param array $slova_s_hodnocenim_arr      pole klicovych slov s ohodnocenim serazene podle nazvu oboru
 
-* @return array   pole s procentualni shodou, klicem jsou retezce "P nazev oboru" nebo "K nazev oboru" (s pouzitym normalize_str())
+* @return array   pole s procentualni shodou, klicem jsou retezce "P nazev oboru" 
+                   nebo "K nazev oboru" (s pouzitym normalize_str())
 */
 function spocti_shodu($slova_s_hodnocenim_arr){
     $zaklad_obory = spocti_zaklad($slova_s_hodnocenim_arr);
@@ -51,7 +52,8 @@ function spocti_shodu($slova_s_hodnocenim_arr){
 * Udela vypocet "zakladu": soucet priorit klicovych slov pro jednotlive obory
 * @param array $slova_s_hodnocenim_arr      pole s obory a jejich klicovymi slovy
 *
-* @return array     pole se souctem priorit, klicem jsou retezce "P_nazev_oboru" nebo "K_nazev_oboru" (s pouzitym normalize_str())
+* @return array     pole se souctem priorit, klicem jsou retezce "P_nazev_oboru" 
+                    nebo "K_nazev_oboru" (s pouzitym normalize_str())
 */
 function spocti_zaklad($slova_s_hodnocenim_arr)
 {
