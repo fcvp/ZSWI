@@ -1,4 +1,4 @@
-1. databáze - MySQL, tabulka a vzorová data ze souboru databaze/tabulky+data.sql 
+1. databáze - MySQL, tabulky a vzorová data v souboru databaze/tabulky+data.sql 
 2. zdrojové kódy - složka WA a WA/admin
       2a. nastaveni přihlašovacích údajů k databázi
               aplikace - WA/app_code/database/connect_db.php
