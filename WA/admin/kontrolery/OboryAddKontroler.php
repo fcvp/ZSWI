@@ -38,7 +38,7 @@
 						else	{
 							// obor s tímto názvem, formou a typem studia ještě není v databázi -> vloží se do databáze
 							if (Obor::pridejObor($_POST["nazev"], $_POST["forma"], $_POST["typ"], $_POST["url"], $_POST["popis"]))	{
-								$this->data["upozorneni"] = "Obor byl přidán.";
+								$this->data["upozorneni"] = "Obor <span class='bold'>".$_POST["nazev"]."</span> byl přidán.";
 								new Udalost("Added", "Studijní obor", Obor::getIdOboru($_POST["nazev"], $_POST["forma"], $_POST["typ"]));
 								$this->data["post"] = null;
 							}

@@ -104,7 +104,7 @@
 </span></span><span id="6" class="l"><a href="#6"> 6: </a><span class="php-comment">     */</span>     
 </span><span id="7" class="l"><a href="#7"> 7: </a>    <span class="php-keyword1">class</span> Vstup {
 </span><span id="8" class="l"><a href="#8"> 8: </a>        <span class="php-comment">/** @var String $spatnyNazev hláška s výpisem povolených znaků pro názvy */</span>
-</span><span id="9" class="l"><a href="#9"> 9: </a>        <span class="php-keyword1">const</span> spatnyNazev = <span class="php-quote">&quot; smí obsahovat pouze písmena, číslice, pomlčky a mezery&quot;</span>;
+</span><span id="9" class="l"><a href="#9"> 9: </a>        <span class="php-keyword1">const</span> spatnyNazev = <span class="php-quote">&quot; smí obsahovat pouze písmena, číslice, pomlčky, čárky a mezery&quot;</span>;
 </span><span id="10" class="l"><a href="#10">10: </a>        <span class="php-comment">/** @var String $spatnyNazev hláška s výpisem, že URL adresa není ve správném formátu */</span>
 </span><span id="11" class="l"><a href="#11">11: </a>        <span class="php-keyword1">const</span> spatnaUrl = <span class="php-quote">&quot; není ve správném formátu&quot;</span>;
 </span><span id="12" class="l"><a href="#12">12: </a>        <span class="php-comment">/** @var String $spatnyNazev hláška s výpisem povolených znaků pro popis (oboru) */</span>
@@ -117,7 +117,7 @@
 </span></span><span id="19" class="l"><a href="#19">19: </a><span class="php-comment">         * @return boolean indikace, zda testovaný řetězec obsahuje pouze povolené znaky             
 </span></span><span id="20" class="l"><a href="#20">20: </a><span class="php-comment">         */</span>             
 </span><span id="21" class="l"><a href="#21">21: </a>        <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> overNazev(<span class="php-var">$nazev</span>)    {
-</span><span id="22" class="l"><a href="#22">22: </a>            <span class="php-keyword1">return</span> <span class="php-var">$nazev</span>==<span class="php-quote">&quot;&quot;</span> ? <span class="php-keyword1">true</span> : <span class="php-keyword2">preg_match</span>(<span class="php-quote">&quot;/^[a-zA-Z0-9ÁáÉéÍíÓóÚúÝýČčĎďĚěŇňŘřŠšŤťŽžŮů \-]*</span><span class="php-var">$</span><span class="php-quote">/&quot;</span>,<span class="php-var">$nazev</span>);
+</span><span id="22" class="l"><a href="#22">22: </a>            <span class="php-keyword1">return</span> <span class="php-var">$nazev</span>==<span class="php-quote">&quot;&quot;</span> ? <span class="php-keyword1">true</span> : <span class="php-keyword2">preg_match</span>(<span class="php-quote">&quot;/^[a-zA-Z0-9ÁáÉéÍíÓóÚúÝýČčĎďĚěŇňŘřŠšŤťŽžŮů, \-]*</span><span class="php-var">$</span><span class="php-quote">/&quot;</span>,<span class="php-var">$nazev</span>);
 </span><span id="23" class="l"><a href="#23">23: </a>        }
 </span><span id="24" class="l"><a href="#24">24: </a>        
 </span><span id="25" class="l"><a href="#25">25: </a>        <span class="php-comment">/**

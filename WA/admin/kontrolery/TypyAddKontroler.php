@@ -30,7 +30,7 @@
 						else	{
 							// typ studia s tímto názvem ještě není v databázi -> vloží se do databáze
 							if (Typ::pridejTyp($_POST["nazev"]))	{
-								$this->data["upozorneni"] = "Typ studia byl přidán.";
+								$this->data["upozorneni"] = "Typ studia <span class='bold'>".$_POST["nazev"]."</span> byl přidán.";
 								new Udalost("Added", "Typ studia", Typ::getIdTypu($_POST["nazev"]));
 								$this->data["post"] = null;
 							}

@@ -58,7 +58,7 @@
 									}
 								}
 								
-								$this->data["upozorneni"] = "Klíčové slovo bylo přidáno.";
+								$this->data["upozorneni"] = "Klíčové slovo <span class='bold'>".$_POST["nazev"]."</span> bylo přidáno.";
 								new Udalost("Added", "Klíčové slovo", $idSlova);
 								// vymazání odeslaných dat
 								$this->data["post"] = null;

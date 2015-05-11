@@ -16,8 +16,8 @@
 			if ($uzivatel->jePrihlasen())	{
 				// naparsování url
 				$naparsovanaURL = $this->parsujURL($parametry[0]);
-				// pokud za lomítkem nic není -> přesměrování na hlavní stránku			
-				if (empty($naparsovanaURL[0])) $this->presmeruj('uvod');
+				// pokud za lomítkem nic není -> přesměrování na stránku s klíčovými slovy		
+				if (empty($naparsovanaURL[0])) $this->presmeruj('slova');
 				// získání kontroleru (podle zadané url adresy)
 	      $tridaKontroleru = $this->pomlckyDoVelbloudiNotace(array_shift($naparsovanaURL)) . 'Kontroler';
 	      

@@ -30,7 +30,7 @@
 						else	{
 							// Oblast byla přidána
 							if (Oblast::pridejOblast($_POST["nazev"]))	{
-								$this->data["upozorneni"] = "Oblast byla přidána.";
+								$this->data["upozorneni"] = "Oblast <span class='bold'>".$_POST["nazev"]."</span> byla přidána.";
 								new Udalost("Added", "Oblast studia", Oblast::getIdOblasti($_POST["nazev"]));
 								// vymazání odeslaných dat (vyprázdnění formuláře)
 								$this->data["post"] = null;

@@ -21,7 +21,7 @@
         	if (!empty($_POST))	{
 						if ($uzivatel->prihlasit($_POST["prezdivka"], $_POST["heslo"]))	{
 							// uživatel se úspěšně přihlásil -> přesměrování na úvodní stránku administrace
-							$this->presmeruj("uvod");
+							$this->presmeruj("");
 						}
 					}
 					

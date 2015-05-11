@@ -30,7 +30,7 @@
 						else	{
 							// forma s tímto názvem ještě není v databázi -> vloží se do databáze
 							if (Forma::pridejFormu($_POST["nazev"]))	{
-								$this->data["upozorneni"] = "Forma byla přidána.";
+								$this->data["upozorneni"] = "Forma <span class='bold'>".$_POST["nazev"]."</span> byla přidána.";
 								// vytvoření události
 								new Udalost("Added", "Forma studia", Forma::getIdFormy($_POST["nazev"]));
 								

@@ -6,7 +6,7 @@
 	 */	 	
 	class Vstup	{
 		/** @var String $spatnyNazev hláška s výpisem povolených znaků pro názvy */
-		const spatnyNazev = " smí obsahovat pouze písmena, číslice, pomlčky a mezery";
+		const spatnyNazev = " smí obsahovat pouze písmena, číslice, pomlčky, čárky a mezery";
 		/** @var String $spatnyNazev hláška s výpisem, že URL adresa není ve správném formátu */
 		const spatnaUrl = " není ve správném formátu";
 		/** @var String $spatnyNazev hláška s výpisem povolených znaků pro popis (oboru) */
@@ -19,7 +19,7 @@
 		 * @return boolean indikace, zda testovaný řetězec obsahuje pouze povolené znaky	 		 
 		 */		 		
 		public static function overNazev($nazev)	{
-			return $nazev=="" ? true : preg_match("/^[a-zA-Z0-9ÁáÉéÍíÓóÚúÝýČčĎďĚěŇňŘřŠšŤťŽžŮů \-]*$/",$nazev);
+			return $nazev=="" ? true : preg_match("/^[a-zA-Z0-9ÁáÉéÍíÓóÚúÝýČčĎďĚěŇňŘřŠšŤťŽžŮů, \-]*$/",$nazev);
 		}
 		
 		/**
