@@ -8,13 +8,10 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="UC1.html">UC1</a></td></tr>
-<tr><td><a href="UC3+4.html">UC3+4</a></td></tr>
-<tr><td><a href="UC5.html">UC5</a></td></tr>
-<tr><td><a href="UC6.html">UC6</a></td></tr>
-<tr><td><a href="UC6_1.html">UC6_1</a></td></tr>
-<tr><td><a href="UC7.html">UC7</a></td></tr>
-<tr><td><a href="UC9.html">UC9</a></td></tr>
+<tr><td><a href="UC10_1.html">UC10_1</a></td></tr>
+<tr><td><a href="UC12_1.html">UC12_1</a></td></tr>
+<tr><td><a href="UC13_2.html">UC13_2</a></td></tr>
+<tr><td><a href="UC14_2.html">UC14_2</a></td></tr>
 </tbody></table>
 </body>
 </html>

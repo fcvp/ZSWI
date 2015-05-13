@@ -23,13 +23,8 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>id=zvolena_oblast</td>
+	<td>id=oblast_9</td>
 	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>id=zvolena_oblast</td>
-	<td>label=Informatika</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -37,18 +32,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>select</td>
-	<td>id=zvolena_oblast</td>
-	<td>label=Informatika</td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
-	<td>id=zvolena_oblast</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>id=oblast_9</td>
+	<td>id=vybrana_oblast_9</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,12 +43,12 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>xpath=(//input[@id='ks_41'])[4]</td>
+	<td>id=5_Informatika</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForChecked</td>
-	<td>xpath=(//input[@id='ks_41'])[4]</td>
+	<td>id=5_Informatika</td>
 	<td></td>
 </tr>
 <tr>
@@ -73,12 +58,12 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>xpath=(//input[@id='ks_47'])[3]</td>
+	<td>id=4_ks_36</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyChecked</td>
-	<td>xpath=(//input[@id='ks_47'])[3]</td>
+	<td>id=4_ks_36</td>
 	<td></td>
 </tr>
 <tr>
@@ -87,14 +72,24 @@
 	<td></td>
 </tr>
 <tr>
-	<td>verifyChecked</td>
-	<td>xpath=(//input[@id='ks_47'])[3]</td>
+	<td>waitForElementPresent</td>
+	<td>id=vizualizace</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>id=vizualizace</td>
+	<td>css=svg &gt; rect</td>
 	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=svg &gt; rect</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='vizualizace']/div[2]/ul</td>
+	<td>3000</td>
 </tr>
 </tbody></table>
 </body>
