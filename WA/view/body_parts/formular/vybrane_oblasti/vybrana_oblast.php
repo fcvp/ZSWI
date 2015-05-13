@@ -21,7 +21,7 @@
 
     $_GET["typ"] = $_SESSION['typ'];
     $_GET["forma"] =  $_SESSION['forma'];
-
+     $vyznam = array(1=>"málo", 2=>"trochu", 3=>"průměrně", 4=>"velmi", 5=>"hodně");
     
     require_once($_SERVER['DOCUMENT_ROOT']."/app_code/config.php"); 
     

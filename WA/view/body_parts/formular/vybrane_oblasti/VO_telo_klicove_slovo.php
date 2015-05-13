@@ -21,7 +21,7 @@
     <td>
     
         <?php 
-            $vyznam = array(1=>"ne", 2=>"spíše ne", 3=>"nevadí mi", 4=>"spíše ano", 5=>"ano");
+            
             for($j=1; $j<=5; $j++)
             {
                 if($j==5) {
